@@ -19,7 +19,7 @@ h1 {
 }
 
 .form {
-  background: #0e101c;
+  background: #bcc0da;
   max-width: 400px;
   margin: 0 auto;
 }
@@ -57,7 +57,7 @@ label {
 
 button[type="submit"],
 input[type="submit"] {
-  background: #ec5990;
+  background: rgb(44, 84, 203);
   color: white;
   text-transform: uppercase;
   border: none;
@@ -70,7 +70,7 @@ input[type="submit"] {
 
 button[type="submit"]:hover,
 input[type="submit"]:hover {
-  background: #bf1650;
+  background: rgb(44, 84, 203);
 }
 
 button[type="submit"]:active,
