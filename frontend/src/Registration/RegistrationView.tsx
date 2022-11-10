@@ -30,9 +30,6 @@ function RegistrationView(): JSX.Element {
   });
 
   const onSubmit = async (data: IFormInput): Promise<void> => {
-    // alert(JSON.stringify(error));
-    console.log(data);
-
     reset();
     const dispatchResult = await dispatch(regist(data));
     if (regist.fulfilled.match(dispatchResult)) {
@@ -65,7 +62,7 @@ function RegistrationView(): JSX.Element {
         <label>Телефон</label>
         <input
           {...register('telephone', {
-            pattern: /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/,
+            pattern: /(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?/,
           })}
         />
         {errors.telephone && (
