@@ -3,6 +3,7 @@ import {
   BrowserRouter, Link, Navigate, Route, Routes
  } from 'react-router-dom';
 import './App.css';
+import RegistrationView from './Registration/RegistrationView';
 
 function App(): JSX.Element {
   const user = true; // удалить юзер для проверки
@@ -37,5 +38,6 @@ function App(): JSX.Element {
     </Routes>
     </BrowserRouter>
 )}
+
 
 export default App;
