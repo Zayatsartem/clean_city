@@ -1,30 +1,44 @@
-import { useForm } from 'react-hook-form';
-import React, { useState } from 'react';
+import React from 'react';
+import {
+  BrowserRouter, Link, Navigate, Route, Routes
+ } from 'react-router-dom';
+import './App.css';
+import RegistrationView from './Registration/RegistrationView';
+import Authorization from './Authorization/Authorization';
 
-import './Authorization/styles.css';
+function App(): JSX.Element {
+  const user = true; // удалить юзер для проверки
 
-export default function App(): JSX.Element {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const { register, handleSubmit } = useForm();
-  const onSubmit = ():void => console.log('data');
-
-  function handleEmailChange(): void {
-    console.log('email');
-  }
-  function handlePasswordChange(): void {
-    console.log('password');
-  }
   return (
-     <form onSubmit={handleSubmit(onSubmit)}>
-      <h2>Authorization</h2>
-      <label htmlFor="email-input">Email</label>
-      <input type="text" id="email-input" value={email} onChange={handleEmailChange} />
-      <label htmlFor="password-input">Password</label>
-      <input type="text" id="password-input" value={password} onChange={handlePasswordChange} />
+    <BrowserRouter>
+    <nav className="nav">
+      {/* <Link className="links" type="button" to="/">Главная</Link>
+      <Link className="links" to="clean_city/order">Сделать заказ</Link>
+      <Link className="links" to="clean_city/registration">Регистрация</Link>
+      <Link className="links" to="clean_city/login">Войти</Link> */}
+      {(user ? (
+        <>
+        <Link className="links" type="button" to="/">Главная</Link>
+        <Link className="links" to="clean_city/order">Сделать заказ</Link>
+        <Link className="links" to="clean_city/personalArea">Личный кабинет</Link>
+        <Link className="links" to="clean_city/logout">Выйти</Link>
+        </>
+      ) : (
+        <>
+        <Link className="links" type="button" to="/">Главная</Link>
+        <Link className="links" to="clean_city/order">Сделать заказ</Link>
+        <Link className="links" to="clean_city/registration">Регистрация</Link>
+        <Link className="links" to="clean_city/login">Войти</Link>
+        </>
+        ))}
+    </nav>
+    <Routes>
+    <Route path="/" element={<Navigate to="/clean_city" />} />
+      {/* <Route path="/registration" element={<Registration />} /> */}
+      {/* <Route path="/login" element={<Authorization />} /> */}
+    </Routes>
+    </BrowserRouter>
+)}
 
-      <button type="submit">Submit</button>
-     </form>
 
-  );
-}
+export default App;
