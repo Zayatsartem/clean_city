@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
+import RegistrationView from './Registration/RegistrationView';
 
 function App(): JSX.Element {
-  return (
-    <div className="App" />
-  );
+  return <RegistrationView />;
 }
 
 export default App;
