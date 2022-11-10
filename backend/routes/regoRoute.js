@@ -3,9 +3,8 @@ const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
 
 router.post('/', async (req, res) => {
-  const {
-    username, password, email, passwordconfirm,
-  } = req.body;
+  const { name, password, email, telephone } = req.body;
+  console.log(req.body);
 
   const userEmail = await User.findOne({
     where: {
@@ -14,30 +13,35 @@ router.post('/', async (req, res) => {
     raw: true,
   });
   if (userEmail) {
-    return res.json({ registration: false, message: 'This email is already in use' });
-  }
-  if (password !== passwordconfirm) {
-    return res.json({ registration: false, message: 'Passwords are not the same' });
+    res.status(422).json({ error: 'Такой пользователь уже есть' });
+    return;
   }
   if (password.length < 8) {
-    return res.json({ registration: false, message: 'Password should contain more than 7 symbols' });
+    return res.json({
+      registration: false,
+      error: 'Password should contain more than 7 symbols',
+    });
   }
   try {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
     const newUser = await User.create({
-      name: username,
+      name,
       email,
       password: hashedPassword,
-      count: 0,
+      telephone,
     });
     newUser.save();
 
+    // кладём id нового пользователя в хранилище сессии (сразу логиним пользователя)
     req.session.userId = newUser.id;
     res.json({
       registration: true,
       user: {
-        id: newUser.id, name: newUser.name, email: newUser.email, count: newUser.count,
+        id: newUser.id,
+        name: newUser.name,
+        email: newUser.email,
+        telephone: newUser.telephone,
       },
     });
   } catch ({ message }) {

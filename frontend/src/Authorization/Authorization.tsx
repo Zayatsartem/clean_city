@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
 
-import './Authorization/styles.css';
+// import './Authorization/styles.css';
 
 export default function Authorization(): JSX.Element {
   const [email, setEmail] = useState('');
