@@ -4,6 +4,7 @@ import {
  } from 'react-router-dom';
 import './App.css';
 import RegistrationView from './Registration/RegistrationView';
+import Authorization from './Authorization/Authorization';
 
 function App(): JSX.Element {
   const user = true; // удалить юзер для проверки
@@ -34,7 +35,7 @@ function App(): JSX.Element {
     <Routes>
     <Route path="/" element={<Navigate to="/clean_city" />} />
       {/* <Route path="/registration" element={<Registration />} /> */}
-      {/* <Route path="/login" element={<Login />} /> */}
+      {/* <Route path="/login" element={<Authorization />} /> */}
     </Routes>
     </BrowserRouter>
 )}
