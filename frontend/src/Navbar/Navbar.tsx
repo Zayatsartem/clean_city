@@ -11,8 +11,10 @@ import { logout, getUser } from '../Authorization/authSlice';
 
 import './styles.css';
 import { selectAuthChecked } from '../Authorization/selectors';
+import { RootState } from '../types/RootState';
 
 function Navbar():JSX.Element {
+  const user = useSelector((state: RootState) => state.auth.user);
   const dispatch = useAppDispatch();
   const authChecked = useSelector(selectAuthChecked);
   const navigate = useNavigate();
@@ -41,7 +43,7 @@ function Navbar():JSX.Element {
       <Link className="links" to="clean_city/order">Сделать заказ</Link>
       <Link className="links" to="clean_city/registration">Регистрация</Link>
       <Link className="links" to="clean_city/login">Войти</Link> */}
-      {(authChecked ? (
+      {(user ? (
         <>
         <Link className="links" type="button" to="/">Главная</Link>
         <Link className="links" to="/order">Сделать заказ</Link>
