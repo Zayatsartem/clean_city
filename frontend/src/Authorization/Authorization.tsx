@@ -7,7 +7,6 @@ import './styles.css';
 import { login } from './authSlice';
 import { selectAuth } from './selectors';
 
-
 export default function Authorization(): JSX.Element {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -26,7 +25,7 @@ export default function Authorization(): JSX.Element {
     const dispatchResult = await dispatch(
       login({
         email,
-        password
+        password,
       })
     );
 
@@ -39,7 +38,7 @@ export default function Authorization(): JSX.Element {
   }
 
   return (
-     <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <h2>Login</h2>
       <label htmlFor="email-input">Email</label>
       <input type="text" id="email-input" value={email} onChange={handleEmailChange} />
@@ -47,7 +46,6 @@ export default function Authorization(): JSX.Element {
       <input type="password" id="password-input" value={password} onChange={handlePasswordChange} />
       <button type="submit">Submit</button>
       {error && <div>{error}</div>}
-     </form>
-
+    </form>
   );
 }
