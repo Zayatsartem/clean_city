@@ -1,0 +1,10 @@
+button[type="button"] {
+  display: block;
+  background: rgb(35, 109, 198);
+  color: white;
+  /* border: none; */
+  padding: 5px 20px;
+  border-radius: 4px;
+  text-decoration: underline;
+  margin-top: 22px;
+}

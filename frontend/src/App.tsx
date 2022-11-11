@@ -1,28 +1,17 @@
 import React from 'react';
 import {
- BrowserRouter, Link, Route, Routes
+  BrowserRouter
 } from 'react-router-dom';
 import './App.css';
-import CallForm from './Main/CallForm';
+import Navbar from './Navbar/Navbar';
 
 function App(): JSX.Element {
   return (
-
     <BrowserRouter>
 
-      <nav>
-        <Link to="/todos">Задачи</Link>
-
-      </nav>
-
-      <Routes>
-
-        <Route path="/todos" element={<CallForm />} />
-
-      </Routes>
+    <Navbar />
     </BrowserRouter>
-
-  );
+);
 }
 
 export default App;
