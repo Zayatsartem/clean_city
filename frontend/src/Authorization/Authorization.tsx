@@ -7,7 +7,6 @@ import './styles.css';
 import { login } from './authSlice';
 import { selectAuth } from './selectors';
 
-
 export default function Authorization(): JSX.Element {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

@@ -28,11 +28,9 @@ export async function login(credentials: Credentials): Promise<User> {
 
 export async function logout(): Promise<void> {
   const response = await fetch('/api/logout');
-  console.log('fetch');
   // const { error } = await response.json();
   // if (response.status !== 200) {
   //   throw new Error(error);
   // }
   return response.json();
 }
-

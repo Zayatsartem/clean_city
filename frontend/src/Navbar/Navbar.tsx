@@ -15,7 +15,6 @@ function Navbar():JSX.Element {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-
   async function handleLogout():Promise<void> {
     await dispatch(logout);
     navigate('/');
