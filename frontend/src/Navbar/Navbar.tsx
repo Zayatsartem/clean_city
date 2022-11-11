@@ -17,7 +17,6 @@ function Navbar():JSX.Element {
 
 
   async function handleLogout():Promise<void> {
-    //event.preventDefault();
     await dispatch(logout);
     navigate('/');
   }

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AuthState, Credentials } from './types';
 import * as api from './api';
-import { RootState } from '../store';
+// import { RootState } from '../store';
 
 const initialState: AuthState = {
   authChecked: false,
@@ -48,6 +48,5 @@ const authSlice = createSlice({
 });
 
 export const { resetLoginFormError } = authSlice.actions;
-export const selectAuth = (state: RootState): undefined | string | null =>
-state.auth.loginFormError;
+
 export default authSlice.reducer;

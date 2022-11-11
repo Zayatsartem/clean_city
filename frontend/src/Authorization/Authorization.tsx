@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../store';
 
 import './styles.css';
-import { login, selectAuth } from './authSlice';
+import { login } from './authSlice';
+import { selectAuth } from './selectors';
 
 export default function Authorization(): JSX.Element {
   const [email, setEmail] = useState('');
