@@ -33,7 +33,7 @@ function RegistrationView(): JSX.Element {
     if (regist.fulfilled.match(dispatchResult)) {
       navigate('/');
     }
-  }; // your form submit function which will invoke after successful validation
+  };
 
   return (
     <>
