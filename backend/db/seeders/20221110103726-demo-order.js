@@ -2,10 +2,12 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Orders', [{
-      cart_id: 1,
-      comment: 'Квартира 100 квадратов',
-      status: false,
+      user_id: 1,
+      rooms: 2,
+      bathrooms: 1,
       date: '10.11.2022',
+      time: '14:00',
+      status: 'inwork',
       address: 'Санкт-Петербург, Дворцовая пл.',
       createdAt: new Date(),
       updatedAt: new Date(),

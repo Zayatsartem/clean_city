@@ -21,10 +21,12 @@ function CallForm(): JSX.Element {
   const handlePhone = (event:ChangeEvent<HTMLTextAreaElement>): void => {
     setPhone(event.target.value);
   };
-  const send = (event: React.MouseEvent<HTMLElement>): void => {
-    //setPhone(event.target.value);
-  };
+  // const send = (event: React.MouseEvent<HTMLElement>): void => {
+  //   //setPhone(event.target.value);
+  // };
   return (
+    <>
+    <h2>Рассчитать стоимость уборки </h2>
     <div className="CallForm">
       <FormControl sx={{ m: 1, minWidth: 200 }}>
         <InputLabel id="demo-simple-select-helper-label">Количество комнат</InputLabel>
@@ -35,7 +37,6 @@ function CallForm(): JSX.Element {
           label="Rooms"
           onChange={handleRooms}
         >
-
           <MenuItem value="1-комнатная">1-комнатная</MenuItem>
           <MenuItem value="2-комнатная">2-комнатная</MenuItem>
           <MenuItem value="3-комнатная">3-комнатная</MenuItem>
@@ -52,7 +53,6 @@ function CallForm(): JSX.Element {
           onChange={handleBathrooms}
           label="Bathrooms"
         >
-
           <MenuItem value="1 санузел">1 санузел</MenuItem>
           <MenuItem value="2 санузла">2 санузла</MenuItem>
           <MenuItem value="3 санузла">3 санузла</MenuItem>
@@ -79,8 +79,9 @@ function CallForm(): JSX.Element {
           />
         </div>
       </Box>
-      <Button type="submit" onClick={send} variant="contained">Рассчитать стоимость</Button>
+      <Button type="submit" variant="contained">Рассчитать стоимость</Button>
     </div>
+    </>
   );
 }
 

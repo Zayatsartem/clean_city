@@ -2,13 +2,14 @@ import User from '../types/UserTypes';
 import { Credentials } from './types';
 
 export async function user(): Promise<
-| {
-  exist: true;
-  user: User;
-}
-| {
-  exist: false;
-}> {
+  | {
+      exist: true;
+      user: User;
+    }
+  | {
+      exist: false;
+    }
+> {
   return (await fetch('/api/user')).json();
 }
 export async function login(credentials: Credentials): Promise<User> {
@@ -17,7 +18,7 @@ export async function login(credentials: Credentials): Promise<User> {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(credentials)
+    body: JSON.stringify(credentials),
   });
   if (response.status >= 400) {
     const { message } = await response.json();

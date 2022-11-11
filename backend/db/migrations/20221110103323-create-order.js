@@ -8,20 +8,26 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      cart_id: {
+      user_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Carts',
+          model: 'Users',
           key: 'id',
         },
       },
-      comment: {
+      rooms: {
+        type: Sequelize.INTEGER,
+      },
+      bathrooms: {
+        type: Sequelize.INTEGER,
+      },
+      date: {
+        type: Sequelize.TEXT,
+      },
+      time: {
         type: Sequelize.TEXT,
       },
       status: {
-        type: Sequelize.BOOLEAN,
-      },
-      date: {
         type: Sequelize.TEXT,
       },
       address: {
