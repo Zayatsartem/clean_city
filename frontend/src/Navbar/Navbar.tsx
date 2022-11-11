@@ -11,7 +11,9 @@ import './styles.css';
 import { selectAuthChecked } from '../Authorization/selectors';
 // import {} from '../store';
 
-function Navbar(): JSX.Element {
+
+function Navbar():JSX.Element {
+
   const user = useSelector((state: RootState) => state.auth.user);
   const userega = useSelector((state: RootState) => state.register.user);
 

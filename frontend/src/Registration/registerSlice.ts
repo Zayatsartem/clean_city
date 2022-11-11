@@ -34,8 +34,10 @@ const registerSlice = createSlice({
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .addCase(regist.fulfilled, (state, action) => {
+
         state.user = action.payload;
         state.registerFormError = null;
+
       })
       .addCase(regist.rejected, (state, action) => {
         state.registerFormError = action.error.message;
