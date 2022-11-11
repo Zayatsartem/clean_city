@@ -9,9 +9,7 @@ const initialState: RegaState = {
   registerFormError: undefined,
 };
 
-
 export const getUser = createAsyncThunk('/user', () => api.user()); // проверка на есть ли юзер роутер написан на беке
-
 
 export const regist = createAsyncThunk('auth/register', async (data: RegisterData) => {
   if (!data.name.trim() || !data.password.trim() || !data.email.trim()) {
@@ -36,7 +34,6 @@ const registerSlice = createSlice({
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .addCase(regist.fulfilled, (state, action) => {
-
         // state.user = action.payload;
         state.registerFormError = undefined;
       })
