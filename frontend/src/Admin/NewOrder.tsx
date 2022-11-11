@@ -1,10 +1,9 @@
 import React from 'react';
+import { TNewOrder } from './Adminslice';
 
-
-function NewOrder({ order }):JSX.Element {
-  
+function NewOrder({ order }:{ order:TNewOrder }):JSX.Element {
   return (
-    <div />
+    <div>{order.date}</div>
   );
 }
 

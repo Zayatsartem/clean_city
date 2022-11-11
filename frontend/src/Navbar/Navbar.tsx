@@ -9,6 +9,7 @@ import { logout } from '../Authorization/api';
 import { useAppDispatch } from '../store';
 
 import './styles.css';
+import Admin from '../Admin/Admin';
 
 function Navbar():JSX.Element {
   const user = false; // удалить юзер для проверки
@@ -34,6 +35,7 @@ function Navbar():JSX.Element {
         <Link className="links" to="/order">Сделать заказ</Link>
         <Link className="links" to="/profile">Личный кабинет</Link>
         <button className="button-logout" type="button" onClick={handleLogout}>Выйти</button>
+        <Link to="/admin">Admin</Link>
         </>
       ) : (
         <>
@@ -47,6 +49,7 @@ function Navbar():JSX.Element {
     <Routes>
       <Route path="/registration" element={<RegistrationView />} />
       <Route path="/login" element={<Authorization />} />
+      <Route path="/admin" element={<Admin />} />
     </Routes>
     </>
   );

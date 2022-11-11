@@ -1,16 +1,19 @@
-import React, { useEffect } from 'react';
-import { useAppDispatch } from '../store';
-import { loadNewOrders } from './Adminslice';
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+
+
+import NewOrder from './NewOrder';
+import { selectNewOrders } from './selectors';
 
 function NewOrders():JSX.Element {
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(loadNewOrders());
-  }, [dispatch]);
+  const newOrders = useSelector(selectNewOrders);
+
   return (
     <div>
-      
+       {newOrders.map((el) => <NewOrder order={el} />)}
     </div>
+
   );
 }
 

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 // Слайсы - это отдельные модули нашего приложения. У каждого слайса - свой редьюсер.
 import registerSlice from './Registration/registerSlice';
-
+import adminSlice from './Admin/Adminslice';
 import authSlice from './Authorization/authSlice';
 
 const store = configureStore({
@@ -12,6 +12,7 @@ const store = configureStore({
   reducer: {
     register: registerSlice,
     auth: authSlice,
+    admin: adminSlice,
   },
 });
 
