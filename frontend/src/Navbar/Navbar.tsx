@@ -11,7 +11,7 @@ import { useAppDispatch } from '../store';
 import './styles.css';
 
 function Navbar():JSX.Element {
-  // const user = true; // удалить юзер для проверки
+  const user = false; // удалить юзер для проверки
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
