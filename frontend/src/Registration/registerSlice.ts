@@ -5,8 +5,8 @@ import RegaState from './RegaState';
 
 const initialState: RegaState = {
   authChecked: false,
-  user: undefined,
-  registerFormError: undefined,
+  user: null,
+  registerFormError: null,
 };
 
 export const getUser = createAsyncThunk('/user', () => api.user()); // проверка на есть ли юзер роутер написан на беке
@@ -25,7 +25,7 @@ const registerSlice = createSlice({
   reducers: {
     // 332 редьюсер для очистки ошибки
     resetRegisterFormError: (state) => {
-      state.registerFormError = undefined;
+      state.registerFormError = null;
     },
   },
   extraReducers: (builder) => {
@@ -34,8 +34,10 @@ const registerSlice = createSlice({
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .addCase(regist.fulfilled, (state, action) => {
-        // state.user = action.payload;
-        state.registerFormError = undefined;
+
+        state.user = action.payload;
+        state.registerFormError = null;
+
       })
       .addCase(regist.rejected, (state, action) => {
         state.registerFormError = action.error.message;

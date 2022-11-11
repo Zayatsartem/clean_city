@@ -1,5 +1,5 @@
 import RegisterData from './RegisterData';
-import User from './User';
+import User from '../types/UserTypes';
 
 export async function user(): Promise<
   | {
