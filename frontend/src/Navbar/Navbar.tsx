@@ -8,15 +8,18 @@ import Authorization from '../Authorization/Authorization';
 import { logout } from '../Authorization/api';
 import { useAppDispatch } from '../store';
 
+import './styles.css';
+
 function Navbar():JSX.Element {
-  const user = true; // удалить юзер для проверки
+  // const user = true; // удалить юзер для проверки
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
 
   async function handleLogout():Promise<void> {
     //event.preventDefault();
     await dispatch(logout);
-    //navigate('/');
+    navigate('/');
   }
 
   return (
@@ -30,8 +33,8 @@ function Navbar():JSX.Element {
         <>
         <Link className="links" type="button" to="/">Главная</Link>
         <Link className="links" to="/order">Сделать заказ</Link>
-        <Link className="links" to="/personalArea">Личный кабинет</Link>
-        <button className="links" type="button" onClick={handleLogout}>Выйти</button>
+        <Link className="links" to="/profile">Личный кабинет</Link>
+        <button className="button-logout" type="button" onClick={handleLogout}>Выйти</button>
         </>
       ) : (
         <>

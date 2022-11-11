@@ -38,7 +38,7 @@ export default function Authorization(): JSX.Element {
 
   return (
      <form onSubmit={handleSubmit}>
-      <h2>Authorization</h2>
+      <h2>Login</h2>
       <label htmlFor="email-input">Email</label>
       <input type="text" id="email-input" value={email} onChange={handleEmailChange} />
       <label htmlFor="password-input">Password</label>
