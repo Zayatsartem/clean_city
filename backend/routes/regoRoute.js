@@ -6,22 +6,42 @@ router.post('/', async (req, res) => {
   const { name, password, email, telephone } = req.body;
   console.log(req.body);
 
-  const userEmail = await User.findOne({
-    where: {
-      email,
-    },
-    raw: true,
-  });
-  if (userEmail) {
-    res.status(422).json({ error: 'Такой пользователь уже есть' });
+  if (!name || !email) {
+    res.status(422).json({ error: 'поле не должно быть пустым' });
     return;
   }
-  if (password.length < 8) {
-    return res.json({
+
+  if (password.length < 7) {
+    res.json({
       registration: false,
-      error: 'Password should contain more than 7 symbols',
+      error: 'пароль должен быть более 7 символов',
     });
+    return;
   }
+
+  const regexp = /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/;
+  const emailCheck = regexp.test(email);
+  if (!emailCheck) {
+    res.status(422).json({ error: 'Неверно указан почтовый адрес' });
+    return;
+  }
+
+  try {
+    const userEmail = await User.findOne({
+      where: {
+        email,
+      },
+      raw: true,
+    });
+    if (userEmail) {
+      res.status(422).json({ error: 'Такой пользователь уже есть' });
+      return;
+    }
+  } catch ({ message }) {
+    // todo res.json
+    console.log(message);
+  }
+
   try {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -30,6 +50,7 @@ router.post('/', async (req, res) => {
       email,
       password: hashedPassword,
       telephone,
+      admin: false,
     });
     newUser.save();
 
@@ -42,9 +63,11 @@ router.post('/', async (req, res) => {
         name: newUser.name,
         email: newUser.email,
         telephone: newUser.telephone,
+        admin: false,
       },
     });
   } catch ({ message }) {
+    // todo res.json
     console.log(message);
   }
 });

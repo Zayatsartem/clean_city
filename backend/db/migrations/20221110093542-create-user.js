@@ -24,7 +24,10 @@ module.exports = {
       telephone: {
         type: Sequelize.TEXT,
         allowNull: false,
-        unique: true,
+      },
+      admin: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

@@ -12,7 +12,9 @@ const initialState: RegaState = {
 export const getUser = createAsyncThunk('/user', () => api.user()); //проверка на есть ли юзер роутер написан на беке
 
 export const regist = createAsyncThunk('auth/register', async (data: RegisterData) => {
-  if (!data.name.trim() || !data.password.trim()) {
+  console.log(data, 'data createAsyncThunk');
+
+  if (!data.name.trim() || !data.password.trim() || !data.email.trim()) {
     throw new Error('Не все поля заполнены');
   }
 
