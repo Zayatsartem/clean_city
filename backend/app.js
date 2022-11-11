@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const config = require('./config/serverConfig');
 const { sequelize } = require('./db/models');
@@ -13,13 +14,16 @@ const app = express();
 const PORT = process.env.PORT ?? 4000;
 config(app);
 
-// запускаем роуты
+const frontendDir = path.join(__dirname, '..', 'frontend', 'build');
 
-// app.use('/', homeRouter);
+app.use(express.static(frontendDir));
+// запускаем роуты
 app.use('/api/login', loginRouter);
 app.use('/api/logout', logoutRouter);
 app.use('/api/register', registrationRouter);
 app.use('/api/admin', adminRouter);
+
+app.get('*', (req, res) => res.redirect('/'));
 
 app
   .listen(PORT)
