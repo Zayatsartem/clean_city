@@ -2,20 +2,40 @@ import React from 'react';
 import {
  Link, Route, Routes, useNavigate
 } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import RegistrationView from '../Registration/RegistrationView';
 import Authorization from '../Authorization/Authorization';
-import { logout } from '../Authorization/api';
 import { useAppDispatch } from '../store';
+import { logout, getUser } from '../Authorization/authSlice';
 
 import './styles.css';
+import { selectAuthChecked } from '../Authorization/selectors';
+import { RootState } from '../types/RootState';
 
-function Navbar(): JSX.Element {
-  const user = false; // удалить юзер для проверки
+
+function Navbar():JSX.Element {
+  const user = useSelector((state: RootState) => state.auth.user);
+
   const dispatch = useAppDispatch();
+  const authChecked = useSelector(selectAuthChecked);
   const navigate = useNavigate();
 
-  async function handleLogout(): Promise<void> {
-    await dispatch(logout);
+
+  React.useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
+
+  if (!authChecked) {
+    return (
+      <div className="spinner-border text-primary" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    );
+  }
+
+  async function handleLogout():Promise<void> {
+    await dispatch(logout());
+
     navigate('/');
   }
 

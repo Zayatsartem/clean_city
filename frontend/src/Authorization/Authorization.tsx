@@ -36,7 +36,6 @@ export default function Authorization(): JSX.Element {
     //   alert(dispatchResult.error.message);
     // }
   }
-
   return (
     <form onSubmit={handleSubmit}>
       <h2>Login</h2>
