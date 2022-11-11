@@ -3,16 +3,18 @@ import Comments from './Comments';
 import NewOrders from './NewOrders';
 import WIPOrders from './WIPOrders';
 import { useAppDispatch } from '../store';
-import { loadNewOrders } from './Adminslice';
+import { loadNewOrders, loadWIPOrders } from './Adminslice';
 
 function Admin():JSX.Element {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(loadNewOrders());
+    dispatch(loadNewOrders())
+    dispatch(loadWIPOrders());
   }, [dispatch]);
   return (
     <div>
      <NewOrders />
+     <WIPOrders />
     </div>
   );
 }

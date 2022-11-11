@@ -4,12 +4,12 @@ import TableRow from '@mui/material/TableRow';
 import React from 'react';
 import { TNewOrder } from './Adminslice';
 
-function NewOrder({ order }:{ order:TNewOrder }):JSX.Element {
+function WIPOrder({ order }:{ order:TNewOrder }):JSX.Element {
   return (
-      <TableRow
-        key={order.id}
-        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-      >
+    <TableRow
+      key={order.id}
+      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+    >
         <TableCell component="th" scope="row">
           {order.name}
         </TableCell>
@@ -18,10 +18,9 @@ function NewOrder({ order }:{ order:TNewOrder }):JSX.Element {
         <TableCell align="right">{order.time}</TableCell>
         <TableCell align="right">{order.address}</TableCell>
         <TableCell align="right">Комнат:{order.rooms}, санузлов:{order.bathrooms}</TableCell>
-        <TableCell align="right"><Button variant="outlined">Принять в работу</Button><Button variant="outlined">Отменить</Button></TableCell>
-      </TableRow>
-
+        <TableCell align="right"><Button variant="outlined">Заказ выполнен</Button></TableCell>
+    </TableRow>
   );
 }
 
-export default NewOrder;
+export default WIPOrder;
