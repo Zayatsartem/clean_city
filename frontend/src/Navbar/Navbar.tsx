@@ -12,14 +12,12 @@ import './styles.css';
 import { selectAuthChecked } from '../Authorization/selectors';
 import { RootState } from '../types/RootState';
 
-
 function Navbar():JSX.Element {
   const user = useSelector((state: RootState) => state.auth.user);
 
   const dispatch = useAppDispatch();
   const authChecked = useSelector(selectAuthChecked);
   const navigate = useNavigate();
-
 
   React.useEffect(() => {
     dispatch(getUser());
