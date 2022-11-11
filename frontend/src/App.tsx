@@ -8,7 +8,6 @@ import Navbar from './Navbar/Navbar';
 function App(): JSX.Element {
   return (
     <BrowserRouter>
-
     <Navbar />
     </BrowserRouter>
 );
