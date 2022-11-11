@@ -11,7 +11,6 @@ export async function user(): Promise<
 }> {
   return (await fetch('/api/user')).json();
 }
-
 export async function login(credentials: Credentials): Promise<User> {
   const response = await fetch('/api/login', {
     method: 'POST',
@@ -36,3 +35,4 @@ export async function logout(): Promise<void> {
   // }
   return response.json();
 }
+

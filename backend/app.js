@@ -17,7 +17,7 @@ config(app);
 // app.use('/', homeRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/logout', logoutRouter);
-app.use('/api/registration', registrationRouter);
+app.use('/api/register', registrationRouter);
 
 app
   .listen(PORT)

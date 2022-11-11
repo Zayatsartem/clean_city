@@ -3,44 +3,71 @@ const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
 
 router.post('/', async (req, res) => {
-  const {
-    username, password, email, passwordconfirm,
-  } = req.body;
+  const { name, password, email, telephone } = req.body;
+  console.log(req.body);
 
-  const userEmail = await User.findOne({
-    where: {
-      email,
-    },
-    raw: true,
-  });
-  if (userEmail) {
-    return res.json({ registration: false, message: 'This email is already in use' });
+  if (!name || !email) {
+    res.status(422).json({ error: 'поле не должно быть пустым' });
+    return;
   }
-  if (password !== passwordconfirm) {
-    return res.json({ registration: false, message: 'Passwords are not the same' });
+
+  if (password.length < 7) {
+    res.json({
+      registration: false,
+      error: 'пароль должен быть более 7 символов',
+    });
+    return;
   }
-  if (password.length < 8) {
-    return res.json({ registration: false, message: 'Password should contain more than 7 symbols' });
+
+  const regexp = /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/;
+  const emailCheck = regexp.test(email);
+  if (!emailCheck) {
+    res.status(422).json({ error: 'Неверно указан почтовый адрес' });
+    return;
   }
+
+  try {
+    const userEmail = await User.findOne({
+      where: {
+        email,
+      },
+      raw: true,
+    });
+    if (userEmail) {
+      res.status(422).json({ error: 'Такой пользователь уже есть' });
+      return;
+    }
+  } catch ({ message }) {
+    // todo res.json
+    console.log(message);
+  }
+
   try {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
     const newUser = await User.create({
-      name: username,
+      name,
       email,
       password: hashedPassword,
-      count: 0,
+      telephone,
+      admin: false,
     });
     newUser.save();
 
+    // кладём id нового пользователя в хранилище сессии (сразу логиним пользователя)
     req.session.userId = newUser.id;
     res.json({
       registration: true,
       user: {
-        id: newUser.id, name: newUser.name, email: newUser.email, count: newUser.count,
+        id: newUser.id,
+        name: newUser.name,
+        email: newUser.email,
+        telephone: newUser.telephone,
+        admin: false,
       },
     });
   } catch ({ message }) {
+    // todo res.json
     console.log(message);
   }
 });
