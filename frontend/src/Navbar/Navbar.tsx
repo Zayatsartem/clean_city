@@ -6,10 +6,9 @@ import RegistrationView from '../Registration/RegistrationView';
 import Authorization from '../Authorization/Authorization';
 import { useAppDispatch, RootState } from '../store';
 import { logout, getUser } from '../Authorization/authSlice';
-
 import './styles.css';
+import Admin from '../Admin/Admin';
 import { selectAuthChecked } from '../Authorization/selectors';
-// import {} from '../store';
 
 function Navbar():JSX.Element {
 
@@ -34,7 +33,6 @@ function Navbar():JSX.Element {
 
   async function handleLogout(): Promise<void> {
     await dispatch(logout());
-
     navigate('/');
   }
 
