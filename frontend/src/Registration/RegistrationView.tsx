@@ -56,7 +56,7 @@ function RegistrationView(): JSX.Element {
         />
         {errors?.email?.type === 'pattern' && <p>Неверно указан почтовый адрес</p>}
         <label>Пароль</label>
-        <input {...register('password', { minLength: 8, maxLength: 20 })} />
+        <input type="password" {...register('password', { minLength: 8, maxLength: 20 })} />
         {errors.password && <p>пароль должен быть больше 8 символов</p>}
         <label>Телефон</label>
         <input

@@ -1,7 +1,7 @@
 import { RootState } from '../store';
-import User from './User';
+import User from '../types/UserTypes';
 
 export const selectAuthChecked = (state: RootState): boolean => state.register.authChecked;
-export const selectUser = (state: RootState): User | undefined => state.register.user;
-export const selectRegisterFormError = (state: RootState): string | undefined =>
+export const selectUser = (state: RootState): User | null | undefined => state.register.user;
+export const selectRegisterFormError = (state: RootState): string | null | undefined =>
   state.register.registerFormError;
