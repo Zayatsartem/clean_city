@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { Order, User } = require('../db/models');
+const { Order, User, Comment } = require('../db/models');
 
 router.get('/new', async (req, res) => {
   const orders = await Order.findAll({
@@ -8,6 +8,20 @@ router.get('/new', async (req, res) => {
   });
 
   res.json({ orders });
+});
+router.get('/comments', async (req, res) => {
+  try {
+    const comments = await Comment.findAll({
+      include: [{ model: User, attributes: [] }, { model: Order, attributes: [] },
+      ],
+      where: { status: false },
+      raw: true,
+      attributes: ['id', 'title', 'User.name', 'Order.date'],
+    });
+    res.status(200).json({ comments });
+  } catch ({ error }) {
+    console.log(error);
+  }
 });
 router.put('/new', async (req, res) => {
   const { id } = req.body;
@@ -62,6 +76,46 @@ router.put('/inwork', async (req, res) => {
       include: [{ model: User, attributes: [] }], where: { status: 'inwork' }, raw: true, attributes: ['id', 'date', 'time', 'rooms', 'bathrooms', 'address', 'User.name', 'User.email', 'User.telephone'],
     });
     res.status(200).json({ WIPorders });
+  } catch ({ error }) {
+    console.log(error);
+  }
+});
+router.put('/comments', async (req, res) => {
+  const { id } = req.body;
+  try {
+    const publishingComment = await Comment.findOne({
+      where: { id },
+    });
+    await publishingComment.update({ status: true });
+
+    const comments = await Comment.findAll({
+      include: [{ model: User, attributes: [] }, { model: Order, attributes: [] },
+      ],
+      where: { status: false },
+      raw: true,
+      attributes: ['id', 'title', 'User.name', 'Order.date'],
+    });
+    res.status(200).json({ comments });
+  } catch ({ error }) {
+    console.log(error);
+  }
+});
+router.delete('/comments', async (req, res) => {
+  const { id } = req.body;
+  try {
+    const deletingComment = await Comment.findOne({
+      where: { id },
+    });
+    await deletingComment.destroy();
+
+    const comments = await Comment.findAll({
+      include: [{ model: User, attributes: [] }, { model: Order, attributes: [] },
+      ],
+      where: { status: false },
+      raw: true,
+      attributes: ['id', 'title', 'User.name', 'Order.date'],
+    });
+    res.status(200).json({ comments });
   } catch ({ error }) {
     console.log(error);
   }

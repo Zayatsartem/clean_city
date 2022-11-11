@@ -1,5 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
+export type TComment = {
+  id:number,
+  date:string,
+  name:string,
+  title:string,
+};
 export type TNewOrder = {
   id:number,
   rooms:number,
@@ -14,11 +20,13 @@ export type TNewOrder = {
 type AdminState = {
   newOrders:TNewOrder[],
   WIPOrders:TNewOrder[],
+  comments:TComment[],
   error: string | null,
 };
 const initialState:AdminState = {
   newOrders: [],
   WIPOrders: [],
+  comments: [],
   error: null,
 };
 export const loadNewOrders = createAsyncThunk(
@@ -94,6 +102,53 @@ export const doneWIPOrder = createAsyncThunk(
     return fetchDoneOrder();
   }
 );
+export const loadComments = createAsyncThunk(
+  'comments/loadComments',
+  () => {
+    const fetchComments = async (): Promise<TComment[]> => {
+      const response = await fetch('/api/admin/comments');
+      const data = await response.json();
+      return data.comments;
+    };
+    return fetchComments();
+  }
+);
+export const publishComment = createAsyncThunk(
+  'comments/publishComment',
+  (id:number) => {
+    const fetchPublishComment = async (): Promise<TComment[]> => {
+      const response = await fetch('/api/admin/comments', {
+        method: 'put',
+        headers: {
+          'Content-Type': 'Application/json',
+      },
+      body: JSON.stringify({ id }),
+      });
+
+      const data = await response.json();
+      return data.comments;
+    };
+    return fetchPublishComment();
+  }
+);
+export const deleteCommentForAll = createAsyncThunk(
+  'comments/deleteComment',
+  (id:number) => {
+    const fetchDeleteComment = async (): Promise<TComment[]> => {
+      const response = await fetch('/api/admin/comments', {
+        method: 'delete',
+        headers: {
+          'Content-Type': 'Application/json',
+      },
+      body: JSON.stringify({ id }),
+      });
+
+      const data = await response.json();
+      return data.comments;
+    };
+    return fetchDeleteComment();
+  }
+);
 const adminSlice = createSlice({
   name: 'admin',
   initialState,
@@ -131,6 +186,24 @@ const adminSlice = createSlice({
       })
       .addCase(doneWIPOrder.rejected, (state, action) => {
         state.error = action.error.message || 'Ошибка при удалении заказа';
+      })
+      .addCase(loadComments.fulfilled, (state, action) => {
+        state.comments = action.payload;
+      })
+      .addCase(loadComments.rejected, (state, action) => {
+        state.error = action.error.message || 'Ошибка при загрузке комментариев';
+      })
+      .addCase(publishComment.fulfilled, (state, action) => {
+        state.comments = action.payload;
+      })
+      .addCase(publishComment.rejected, (state, action) => {
+        state.error = action.error.message || 'Ошибка при публикации комментариев';
+      })
+      .addCase(deleteCommentForAll.fulfilled, (state, action) => {
+        state.comments = action.payload;
+      })
+      .addCase(deleteCommentForAll.rejected, (state, action) => {
+        state.error = action.error.message || 'Ошибка при удалении комментариев';
       });
   }
 });

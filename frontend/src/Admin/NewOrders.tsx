@@ -31,7 +31,7 @@ function NewOrders():JSX.Element {
           </TableRow>
         </TableHead>
         <TableBody>
-        {newOrders.map((el) => <NewOrder order={el} />)}
+        {newOrders.map((el) => <NewOrder key={el.id} order={el} />)}
         </TableBody>
       </Table>
     </TableContainer>

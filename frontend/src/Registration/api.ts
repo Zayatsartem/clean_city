@@ -1,4 +1,4 @@
-import Credentials from './Credentials';
+// import Credentials from './Credentials';
 import RegisterData from './RegisterData';
 import User from './User';
 
@@ -13,7 +13,6 @@ export async function user(): Promise<
 > {
   return (await fetch('/api/user')).json();
 }
-
 
 export async function register(data: RegisterData): Promise<User> {
   const res = await fetch('/api/register', {

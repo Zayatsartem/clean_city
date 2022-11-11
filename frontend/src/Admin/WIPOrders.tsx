@@ -30,7 +30,7 @@ function WIPOrders():JSX.Element {
           </TableRow>
         </TableHead>
         <TableBody>
-        {WIPOrdersList.map((el) => <WIPOrder order={el} />)}
+        {WIPOrdersList.map((el) => <WIPOrder key={el.id} order={el} />)}
         </TableBody>
       </Table>
     </TableContainer>
