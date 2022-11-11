@@ -2,9 +2,17 @@ import Button from '@mui/material/Button';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import React from 'react';
-import { TNewOrder } from './Adminslice';
+import { useAppDispatch } from '../store';
+import { addWIPOrder, cancelNewOrder, TNewOrder } from './Adminslice';
 
 function NewOrder({ order }:{ order:TNewOrder }):JSX.Element {
+  const dispatch = useAppDispatch();
+  function addWIP(id:number):void {
+   dispatch(addWIPOrder(id));
+  }
+  function cancel(id:number):void {
+    dispatch(cancelNewOrder(id));
+  }
   return (
       <TableRow
         key={order.id}
@@ -18,7 +26,7 @@ function NewOrder({ order }:{ order:TNewOrder }):JSX.Element {
         <TableCell align="right">{order.time}</TableCell>
         <TableCell align="right">{order.address}</TableCell>
         <TableCell align="right">Комнат:{order.rooms}, санузлов:{order.bathrooms}</TableCell>
-        <TableCell align="right"><Button variant="outlined">Принять в работу</Button><Button variant="outlined">Отменить</Button></TableCell>
+        <TableCell align="right"><Button variant="outlined" onClick={() => addWIP(order.id)}>Принять в работу</Button><Button variant="outlined" onClick={() => cancel(order.id)}>Отменить</Button></TableCell>
       </TableRow>
 
   );

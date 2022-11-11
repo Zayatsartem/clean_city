@@ -8,13 +8,14 @@ import { loadNewOrders, loadWIPOrders } from './Adminslice';
 function Admin():JSX.Element {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(loadNewOrders())
+    dispatch(loadNewOrders());
     dispatch(loadWIPOrders());
   }, [dispatch]);
   return (
     <div>
      <NewOrders />
      <WIPOrders />
+     <Comments />
     </div>
   );
 }
