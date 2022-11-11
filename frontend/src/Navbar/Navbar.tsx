@@ -3,21 +3,34 @@ import {
  Link, Route, Routes,
  useNavigate
 } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import RegistrationView from '../Registration/RegistrationView';
 import Authorization from '../Authorization/Authorization';
-import { logout } from '../Authorization/api';
 import { useAppDispatch } from '../store';
+import { logout, getUser } from '../Authorization/authSlice';
 
 import './styles.css';
+import { selectAuthChecked } from '../Authorization/selectors';
 
 function Navbar():JSX.Element {
-  const user = false; // удалить юзер для проверки
   const dispatch = useAppDispatch();
+  const authChecked = useSelector(selectAuthChecked);
   const navigate = useNavigate();
 
+  React.useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
+
+  if (!authChecked) {
+    return (
+      <div className="spinner-border text-primary" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    );
+  }
 
   async function handleLogout():Promise<void> {
-    await dispatch(logout);
+    await dispatch(logout());
     navigate('/');
   }
 
@@ -28,7 +41,7 @@ function Navbar():JSX.Element {
       <Link className="links" to="clean_city/order">Сделать заказ</Link>
       <Link className="links" to="clean_city/registration">Регистрация</Link>
       <Link className="links" to="clean_city/login">Войти</Link> */}
-      {(user ? (
+      {(authChecked ? (
         <>
         <Link className="links" type="button" to="/">Главная</Link>
         <Link className="links" to="/order">Сделать заказ</Link>
