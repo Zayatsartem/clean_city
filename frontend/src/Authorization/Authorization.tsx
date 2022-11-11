@@ -25,7 +25,7 @@ export default function Authorization(): JSX.Element {
     const dispatchResult = await dispatch(
       login({
         email,
-        password
+        password,
       })
     );
 
