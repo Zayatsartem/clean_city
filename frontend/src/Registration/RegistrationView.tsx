@@ -50,13 +50,18 @@ function RegistrationView(): JSX.Element {
         {errors?.name?.type === 'maxLength' && <p>Имя не может превышать 50 символов</p>}
         {errors?.name?.type === 'minLength' && <p>Имя не должно быть меньше одного символа</p>}
         <label>email</label>
-        <input {...register('email', { pattern: /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/ })} />
+        <input
+          type="email"
+          {...register('email', { pattern: /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/ })}
+        />
         {errors?.email?.type === 'pattern' && <p>Неверно указан почтовый адрес</p>}
         <label>Пароль</label>
         <input {...register('password', { minLength: 8, maxLength: 20 })} />
         {errors.password && <p>пароль должен быть больше 8 символов</p>}
         <label>Телефон</label>
         <input
+          type="tel"
+          placeholder="+7**********"
           {...register('telephone', {
             pattern: /(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?/,
           })}
