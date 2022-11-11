@@ -1,19 +1,19 @@
 import React from 'react';
-import {
- Link, Route, Routes, useNavigate
-} from 'react-router-dom';
+// eslint-disable-next-line object-curly-newline
+import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import RegistrationView from '../Registration/RegistrationView';
 import Authorization from '../Authorization/Authorization';
-import { useAppDispatch } from '../store';
+import { useAppDispatch, RootState } from '../store';
 import { logout, getUser } from '../Authorization/authSlice';
-
 import './styles.css';
+import Admin from '../Admin/Admin';
 import { selectAuthChecked } from '../Authorization/selectors';
-import { RootState } from '../types/RootState';
 
 function Navbar():JSX.Element {
+
   const user = useSelector((state: RootState) => state.auth.user);
+  const userega = useSelector((state: RootState) => state.register.user);
   const dispatch = useAppDispatch();
   const authChecked = useSelector(selectAuthChecked);
   const navigate = useNavigate();
@@ -29,20 +29,15 @@ function Navbar():JSX.Element {
     );
   }
 
-  async function handleLogout():Promise<void> {
+  async function handleLogout(): Promise<void> {
     await dispatch(logout());
-
     navigate('/');
   }
 
   return (
     <>
       <nav className="nav">
-        {/* <Link className="links" type="button" to="/">Главная</Link>
-      <Link className="links" to="clean_city/order">Сделать заказ</Link>
-      <Link className="links" to="clean_city/registration">Регистрация</Link>
-      <Link className="links" to="clean_city/login">Войти</Link> */}
-        {user ? (
+        {user || userega ? (
           <>
             <Link className="links" type="button" to="/">
               Главная
