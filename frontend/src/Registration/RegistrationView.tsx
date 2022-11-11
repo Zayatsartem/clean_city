@@ -1,5 +1,4 @@
 import * as React from 'react';
-import ReactDOM from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -22,7 +21,6 @@ function RegistrationView(): JSX.Element {
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     formState: { errors, isValid },
   } = useForm<IFormInput>({
@@ -36,8 +34,6 @@ function RegistrationView(): JSX.Element {
       navigate('/');
     }
   }; // your form submit function which will invoke after successful validation
-
-  // console.log(watch('telephone')); // you can watch individual input by pass the name of the input
 
   return (
     <>
