@@ -10,9 +10,9 @@ import './styles.css';
 import Admin from '../Admin/Admin';
 import { selectAuthChecked } from '../Authorization/selectors';
 
-function Navbar():JSX.Element {
-
+function Navbar(): JSX.Element {
   const user = useSelector((state: RootState) => state.auth.user);
+
   const userega = useSelector((state: RootState) => state.register.user);
   const dispatch = useAppDispatch();
   const authChecked = useSelector(selectAuthChecked);
@@ -45,9 +45,14 @@ function Navbar():JSX.Element {
             <Link className="links" to="/order">
               Сделать заказ
             </Link>
-            <Link className="links" to="/profile">
-              Личный кабинет
-            </Link>
+            {user?.admin || userega?.admin ?
+              (
+                <Link className="links" to="/admin">Личный кабинет администратора
+                </Link>
+              ) : (
+                <Link className="links" to="/profile">Личный кабинет
+                </Link>
+              )}
             <button className="button-logout" type="button" onClick={handleLogout}>
               Выйти
             </button>
@@ -72,6 +77,7 @@ function Navbar():JSX.Element {
       <Routes>
         <Route path="/registration" element={<RegistrationView />} />
         <Route path="/login" element={<Authorization />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </>
   );
