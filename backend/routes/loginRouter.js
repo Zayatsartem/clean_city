@@ -22,7 +22,8 @@ router.post('/', async (req, res) => {
     res.json({
       login: true,
       user: {
-        id: user.id, email: user.email, admin: user.admin,
+        id: user.id, email: user.email, name: user.name, telephone: user.telephone, admin: user.admin
+
       },
     });
   } catch (error) {

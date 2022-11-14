@@ -7,11 +7,18 @@ import adminSlice from './Admin/Adminslice';
 import authSlice from './Authorization/authSlice';
 import mainSlice from './Main/mainSlice';
 
+import editingSlice from './Profile/editingSlice';
+
+import orderSlice from './Order/orderSlice';
+
+
 const store = configureStore({
   // теперь функция combineReducers не нужна
   reducer: {
     register: registerSlice,
     auth: authSlice,
+    editing: editingSlice,
+    order: orderSlice,
     admin: adminSlice,
     main: mainSlice,
   },

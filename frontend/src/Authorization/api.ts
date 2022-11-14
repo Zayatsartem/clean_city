@@ -2,14 +2,14 @@ import User from '../types/UserTypes';
 import { Credentials } from './types';
 
 export async function user(): Promise<
-
-| {
-  exist: true;
-  user: User;
-}
-| {
-  exist: false;
-}> {
+  | {
+      exist: true;
+      user: User;
+    }
+  | {
+      exist: false;
+    }
+> {
   return (await fetch('/api/logout/user')).json();
 }
 
