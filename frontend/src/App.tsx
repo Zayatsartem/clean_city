@@ -1,15 +1,9 @@
 import React from 'react';
 
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './App.css';
 
-
-import {
-  BrowserRouter
-} from 'react-router-dom';
-
-import './App.css';
 import Navbar from './Navbar/Navbar';
 
 import EditProfile from './Profile/EditProfile';
@@ -21,8 +15,6 @@ function App(): JSX.Element {
       <Routes>
         <Route path="/profile/edit" element={<EditProfile />} />
       </Routes>
-
-
     </BrowserRouter>
   );
 }

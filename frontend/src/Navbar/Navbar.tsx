@@ -70,9 +70,6 @@ function Navbar(): JSX.Element {
             <Link className="links" type="button" to="/">
               Главная
             </Link>
-            <Link className="links" to="/order">
-              Сделать заказ
-            </Link>
             <Link className="links" to="/registration">
               Регистрация
             </Link>

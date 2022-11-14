@@ -11,7 +11,7 @@ const initialState: OrderState = {
 
 export const order = createAsyncThunk('order', async (data: OrderTypes) => {
   if (!data.address.trim() || !data.date.trim()) {
-    throw new Error('заполните необходимые');
+    throw new Error('заполните  все поля');
   }
 
   return api.orderData(data);
