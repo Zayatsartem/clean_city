@@ -10,9 +10,12 @@ import './styles.css';
 import Admin from '../Admin/Admin';
 import { selectAuthChecked } from '../Authorization/selectors';
 
+
+import ProfileNavbar from './ProfileNavbar';
+
 import OrderViews from '../Order/OrderViews';
-// import {} from '../store';
-=======
+
+
 
 
 function Navbar(): JSX.Element {
@@ -50,7 +53,9 @@ function Navbar(): JSX.Element {
             <Link className="links" to="/order">
               Сделать заказ
             </Link>
-            {user?.admin || userega?.admin ?
+
+            <ProfileNavbar />
+            {user?.admin ?
               (
                 <Link className="links" to="/admin">Личный кабинет администратора
                 </Link>
@@ -58,6 +63,7 @@ function Navbar(): JSX.Element {
                 <Link className="links" to="/profile">Личный кабинет
                 </Link>
               )}
+
             <button className="button-logout" type="button" onClick={handleLogout}>
               Выйти
             </button>

@@ -9,7 +9,10 @@ const loginRouter = require('./routes/loginRouter');
 const logoutRouter = require('./routes/logoutRouter');
 const registrationRouter = require('./routes/regoRoute');
 
+const profileRouter = require('./routes/profileRouter');
+
 const orderRouter = require('./routes/orderRouter');
+
 const adminRouter = require('./routes/adminRouter');
 
 
@@ -25,9 +28,13 @@ app.use('/api/login', loginRouter);
 app.use('/api/logout', logoutRouter);
 app.use('/api/register', registrationRouter);
 
+app.use('/api/profile', profileRouter);
+
 app.use('/api/order', orderRouter);
 
+
 app.use('/api/admin', adminRouter);
+
 
 app.get('*', (req, res) => res.redirect('/'));
 
