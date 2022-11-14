@@ -8,6 +8,7 @@ import './App.css';
 import { getUser } from './Authorization/authSlice';
 import Navbar from './Navbar/Navbar';
 import EditProfile from './Profile/EditProfile';
+import ProfileOrders from './Profile/ProfileOrders';
 import { useAppDispatch } from './store';
 
 function App(): JSX.Element {
@@ -21,6 +22,7 @@ function App(): JSX.Element {
       <Navbar />
       <Routes>
         <Route path="/profile/edit" element={<EditProfile />} />
+        <Route path="/profile/orders" element={<ProfileOrders />} />
       </Routes>
 
     </BrowserRouter>

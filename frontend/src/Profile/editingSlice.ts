@@ -2,7 +2,7 @@ import {
  createAsyncThunk, createSlice,
 } from '@reduxjs/toolkit';
 import User from '../types/UserTypes';
-import api from './api';
+import api from './apiProfileOrders';
 import EditData, { EditState } from './profileTypes';
 
 // export const selectUser = (state: RootState): User | null | undefined => state.auth.user;
@@ -40,6 +40,7 @@ const editingSlice = createSlice({
     .addCase(editProfile.rejected, (state, action) => {
       state.editFormError = action.error.message || 'Ошибка изменения профиля';
     });
+    // .addCase()
   },
 });
 

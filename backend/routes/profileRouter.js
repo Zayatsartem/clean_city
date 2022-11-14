@@ -1,5 +1,24 @@
 const router = require('express').Router();
-const { User } = require('../db/models');
+const { User, Order } = require('../db/models');
+
+router.route('/orders').get(async (req, res) => {
+  try {
+    const user = await User.findOne({
+      where: {
+        id: res.locals.userId,
+      },
+    });
+    const orders = await Order.findAll({
+      where: {
+        user_id: user.id,
+      },
+    });
+    console.log(user, orders);
+    res.status(200).json({ orders });
+  } catch (error) {
+    res.status(500).json('Ошибка загрузки заказов');
+  }
+});
 
 router.route('/').put(async (req, res) => {
   try {
