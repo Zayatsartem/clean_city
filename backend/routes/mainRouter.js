@@ -12,6 +12,7 @@ router.get('/comments', async (req, res) => {
     res.json({ comments });
   } catch ({ message }) {
     console.log(message);
+    res.sendStatus(404);
   }
 });
 

@@ -1,0 +1,12 @@
+.links{
+  color:black
+}
+.footerLinks{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  a{
+    min-width: 100px;
+    text-align: center;
+  }
+}
