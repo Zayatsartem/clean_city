@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 
 import './App.css';
+import Footer from './Footer/Footer';
 // import Authorization from './Authorization/Authorization';
 import Navbar from './Navbar/Navbar';
 
@@ -20,7 +21,7 @@ function App(): JSX.Element {
         <Route path="/registration" element={<RegistrationView />} />
         <Route path="/profile/edit" element={<EditProfile />} />
       </Routes> */}
-
+      <Footer />
     </BrowserRouter>
   );
 }
