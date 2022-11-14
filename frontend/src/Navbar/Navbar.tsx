@@ -78,11 +78,8 @@ function Navbar(): JSX.Element {
       <Routes>
         <Route path="/registration" element={<RegistrationView />} />
         <Route path="/login" element={<Authorization />} />
-
         <Route path="/order" element={<OrderViews />} />
-
         <Route path="/admin" element={<Admin />} />
-
         <Route path="/" element={<Main />} />
 
       </Routes>

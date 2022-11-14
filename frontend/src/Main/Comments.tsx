@@ -12,9 +12,9 @@ function Comments(): JSX.Element {
     dispatch(loadApprovedComments());
   }, [dispatch]);
   return (
-    <div>
+    <>
       {approvedComments.map((comment) => <Comment comment={comment} key={comment.id} />)}
-    </div>
+    </>
   );
 }
 

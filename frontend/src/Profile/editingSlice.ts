@@ -1,5 +1,5 @@
 import {
- createAsyncThunk, createSlice,
+  createAsyncThunk, createSlice,
 } from '@reduxjs/toolkit';
 import User from '../types/UserTypes';
 import api from './apiProfileOrders';
@@ -12,7 +12,7 @@ export const initialUser: User = {
   name: 'hello',
   email: 'vyscgy@isc',
   telephone: '673748',
-  password: 'snxsxn',
+  password: '3u3ru',
   admin: true,
 };
 

@@ -1,12 +1,13 @@
 import React from 'react';
 
 import {
-  BrowserRouter, Routes, Route
+  BrowserRouter
 } from 'react-router-dom';
 
 import './App.css';
 import { getUser } from './Authorization/authSlice';
 import Navbar from './Navbar/Navbar';
+
 import EditProfile from './Profile/EditProfile';
 import ProfileOrders from './Profile/ProfileOrders';
 import { useAppDispatch } from './store';
