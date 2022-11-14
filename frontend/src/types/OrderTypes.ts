@@ -1,5 +1,5 @@
 export default interface Order {
-  user_id: number;
+  user_id: number | undefined;
   rooms: number;
   bathrooms: number;
   date: string;

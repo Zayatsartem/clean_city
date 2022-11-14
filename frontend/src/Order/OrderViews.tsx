@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import * as React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import './styles.css';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../store';
 import { order } from './orderSlice';
@@ -18,18 +18,23 @@ interface IFormInput {
 }
 
 export default function OrderViews(): JSX.Element {
-  const userId = useSelector((state: RootState) => state.auth.user?.id);
+  const user = useSelector((state: RootState) => state.auth.user);
+  const userrega = useSelector((state: RootState) => state.register.user);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm<IFormInput>();
+  console.log(userrega, user);
 
-  if (!userId) {
-    return <Navigate to="/login" />;
-  }
+  // if (!user) {
+  //   return <Navigate to="/login" />;
+  // }
+
+  // if (!userrega) {
+  //   return <Navigate to="/login" />;
+  // }
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const id = userId;
-    const dispatchResult = await dispatch(order({ ...data, user_id: id }));
+    const dispatchResult = await dispatch(order({ ...data, user_id: user?.id }));
     if (order.fulfilled.match(dispatchResult)) {
       navigate('/');
     }

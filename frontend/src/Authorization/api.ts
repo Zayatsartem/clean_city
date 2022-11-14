@@ -2,14 +2,14 @@ import User from '../types/UserTypes';
 import { Credentials } from './types';
 
 export async function user(): Promise<
-
-| {
-  exist: true;
-  user: User;
-}
-| {
-  exist: false;
-}> {
+  | {
+      exist: true;
+      user: User;
+    }
+  | {
+      exist: false;
+    }
+> {
   return (await fetch('/api/logout/user')).json();
 }
 
@@ -25,7 +25,8 @@ export async function login(credentials: Credentials): Promise<User> {
     const { message } = await response.json();
     throw new Error(message);
   }
-  return response.json();
+  const data = await response.json();
+  return data.user;
 }
 
 export async function logout(): Promise<void> {
