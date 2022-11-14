@@ -17,6 +17,7 @@ import OrderViews from '../Order/OrderViews';
 
 function Navbar(): JSX.Element {
   const user = useSelector((state: RootState) => state.auth.user);
+
   const dispatch = useAppDispatch();
   const authChecked = useSelector(selectAuthChecked);
   const navigate = useNavigate();
@@ -81,7 +82,6 @@ function Navbar(): JSX.Element {
         )}
       </nav>
       <Routes>
-
         <Route path="/registration" element={<RegistrationView />} />
         <Route path="/login" element={<Authorization />} />
         <Route path="/order" element={<OrderViews />} />

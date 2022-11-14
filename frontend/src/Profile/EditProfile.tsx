@@ -12,6 +12,7 @@ function EditProfile(): JSX.Element {
   const user = useSelector((state: RootState) => state.auth.user);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  console.log(user);
 
   function changeEmail(event: ChangeEvent<HTMLInputElement>): void {
     setEmail(event.target.value);
@@ -42,13 +43,19 @@ function EditProfile(): JSX.Element {
   }
 
   return (
-    <form onSubmit={editForm}>
+    <div className="form-edit">
+    {user ? (
+      <form onSubmit={editForm}>
       <h1 className="h1">{user?.name}, Вы можете изменить профиль</h1>
-      <input type="text" value={name} onChange={changeName} defaultValue={`${user?.name}`} />
-      <input type="text" value={telephone} onChange={changeTelephone} defaultValue={`${user?.telephone}`} />
-      <input type="text" value={email} onChange={changeEmail} defaultValue={`${user?.email}`} />
+      <input type="text" value={name} onChange={changeName} defaultValue={`${user?.name}`} placeholder="change-name" />
+      <input type="text" value={telephone} onChange={changeTelephone} defaultValue={`${user?.telephone}`} placeholder="change-telephone" />
+      <input type="text" value={email} onChange={changeEmail} defaultValue={`${user?.email}`} placeholder="change-email" />
       <button type="submit">Изменить</button>
-    </form>
+      </form>
+) : (
+      <h3>Чтобы изменить профиль, войдите в систему</h3>
+    )}
+    </div>
   );
 }
 

@@ -5,6 +5,8 @@ import User from '../types/UserTypes';
 import api from './api';
 import EditData, { EditState } from './profileTypes';
 
+// export const selectUser = (state: RootState): User | null | undefined => state.auth.user;
+
 export const initialUser: User = {
   id: 1,
   name: 'hello',
