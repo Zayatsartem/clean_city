@@ -18,23 +18,15 @@ interface IFormInput {
 }
 
 export default function OrderViews(): JSX.Element {
-  const user = useSelector((state: RootState) => state.auth.user);
-  const userrega = useSelector((state: RootState) => state.register.user);
+  const user = useSelector((state: RootState) => state.auth.user?.id);
+  // const userrega = useSelector((state: RootState) => state.register.user);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm<IFormInput>();
-  console.log(userrega, user);
-
-  // if (!user) {
-  //   return <Navigate to="/login" />;
-  // }
-
-  // if (!userrega) {
-  //   return <Navigate to="/login" />;
-  // }
+  console.log(user);
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const dispatchResult = await dispatch(order({ ...data, user_id: user?.id }));
+    const dispatchResult = await dispatch(order({ ...data, user_id: user }));
     if (order.fulfilled.match(dispatchResult)) {
       navigate('/');
     }

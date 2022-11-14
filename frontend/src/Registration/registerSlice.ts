@@ -10,9 +10,9 @@ const initialState: AuthState = {
   loginFormError: null,
 };
 
-export const getUser = createAsyncThunk('/user', () => api.user()); // проверка на есть ли юзер роутер написан на беке
+export const getUser = createAsyncThunk('user', () => api.user()); // проверка на есть ли юзер роутер написан на беке
 
-export const regist = createAsyncThunk('auth/register', async (data: RegisterData) => {
+export const regist = createAsyncThunk('register', async (data: RegisterData) => {
   if (!data.name.trim() || !data.password.trim() || !data.email.trim()) {
     throw new Error('Не все поля заполнены');
   }
@@ -33,6 +33,8 @@ const registerSlice = createSlice({
     builder
       .addCase(regist.fulfilled, (state, action) => {
         state.user = action.payload;
+        console.log(state.user);
+
         state.registerFormError = null;
       })
       .addCase(regist.rejected, (state, action) => {
