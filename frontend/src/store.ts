@@ -5,7 +5,11 @@ import { useDispatch } from 'react-redux';
 import registerSlice from './Registration/registerSlice';
 import adminSlice from './Admin/Adminslice';
 import authSlice from './Authorization/authSlice';
+
 import editingSlice from './Profile/editingSlice';
+
+import orderSlice from './Order/orderSlice';
+
 
 const store = configureStore({
   // теперь функция combineReducers не нужна
@@ -13,6 +17,7 @@ const store = configureStore({
     register: registerSlice,
     auth: authSlice,
     editing: editingSlice,
+    order: orderSlice,
     admin: adminSlice,
   },
 });

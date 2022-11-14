@@ -10,8 +10,12 @@ import './styles.css';
 import Admin from '../Admin/Admin';
 import { selectAuthChecked } from '../Authorization/selectors';
 
+
 import ProfileNavbar from './ProfileNavbar';
-// import {} from '../store';
+
+import OrderViews from '../Order/OrderViews';
+
+
 
 
 function Navbar(): JSX.Element {
@@ -84,7 +88,11 @@ function Navbar(): JSX.Element {
       <Routes>
         <Route path="/registration" element={<RegistrationView />} />
         <Route path="/login" element={<Authorization />} />
+
+        <Route path="/order" element={<OrderViews />} />
+
         <Route path="/admin" element={<Admin />} />
+
       </Routes>
     </>
   );
