@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../store';
-import { regist } from './registerSlice';
+import { regist } from '../Authorization/authSlice';
 import { selectRegisterFormError } from './selectors';
 import './styles.css';
 
