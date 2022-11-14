@@ -11,7 +11,6 @@ import editingSlice from './Profile/editingSlice';
 
 import orderSlice from './Order/orderSlice';
 
-
 const store = configureStore({
   // теперь функция combineReducers не нужна
   reducer: {
