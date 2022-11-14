@@ -48,14 +48,15 @@ function Navbar(): JSX.Element {
             </Link>
 
             <ProfileNavbar />
-            {user?.admin ?
-              (
-                <Link className="links" to="/admin">Личный кабинет администратора
-                </Link>
-              ) : (
-                <Link className="links" to="/profile">Личный кабинет
-                </Link>
-              )}
+            {user?.admin ? (
+              <Link className="links" to="/admin">
+                Личный кабинет администратора
+              </Link>
+            ) : (
+              <Link className="links" to="/profile">
+                Личный кабинет
+              </Link>
+            )}
 
             <button className="button-logout" type="button" onClick={handleLogout}>
               Выйти
@@ -81,7 +82,6 @@ function Navbar(): JSX.Element {
         <Route path="/order" element={<OrderViews />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/" element={<Main />} />
-
       </Routes>
     </>
   );
