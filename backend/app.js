@@ -21,7 +21,7 @@ app.use(express.static(frontendDir));
 app.use('/api/login', loginRouter);
 app.use('/api/logout', logoutRouter);
 app.use('/api/register', registrationRouter);
-app.use('api/profile', profileRouter)
+app.use('/api/profile', profileRouter);
 
 app.get('*', (req, res) => res.redirect('/'));
 

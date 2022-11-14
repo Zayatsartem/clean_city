@@ -13,9 +13,9 @@ function App(): JSX.Element {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/login" element={<Authorization />} />
-        <Route path="/registration" element={<RegistrationView />} />
-        <Route path="/profile/edit" element={<EditProfile />} />
+<Route path="/login" element={<Authorization />} />
+<Route path="/registration" element={<RegistrationView />} />
+  <Route path="/profile/edit" element={<EditProfile />} />
 
       </Routes>
     </BrowserRouter>

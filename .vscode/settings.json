@@ -1,7 +1,7 @@
 {
-    "eslint.workingDirectories": [
-        "frontend",
-        "backend"
-    ],
-    "editor.tabSize": 2
+  "eslint.workingDirectories": [
+    "frontend",
+    "backend"
+  ],
+  "editor.tabSize": 2
 }

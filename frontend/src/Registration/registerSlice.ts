@@ -1,12 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import * as api from './api';
 import RegisterData from './RegisterData';
-import RegaState from './RegaState';
+import { AuthState } from '../Authorization/types';
 
-const initialState: RegaState = {
+const initialState: AuthState = {
   authChecked: false,
   user: null,
   registerFormError: null,
+  loginFormError: null,
 };
 
 export const getUser = createAsyncThunk('/user', () => api.user()); // проверка на есть ли юзер роутер написан на беке
