@@ -6,20 +6,22 @@ import RegistrationView from '../Registration/RegistrationView';
 import Authorization from '../Authorization/Authorization';
 import { useAppDispatch, RootState } from '../store';
 import { logout, getUser } from '../Authorization/authSlice';
-
 import './styles.css';
+import Admin from '../Admin/Admin';
 import { selectAuthChecked } from '../Authorization/selectors';
+
 import OrderViews from '../Order/OrderViews';
 // import {} from '../store';
+=======
+
 
 function Navbar(): JSX.Element {
   const user = useSelector((state: RootState) => state.auth.user);
-  const userega = useSelector((state: RootState) => state.register.user);
 
+  const userega = useSelector((state: RootState) => state.register.user);
   const dispatch = useAppDispatch();
   const authChecked = useSelector(selectAuthChecked);
   const navigate = useNavigate();
-
   React.useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
@@ -34,7 +36,6 @@ function Navbar(): JSX.Element {
 
   async function handleLogout(): Promise<void> {
     await dispatch(logout());
-
     navigate('/');
   }
 
@@ -49,9 +50,14 @@ function Navbar(): JSX.Element {
             <Link className="links" to="/order">
               Сделать заказ
             </Link>
-            <Link className="links" to="/profile">
-              Личный кабинет
-            </Link>
+            {user?.admin || userega?.admin ?
+              (
+                <Link className="links" to="/admin">Личный кабинет администратора
+                </Link>
+              ) : (
+                <Link className="links" to="/profile">Личный кабинет
+                </Link>
+              )}
             <button className="button-logout" type="button" onClick={handleLogout}>
               Выйти
             </button>
@@ -76,7 +82,11 @@ function Navbar(): JSX.Element {
       <Routes>
         <Route path="/registration" element={<RegistrationView />} />
         <Route path="/login" element={<Authorization />} />
+
         <Route path="/order" element={<OrderViews />} />
+
+        <Route path="/admin" element={<Admin />} />
+
       </Routes>
     </>
   );

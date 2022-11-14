@@ -23,8 +23,10 @@ function ssr(req, res, next) {
 
 // локальные переменные
 const resLocals = (req, res, next) => {
-  res.locals.userId = req.session.userId;
-
+  if (req.session.adminId) {
+    res.locals.userId = req.session.adminId;
+  }
+  res.locals.userId = req.session.adminId;
   next();
 };
 

@@ -30,9 +30,6 @@ const registerSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // 332 так изменяется стэйт если вернулась ошибка
-
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .addCase(regist.fulfilled, (state, action) => {
         state.user = action.payload;
         state.registerFormError = null;

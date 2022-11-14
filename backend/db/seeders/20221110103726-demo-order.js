@@ -11,6 +11,16 @@ module.exports = {
       address: 'Санкт-Петербург, Дворцовая пл.',
       createdAt: new Date(),
       updatedAt: new Date(),
+    },{
+      user_id: 1,
+      rooms: 2,
+      bathrooms: 1,
+      date: '10.11.2022',
+      time: '14:00',
+      status: 'new',
+      address: 'Санкт-Петербург, Дворцовая пл.',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     }], {});
   },
 
