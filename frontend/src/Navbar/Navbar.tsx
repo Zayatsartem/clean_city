@@ -11,13 +11,9 @@ import Admin from '../Admin/Admin';
 import { selectAuthChecked } from '../Authorization/selectors';
 import Main from '../Main/Main';
 
-
 import ProfileNavbar from './ProfileNavbar';
 
 import OrderViews from '../Order/OrderViews';
-
-
-
 
 function Navbar(): JSX.Element {
   const user = useSelector((state: RootState) => state.auth.user);
@@ -56,14 +52,15 @@ function Navbar(): JSX.Element {
             </Link>
 
             <ProfileNavbar />
-            {user?.admin ?
-              (
-                <Link className="links" to="/admin">Личный кабинет администратора
-                </Link>
-              ) : (
-                <Link className="links" to="/profile">Личный кабинет
-                </Link>
-              )}
+            {user?.admin ? (
+              <Link className="links" to="/admin">
+                Личный кабинет администратора
+              </Link>
+            ) : (
+              <Link className="links" to="/profile">
+                Личный кабинет
+              </Link>
+            )}
 
             <button className="button-logout" type="button" onClick={handleLogout}>
               Выйти
@@ -87,7 +84,6 @@ function Navbar(): JSX.Element {
         )}
       </nav>
       <Routes>
-      
         <Route path="/registration" element={<RegistrationView />} />
         <Route path="/login" element={<Authorization />} />
 
@@ -96,7 +92,6 @@ function Navbar(): JSX.Element {
         <Route path="/admin" element={<Admin />} />
 
         <Route path="/" element={<Main />} />
-
       </Routes>
     </>
   );
