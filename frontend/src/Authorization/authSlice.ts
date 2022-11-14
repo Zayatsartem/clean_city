@@ -1,12 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AuthState, Credentials } from './types';
 import * as api from './api';
+import * as apiReg from '../Registration/apiReg';
+import RegisterData from '../Registration/RegisterData';
+
 // import { RootState } from '../store';
 
 const initialState: AuthState = {
   authChecked: false,
   user: null,
   loginFormError: null,
+  registerFormError: null
 };
 
 export const getUser = createAsyncThunk('user', () => api.user());
@@ -20,12 +24,23 @@ export const login = createAsyncThunk('login', async (credentials: Credentials) 
 
 export const logout = createAsyncThunk('logout', api.logout);
 
+export const regist = createAsyncThunk('auth/register', async (data: RegisterData) => {
+  if (!data.name.trim() || !data.password.trim() || !data.email.trim()) {
+    throw new Error('Не все поля заполнены');
+  }
+
+  return apiReg.register(data);
+});
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
     resetLoginFormError: (state) => {
       state.loginFormError = null;
+    },
+    resetRegisterFormError: (state) => {
+      state.registerFormError = null;
     },
   },
   extraReducers: (builder) => {
@@ -43,10 +58,14 @@ const authSlice = createSlice({
     })
     .addCase(logout.fulfilled, (state) => {
       state.user = null;
+    })
+    .addCase(regist.fulfilled, (state, action) => {
+      state.user = action.payload;
+      state.registerFormError = null;
+    })
+    .addCase(regist.rejected, (state, action) => {
+      state.registerFormError = action.error.message;
     });
-    // .addCase(logout.rejected, (state) => {
-    //   state.user = null;
-    // });
   }
 });
 

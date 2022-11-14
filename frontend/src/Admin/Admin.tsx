@@ -11,6 +11,7 @@ import { loadComments, loadNewOrders, loadWIPOrders } from './Adminslice';
 
 function Admin(): JSX.Element {
   const user = useSelector((state: RootState) => state.auth.user);
+
   const dispatch = useAppDispatch();
   // const navigate = useNavigate();
   useEffect(() => {

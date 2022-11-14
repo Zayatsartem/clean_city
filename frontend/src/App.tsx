@@ -1,27 +1,32 @@
 import React from 'react';
 
+import { BrowserRouter } from 'react-router-dom';
+
+import './App.css';
+
+
 import {
   BrowserRouter
 } from 'react-router-dom';
 
 import './App.css';
+
 import Footer from './Footer/Footer';
 // import Authorization from './Authorization/Authorization';
+
 import Navbar from './Navbar/Navbar';
 
-// import EditProfile from './Profile/EditProfile';
-// import RegistrationView from './Registration/RegistrationView';
+import EditProfile from './Profile/EditProfile';
 
 function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Navbar />
-      {/* <Routes>
-        <Route path="/login" element={<Authorization />} />
-        <Route path="/registration" element={<RegistrationView />} />
+      <Routes>
         <Route path="/profile/edit" element={<EditProfile />} />
-      </Routes> */}
+      </Routes>
       <Footer />
+
     </BrowserRouter>
   );
 }
