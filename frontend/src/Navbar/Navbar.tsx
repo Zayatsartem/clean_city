@@ -9,6 +9,7 @@ import { logout, getUser } from '../Authorization/authSlice';
 import './styles.css';
 import Admin from '../Admin/Admin';
 import { selectAuthChecked } from '../Authorization/selectors';
+import Main from '../Main/Main';
 
 
 import ProfileNavbar from './ProfileNavbar';
@@ -86,12 +87,15 @@ function Navbar(): JSX.Element {
         )}
       </nav>
       <Routes>
+      
         <Route path="/registration" element={<RegistrationView />} />
         <Route path="/login" element={<Authorization />} />
 
         <Route path="/order" element={<OrderViews />} />
 
         <Route path="/admin" element={<Admin />} />
+
+        <Route path="/" element={<Main />} />
 
       </Routes>
     </>

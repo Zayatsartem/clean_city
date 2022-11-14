@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import registerSlice from './Registration/registerSlice';
 import adminSlice from './Admin/Adminslice';
 import authSlice from './Authorization/authSlice';
+import mainSlice from './Main/mainSlice';
 
 import editingSlice from './Profile/editingSlice';
 
@@ -19,6 +20,7 @@ const store = configureStore({
     editing: editingSlice,
     order: orderSlice,
     admin: adminSlice,
+    main: mainSlice,
   },
 });
 

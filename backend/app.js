@@ -14,6 +14,7 @@ const profileRouter = require('./routes/profileRouter');
 const orderRouter = require('./routes/orderRouter');
 
 const adminRouter = require('./routes/adminRouter');
+const mainRouter = require('./routes/mainRouter');
 
 
 const app = express();
@@ -34,6 +35,7 @@ app.use('/api/order', orderRouter);
 
 
 app.use('/api/admin', adminRouter);
+app.use('/api/main', mainRouter);
 
 
 app.get('*', (req, res) => res.redirect('/'));

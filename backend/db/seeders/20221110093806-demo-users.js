@@ -7,11 +7,11 @@ module.exports = {
       'Users',
       [
         {
-          name: 'Test',
-          email: 'test@mail.com',
-          password: await bcrypt.hash('12345678', 10),
-          telephone: '+79801234567',
-          admin: true,
+          name: process.env.DEMO_USER_NAME,
+          email: process.env.DEMO_USER_EMAIL,
+          password: await bcrypt.hash(process.env.DEMO_USER_PASSWORD, 10),
+          telephone: process.env.DEMO_USER_TELEPHONE,
+          admin: process.env.DEMO_USER_ADMIN,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

@@ -14,10 +14,10 @@ import RegistrationView from './Registration/RegistrationView';
 import CallForm from './Main/CallForm';
 
 
+
 function App(): JSX.Element {
   return (
     <BrowserRouter>
-
       <Navbar />
       <Routes>
 <Route path="/login" element={<Authorization />} />
