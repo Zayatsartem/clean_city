@@ -8,6 +8,9 @@ router.get('/user', async (req, res) => {
       user: {
         id: user.id,
         email: user.email,
+        name: user.name,
+        telephone: user.telephone,
+        admin: user.admin,
       },
     });
   } else {

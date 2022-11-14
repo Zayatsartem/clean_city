@@ -18,7 +18,7 @@ export const initialUser: User = {
 
 export const initialState: EditState = {
   user: initialUser,
-  editFormError: null
+  editFormError: null,
 };
 
 export const editProfile = createAsyncThunk('edit', async (data: EditData) => api.editProfile(data));
@@ -35,6 +35,7 @@ const editingSlice = createSlice({
     builder
     .addCase(editProfile.fulfilled, (state, action) => {
       state.user = action.payload;
+      state.editFormError = 'Профиль успешно изменен';
     })
     .addCase(editProfile.rejected, (state, action) => {
       state.editFormError = action.error.message || 'Ошибка изменения профиля';
