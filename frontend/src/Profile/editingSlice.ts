@@ -1,6 +1,6 @@
-import {
-  createAsyncThunk, createSlice,
-} from '@reduxjs/toolkit';
+
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
 import User from '../types/UserTypes';
 import api from './api';
 import EditData, { EditState } from './profileTypes';
@@ -18,10 +18,12 @@ export const initialUser: User = {
 
 export const initialState: EditState = {
   user: initialUser,
-  editFormError: null
+  editFormError: null,
 };
 
-export const editProfile = createAsyncThunk('edit', async (data: EditData) => api.editProfile(data));
+export const editProfile = createAsyncThunk('edit', async (data: EditData) =>
+  api.editProfile(data)
+);
 
 const editingSlice = createSlice({
   name: 'edit',
