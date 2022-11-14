@@ -1,4 +1,6 @@
+
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
 import User from '../types/UserTypes';
 import api from './api';
 import EditData, { EditState } from './profileTypes';
@@ -9,7 +11,7 @@ export const initialUser: User = {
   email: 'vyscgy@isc',
   telephone: '673748',
   password: '3u3ru',
-  admin: false,
+  admin: true,
 };
 
 export const initialState: EditState = {

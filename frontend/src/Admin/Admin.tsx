@@ -11,8 +11,6 @@ import { loadComments, loadNewOrders, loadWIPOrders } from './Adminslice';
 
 function Admin(): JSX.Element {
   const user = useSelector((state: RootState) => state.auth.user);
-  const userega = useSelector((state: RootState) => state.register.user);
-
   const dispatch = useAppDispatch();
   // const navigate = useNavigate();
   useEffect(() => {
@@ -23,7 +21,7 @@ function Admin(): JSX.Element {
 
   return (
    <>
-      {(user?.admin || userega?.admin) ? (
+      {(user?.admin) ? (
 
         <div>
           <NewOrders />
