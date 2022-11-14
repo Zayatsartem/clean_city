@@ -11,18 +11,13 @@ import Admin from '../Admin/Admin';
 import { selectAuthChecked } from '../Authorization/selectors';
 import Main from '../Main/Main';
 
-
 import ProfileNavbar from './ProfileNavbar';
 
 import OrderViews from '../Order/OrderViews';
 
-
-
-
 function Navbar(): JSX.Element {
   const user = useSelector((state: RootState) => state.auth.user);
 
-  const userega = useSelector((state: RootState) => state.register.user);
   const dispatch = useAppDispatch();
   const authChecked = useSelector(selectAuthChecked);
   const navigate = useNavigate();
@@ -46,7 +41,7 @@ function Navbar(): JSX.Element {
   return (
     <>
       <nav className="nav">
-        {user || userega ? (
+        {user ? (
           <>
             <Link className="links" type="button" to="/">
               Главная
@@ -87,7 +82,6 @@ function Navbar(): JSX.Element {
         )}
       </nav>
       <Routes>
-      
         <Route path="/registration" element={<RegistrationView />} />
         <Route path="/login" element={<Authorization />} />
 
