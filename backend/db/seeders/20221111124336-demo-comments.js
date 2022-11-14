@@ -4,15 +4,15 @@ module.exports = {
     await queryInterface.bulkInsert('Comments', [{
       user_id: 1,
       order_id: 2,
-      title: 'Хочу чтобы было чисто',
+      title: 'Сделали все очень супер! Оформлю подписку',
       status: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
       user_id: 1,
       order_id: 1,
-      title: 'Люблю погрязнее, но не в этот раз',
-      status: false,
+      title: 'Люблю погрязнее, но не в этот раз. И ребята справились с задачей на все 100!',
+      status: true,
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});

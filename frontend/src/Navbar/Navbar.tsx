@@ -9,6 +9,7 @@ import { logout, getUser } from '../Authorization/authSlice';
 import './styles.css';
 import Admin from '../Admin/Admin';
 import { selectAuthChecked } from '../Authorization/selectors';
+import Main from '../Main/Main';
 
 function Navbar(): JSX.Element {
   const user = useSelector((state: RootState) => state.auth.user);
@@ -78,6 +79,7 @@ function Navbar(): JSX.Element {
         <Route path="/registration" element={<RegistrationView />} />
         <Route path="/login" element={<Authorization />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/" element={<Main />} />
       </Routes>
     </>
   );
