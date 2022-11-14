@@ -27,5 +27,6 @@ export async function register(data: RegisterData): Promise<User> {
     throw error;
   }
 
-  return res.json();
+  const data1 = await res.json();
+  return data1.user;
 }

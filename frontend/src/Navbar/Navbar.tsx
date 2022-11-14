@@ -10,6 +10,11 @@ import './styles.css';
 import Admin from '../Admin/Admin';
 import { selectAuthChecked } from '../Authorization/selectors';
 
+import OrderViews from '../Order/OrderViews';
+// import {} from '../store';
+=======
+
+
 function Navbar(): JSX.Element {
   const user = useSelector((state: RootState) => state.auth.user);
 
@@ -77,7 +82,11 @@ function Navbar(): JSX.Element {
       <Routes>
         <Route path="/registration" element={<RegistrationView />} />
         <Route path="/login" element={<Authorization />} />
+
+        <Route path="/order" element={<OrderViews />} />
+
         <Route path="/admin" element={<Admin />} />
+
       </Routes>
     </>
   );
