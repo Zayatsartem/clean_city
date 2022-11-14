@@ -1,11 +1,12 @@
 import React from 'react';
 
 import {
-  BrowserRouter, Routes, Route
+  BrowserRouter
 } from 'react-router-dom';
 
 import './App.css';
 import Navbar from './Navbar/Navbar';
+
 import EditProfile from './Profile/EditProfile';
 
 function App(): JSX.Element {
