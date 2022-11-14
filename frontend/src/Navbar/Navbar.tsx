@@ -6,20 +6,21 @@ import RegistrationView from '../Registration/RegistrationView';
 import Authorization from '../Authorization/Authorization';
 import { useAppDispatch, RootState } from '../store';
 import { logout, getUser } from '../Authorization/authSlice';
-
 import './styles.css';
+import Admin from '../Admin/Admin';
 import { selectAuthChecked } from '../Authorization/selectors';
+
 import ProfileNavbar from './ProfileNavbar';
 // import {} from '../store';
 
-function Navbar():JSX.Element {
-  const user = useSelector((state: RootState) => state.auth.user);
-  const userega = useSelector((state: RootState) => state.register.user);
 
+function Navbar(): JSX.Element {
+  const user = useSelector((state: RootState) => state.auth.user);
+
+  const userega = useSelector((state: RootState) => state.register.user);
   const dispatch = useAppDispatch();
   const authChecked = useSelector(selectAuthChecked);
   const navigate = useNavigate();
-
   React.useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
@@ -34,7 +35,6 @@ function Navbar():JSX.Element {
 
   async function handleLogout(): Promise<void> {
     await dispatch(logout());
-
     navigate('/');
   }
 
@@ -49,7 +49,17 @@ function Navbar():JSX.Element {
             <Link className="links" to="/order">
               Сделать заказ
             </Link>
+
             <ProfileNavbar />
+            {user?.admin ?
+              (
+                <Link className="links" to="/admin">Личный кабинет администратора
+                </Link>
+              ) : (
+                <Link className="links" to="/profile">Личный кабинет
+                </Link>
+              )}
+
             <button className="button-logout" type="button" onClick={handleLogout}>
               Выйти
             </button>
@@ -74,6 +84,7 @@ function Navbar():JSX.Element {
       <Routes>
         <Route path="/registration" element={<RegistrationView />} />
         <Route path="/login" element={<Authorization />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </>
   );

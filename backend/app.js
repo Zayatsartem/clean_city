@@ -8,7 +8,11 @@ const { sequelize } = require('./db/models');
 const loginRouter = require('./routes/loginRouter');
 const logoutRouter = require('./routes/logoutRouter');
 const registrationRouter = require('./routes/regoRoute');
+
 const profileRouter = require('./routes/profileRouter');
+
+const adminRouter = require('./routes/adminRouter');
+
 
 const app = express();
 const PORT = process.env.PORT ?? 4000;
@@ -21,7 +25,11 @@ app.use(express.static(frontendDir));
 app.use('/api/login', loginRouter);
 app.use('/api/logout', logoutRouter);
 app.use('/api/register', registrationRouter);
+
 app.use('/api/profile', profileRouter);
+
+app.use('/api/admin', adminRouter);
+
 
 app.get('*', (req, res) => res.redirect('/'));
 
