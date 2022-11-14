@@ -9,11 +9,10 @@ import { logout, getUser } from '../Authorization/authSlice';
 
 import './styles.css';
 import { selectAuthChecked } from '../Authorization/selectors';
+import ProfileNavbar from './ProfileNavbar';
 // import {} from '../store';
 
-
 function Navbar():JSX.Element {
-
   const user = useSelector((state: RootState) => state.auth.user);
   const userega = useSelector((state: RootState) => state.register.user);
 
@@ -50,9 +49,7 @@ function Navbar():JSX.Element {
             <Link className="links" to="/order">
               Сделать заказ
             </Link>
-            <Link className="links" to="/profile">
-              Личный кабинет
-            </Link>
+            <ProfileNavbar />
             <button className="button-logout" type="button" onClick={handleLogout}>
               Выйти
             </button>
