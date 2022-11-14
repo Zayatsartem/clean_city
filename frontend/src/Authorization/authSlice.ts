@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AuthState, Credentials } from './types';
 import * as api from './api';
 import * as apiReg from '../Registration/apiReg';
+import apiProfile from '../Profile/apiProfileOrders';
 import RegisterData from '../Registration/RegisterData';
 
 // import { RootState } from '../store';
@@ -10,7 +11,8 @@ const initialState: AuthState = {
   authChecked: false,
   user: null,
   loginFormError: null,
-  registerFormError: null
+  registerFormError: null,
+  orders: null,
 };
 
 export const getUser = createAsyncThunk('user', () => api.user());
@@ -31,6 +33,8 @@ export const regist = createAsyncThunk('auth/register', async (data: RegisterDat
 
   return apiReg.register(data);
 });
+
+export const getOrders = createAsyncThunk('getOrder', async () => apiProfile.getOrders());
 
 const authSlice = createSlice({
   name: 'auth',
@@ -64,6 +68,12 @@ const authSlice = createSlice({
       state.registerFormError = null;
     })
     .addCase(regist.rejected, (state, action) => {
+      state.registerFormError = action.error.message;
+    })
+    .addCase(getOrders.fulfilled, (state, action) => {
+      state.orders = action.payload;
+    })
+    .addCase(getOrders.rejected, (state, action) => {
       state.registerFormError = action.error.message;
     });
   }

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import RegistrationView from '../Registration/RegistrationView';
 import Authorization from '../Authorization/Authorization';
 import { useAppDispatch, RootState } from '../store';
-import { logout, getUser } from '../Authorization/authSlice';
+import { logout } from '../Authorization/authSlice';
 import './styles.css';
 import Admin from '../Admin/Admin';
 import { selectAuthChecked } from '../Authorization/selectors';
@@ -16,14 +16,11 @@ import ProfileNavbar from './ProfileNavbar';
 import OrderViews from '../Order/OrderViews';
 
 function Navbar(): JSX.Element {
-  const user = useSelector((state: RootState) => state.auth.user);
-
   const dispatch = useAppDispatch();
+  const user = useSelector((state: RootState) => state.auth.user);
+  console.log(user);
   const authChecked = useSelector(selectAuthChecked);
   const navigate = useNavigate();
-  React.useEffect(() => {
-    dispatch(getUser());
-  }, [dispatch]);
 
   if (!authChecked) {
     return (
@@ -69,9 +66,6 @@ function Navbar(): JSX.Element {
           <>
             <Link className="links" type="button" to="/">
               Главная
-            </Link>
-            <Link className="links" to="/order">
-              Сделать заказ
             </Link>
             <Link className="links" to="/registration">
               Регистрация

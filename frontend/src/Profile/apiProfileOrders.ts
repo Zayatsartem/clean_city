@@ -1,3 +1,4 @@
+import Order from '../types/OrderTypes';
 import User from '../types/UserTypes';
 import EditData from './profileTypes';
 
@@ -17,6 +18,13 @@ export async function editProfile(data: EditData): Promise<User> {
   return content;
 }
 
+export async function getOrders(): Promise<Order[]> {
+  const response = await fetch('/api/profile/orders');
+  const data = await response.json();
+  return data.orders;
+}
+
 export default {
-  editProfile
+  editProfile,
+  getOrders,
 };
