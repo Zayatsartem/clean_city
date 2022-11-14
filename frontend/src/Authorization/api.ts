@@ -25,7 +25,8 @@ export async function login(credentials: Credentials): Promise<User> {
     const { message } = await response.json();
     throw new Error(message);
   }
-  return response.json();
+  const data = await response.json();
+  return data.user;
 }
 
 export async function logout(): Promise<void> {
