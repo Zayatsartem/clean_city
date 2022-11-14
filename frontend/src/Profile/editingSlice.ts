@@ -1,5 +1,5 @@
 import {
- createAsyncThunk, createSlice,
+  createAsyncThunk, createSlice,
 } from '@reduxjs/toolkit';
 import User from '../types/UserTypes';
 import api from './api';
@@ -11,6 +11,7 @@ export const initialUser: User = {
   email: 'vyscgy@isc',
   telephone: '673748',
   password: '3u3ru',
+  admin: true,
 };
 
 export const initialState: EditState = {
@@ -30,12 +31,12 @@ const editingSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-    .addCase(editProfile.fulfilled, (state, action) => {
-      state.user = action.payload;
-    })
-    .addCase(editProfile.rejected, (state, action) => {
-      state.editFormError = action.error.message || 'Ошибка изменения профиля';
-    });
+      .addCase(editProfile.fulfilled, (state, action) => {
+        state.user = action.payload;
+      })
+      .addCase(editProfile.rejected, (state, action) => {
+        state.editFormError = action.error.message || 'Ошибка изменения профиля';
+      });
   },
 });
 
