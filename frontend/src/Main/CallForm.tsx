@@ -7,10 +7,15 @@ import './CallForm.scss';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../store';
+import { requestTelegram } from './mainSlice';
+import { getMessage } from './selectors';
 
 function CallForm(): JSX.Element {
-  // const dispatch = useAppDispatch();
+  const message = useSelector(getMessage);
+  console.log(message);
+  const dispatch = useAppDispatch();
   const [rooms, setRooms] = React.useState('');
   const [bathrooms, setBathrooms] = React.useState('');
   const [phone, setPhone] = React.useState('+7');
@@ -25,7 +30,7 @@ function CallForm(): JSX.Element {
   };
   const handelRequest = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    console.log(rooms, bathrooms, phone);
+    dispatch(requestTelegram({ rooms, bathrooms, phone }));
   };
   // const send = (event: React.MouseEvent<HTMLElement>): void => {
   //   //setPhone(event.target.value);
@@ -89,6 +94,7 @@ function CallForm(): JSX.Element {
         <Button type="submit" variant="contained">
           Рассчитать стоимость
         </Button>
+        <div className="errDiv">{message}</div>
       </form>
     </>
   );

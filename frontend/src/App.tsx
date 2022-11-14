@@ -1,14 +1,5 @@
 import React from 'react';
-
-import { BrowserRouter } from 'react-router-dom';
-
-import './App.css';
-
-
-import {
-  BrowserRouter
-} from 'react-router-dom';
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 
 import Footer from './Footer/Footer';
@@ -26,7 +17,6 @@ function App(): JSX.Element {
         <Route path="/profile/edit" element={<EditProfile />} />
       </Routes>
       <Footer />
-
     </BrowserRouter>
   );
 }
