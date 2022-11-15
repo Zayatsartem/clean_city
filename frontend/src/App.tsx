@@ -10,6 +10,7 @@ import Services from './Services/Services';
 import EditProfile from './Profile/EditProfile';
 import ProfileOrders from './Profile/ProfileOrders';
 import { useAppDispatch } from './store';
+import CommentForm from './Comments/CommentForm';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -20,10 +21,11 @@ function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Navbar />
-      <Services />
       <Routes>
+      <Route path="/" element={<Services />} />
         <Route path="/profile/edit" element={<EditProfile />} />
         <Route path="/profile/orders" element={<ProfileOrders />} />
+        <Route path="/profile/comment/:orderId" element={<CommentForm />} />
       </Routes>
       <Footer />
     </BrowserRouter>

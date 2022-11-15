@@ -16,6 +16,8 @@ const orderRouter = require('./routes/orderRouter');
 const adminRouter = require('./routes/adminRouter');
 const mainRouter = require('./routes/mainRouter');
 
+const commentRouter = require('./routes/commentRouter');
+
 const app = express();
 const PORT = process.env.PORT ?? 4000;
 config(app);
@@ -32,10 +34,9 @@ app.use('/api/profile', profileRouter);
 
 app.use('/api/order', orderRouter);
 
-
 app.use('/api/admin', adminRouter);
 app.use('/api/main', mainRouter);
-
+app.use('/api/comment', commentRouter);
 
 app.get('*', (req, res) => res.redirect('/'));
 
