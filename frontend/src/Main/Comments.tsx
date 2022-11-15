@@ -13,6 +13,7 @@ function Comments(): JSX.Element {
   }, [dispatch]);
   return (
     <>
+    <h2>Отзывы пользователей</h2>
       {approvedComments.map((comment) => <Comment comment={comment} key={comment.id} />)}
     </>
   );

@@ -1,9 +1,10 @@
 import User from '../types/UserTypes';
 
 export default interface EditData {
-  name: string,
-  email: string,
-  telephone: string
+  id:number | undefined,
+  name: string | undefined,
+  email: string | undefined,
+  telephone: string | undefined,
 }
 export interface EditState {
   user: User,

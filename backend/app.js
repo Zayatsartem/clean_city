@@ -16,7 +16,6 @@ const orderRouter = require('./routes/orderRouter');
 const adminRouter = require('./routes/adminRouter');
 const mainRouter = require('./routes/mainRouter');
 
-
 const app = express();
 const PORT = process.env.PORT ?? 4000;
 config(app);
