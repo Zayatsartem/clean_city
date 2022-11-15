@@ -1,5 +1,5 @@
-import User from '../types/UserTypes';
-import Order from '../types/OrderTypes';
+import User from './UserTypes';
+import Order from './OrderTypes';
 
 export interface Credentials {
   email: string;
@@ -18,3 +18,5 @@ export interface EditingState {
   user: User;
   editFormError: string | null | undefined;
 }
+
+export type LoginError = undefined | string | null;
