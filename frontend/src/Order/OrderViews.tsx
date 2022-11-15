@@ -32,10 +32,10 @@ export default function OrderViews(): JSX.Element {
   } = useForm<IFormInput>();
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-
     const dispatchResult = await dispatch(order({ ...data, user_id: user?.id }));
     if (order.fulfilled.match(dispatchResult)) {
       navigate('/');
+      reset();
     }
   };
 
