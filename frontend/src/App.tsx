@@ -12,6 +12,9 @@ import AuthForm from './Authorization/AuthForm';
 import Main from './Main/Main';
 import OrderForm from './Order/OrderForm';
 import RegisterForm from './Registration/RegisterForm';
+import Contacts from './Contacts/Contacts';
+import CostOfCleaning from './CostOfCleaning /CostOfCleaning';
+import Services from './Services/Services';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -29,6 +32,9 @@ function App(): JSX.Element {
         <Route path="/login" element={<AuthForm />} />
         <Route path="/order" element={<OrderForm />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/costOfCleaning " element={<CostOfCleaning />} />
+        <Route path="/services " element={<Services />} />
         <Route path="/" element={<Main />} />
       </Routes>
       <Footer />

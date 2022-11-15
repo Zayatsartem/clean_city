@@ -1,6 +1,4 @@
-
 import OrderTelegram, { FreeOrderTelegram } from '../types/OrderTelegram';
-
 
 /* eslint-disable-next-line import/prefer-default-export */
 export async function requestTelegram(data: OrderTelegram): Promise<{ message: string }> {
