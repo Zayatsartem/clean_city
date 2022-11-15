@@ -18,30 +18,27 @@ router.get('/comments', async (req, res) => {
 router.post('/request', async (req, res) => {
   const br = '%0A';
   const { CHAT_ID, BOT } = process.env;
+  const isStandartOrder = req.body.rooms && req.body.bathrooms;
+
+  if (isStandartOrder) {
+    const { rooms, bathrooms, phone } = req.body;
+    res.locals.text = `${rooms} квартира ${br}${bathrooms} ${br}Телефон: ${phone}`;
+  }
+
+  if (!isStandartOrder) {
+    const { phone, comment } = req.body;
+    res.locals.text = `Телефон: ${phone}${br}Комментарий: ${comment}`;
+  }
+
   try {
-    if (req.body.rooms && req.body.bathrooms) {
-      const { rooms, bathrooms, phone } = req.body;
-      const text = `${rooms} квартира ${br}${bathrooms} ${br}Телефон: ${phone}`;
-      await fetch(
-        `https://api.telegram.org/bot${BOT}/sendMessage?chat_id=${CHAT_ID}&parse_mode=HTML&text=${text}`
-      );
-      res.json({
-        message:
-          'Ваша заявка принята. В ближайшее время с вами свяжется менеджер чтобы уточнить детали заказа',
-      });
-    } else {
-      const { phone, comment } = req.body;
-      const text = `Телефон: ${phone}${br}Комментарий: ${comment}`;
-      await fetch(
-        `https://api.telegram.org/bot${BOT}/sendMessage?chat_id=${CHAT_ID}&parse_mode=HTML&text=${text}`
-      );
-      res.json({
-        message:
-          'Ваша заявка принята. В ближайшее время с вами свяжется менеджер чтобы уточнить детали заказа',
-      });
-    }
+    const url = `https://api.telegram.org/bot${BOT}/sendMessage?chat_id=${CHAT_ID}&parse_mode=HTML&text=${res.locals.text}`;
+    await fetch(url);
+    return res.json({
+      message:
+        'Ваша заявка принята. В ближайшее время с вами свяжется менеджер чтобы уточнить детали заказа',
+    });
   } catch (error) {
-    res.status(500).json({ message: 'Что-то пошло не так' });
+    return res.status(500).json({ message: 'Что-то пошло не так' });
   }
 });
 module.exports = router;
