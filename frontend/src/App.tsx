@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import Footer from './Footer/Footer';
 import { getUser } from './Authorization/authSlice';
 import './App.css';

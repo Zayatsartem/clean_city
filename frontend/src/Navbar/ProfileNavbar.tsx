@@ -8,6 +8,8 @@ import {
  useNavigate
 } from 'react-router-dom';
 
+import './styles.css';
+
 export default function BasicSelect(): JSX.Element {
   const [page] = React.useState('');
 

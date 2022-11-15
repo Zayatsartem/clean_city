@@ -5,4 +5,5 @@ export default interface Order {
   date: string;
   time: string;
   address: string;
+  status: string;
 }

@@ -22,6 +22,8 @@ export default function OrderCard({ order }: { order:Order }): JSX.Element {
           Комнат: {order.rooms}
           <br />
           Санузлов: {order.bathrooms}
+          <br />
+          Статус: {order.status}
         </Typography>
       </CardContent>
       <CardActions>
