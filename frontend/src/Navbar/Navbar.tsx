@@ -13,7 +13,7 @@ import Main from '../Main/Main';
 
 import ProfileNavbar from './ProfileNavbar';
 
-import OrderViews from '../Order/OrderViews';
+import OrderForm from '../Order/OrderForm';
 
 function Navbar(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -79,7 +79,7 @@ function Navbar(): JSX.Element {
       <Routes>
         <Route path="/registration" element={<RegistrationView />} />
         <Route path="/login" element={<Authorization />} />
-        <Route path="/order" element={<OrderViews />} />
+        <Route path="/order" element={<OrderForm />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/" element={<Main />} />
       </Routes>

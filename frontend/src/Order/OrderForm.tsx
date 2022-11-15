@@ -19,7 +19,7 @@ interface IFormInput {
   status: string;
 }
 
-export default function OrderViews(): JSX.Element {
+export default function OrderForm(): JSX.Element {
   const user = useSelector((state: RootState) => state.auth.user);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
