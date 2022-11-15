@@ -10,7 +10,6 @@ import ProfileNavbar from './ProfileNavbar';
 function Navbar(): JSX.Element {
   const dispatch = useAppDispatch();
   const user = useSelector((state: RootState) => state.auth.user);
-  console.log(user);
   const authChecked = useSelector(selectAuthChecked);
   const navigate = useNavigate();
 

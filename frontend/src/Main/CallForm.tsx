@@ -14,7 +14,6 @@ import { getMessage } from './selectors';
 
 function CallForm(): JSX.Element {
   const message = useSelector(getMessage);
-  console.log(message);
   const dispatch = useAppDispatch();
   const [rooms, setRooms] = React.useState('');
   const [bathrooms, setBathrooms] = React.useState('');
