@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../store';
 
-import './styles.css';
+import '../form.css';
 import { login } from './authSlice';
 import { selectAuth } from './selectors';
 
@@ -37,14 +37,30 @@ export default function AuthForm(): JSX.Element {
     // }
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="cc-form" onSubmit={handleSubmit}>
       <h2>Login</h2>
-      <label htmlFor="email-input">Email</label>
-      <input type="text" id="email-input" value={email} onChange={handleEmailChange} />
-      <label htmlFor="password-input">Password</label>
-      <input type="password" id="password-input" value={password} onChange={handlePasswordChange} />
-      <button type="submit">Submit</button>
-      {error && <div>{error}</div>}
+      <label className="cc-formLabel" htmlFor="email-input">Email</label>
+      <input
+        className="cc-input"
+        type="text"
+        id="email-input"
+        value={email}
+        onChange={handleEmailChange}
+      />
+      <label className="cc-formLabel" htmlFor="password-input">
+        Пароль
+      </label>
+      <input
+        className="cc-input"
+        type="password"
+        id="password-input"
+        value={password}
+        onChange={handlePasswordChange}
+      />
+      <button className="cc-submitButton" type="submit">
+        Submit
+      </button>
+      {error && <div className="cc-formP">{error}</div>}
     </form>
   );
 }

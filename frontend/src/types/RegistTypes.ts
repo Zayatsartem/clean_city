@@ -8,3 +8,9 @@ export interface RegisterData extends Credentials {
   password: string;
   telephone: string;
 }
+export interface IFormInput {
+  name: string;
+  email: string;
+  password: string;
+  telephone: string;
+}

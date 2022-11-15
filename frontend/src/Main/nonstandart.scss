@@ -4,9 +4,27 @@
   align-items: center;
   justify-content: center;
 }
-h3{
-  text-align: center;
-}
+
 legend.css-14lo706{
   width:80px;
+}
+.nonstandart{
+  .componentHeader{
+    text-align: center;
+    margin:30px;
+  }
+  p{
+    min-width:60%;
+    max-width: 60%;
+    text-align: justify;
+    text-indent: 30px;
+    
+  }
+  .textBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+  }
 }

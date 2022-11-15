@@ -23,10 +23,12 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Services(): JSX.Element {
   return (
+    <>
+    <h2 className="componentHeader">Наши возможности</h2>
     <Box sx={{ width: '100%' }}>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 3, sm: 3, md: 1 }}>
         <Grid xs={3}>
-          <Item sx={{ maxWidth: 500 }}>
+          <Item sx={{ maxWidth: 500, color: '#000080' }}>
             {/* <Card sx={{ maxWidth: 500 }}> */}
             <CardMedia component="img" height="140" image={wet_cleaning} alt="wet_cleaning" />
             <CardContent sx={{ width: '100%' }}>
@@ -38,7 +40,7 @@ export default function Services(): JSX.Element {
           </Item>
         </Grid>
         <Grid xs={3}>
-          <Item sx={{ maxWidth: 500 }}>
+          <Item sx={{ maxWidth: 500, color: '#000080' }}>
             <CardMedia
               component="img"
               height="140"
@@ -53,7 +55,7 @@ export default function Services(): JSX.Element {
           </Item>
         </Grid>
         <Grid xs={3}>
-          <Item sx={{ maxWidth: 500 }}>
+          <Item sx={{ maxWidth: 500, color: '#000080' }}>
             <CardMedia component="img" height="140" image={lawn_mowing} alt="lawn_mowing" />
             <CardContent sx={{ width: '100%' }}>
               <Typography gutterBottom variant="body1" component="div" margin="auto">
@@ -63,7 +65,7 @@ export default function Services(): JSX.Element {
           </Item>
         </Grid>
         <Grid xs={3}>
-          <Item sx={{ maxWidth: 500 }}>
+          <Item sx={{ maxWidth: 500, color: '#000080' }}>
             <CardMedia component="img" height="140" image={snow_removal} alt="snow_removal" />
             <CardContent sx={{ width: '100%' }}>
               <Typography gutterBottom variant="body1" component="div" margin="auto">
@@ -73,7 +75,7 @@ export default function Services(): JSX.Element {
           </Item>
         </Grid>
         <Grid xs={3}>
-          <Item sx={{ maxWidth: 400 }}>
+          <Item sx={{ maxWidth: 500, color: '#000080' }}>
             <CardMedia
               component="img"
               height="140"
@@ -88,7 +90,7 @@ export default function Services(): JSX.Element {
           </Item>
         </Grid>
         <Grid xs={3}>
-          <Item sx={{ maxWidth: 500 }}>
+          <Item sx={{ maxWidth: 500, color: '#000080' }}>
             <CardMedia
               component="img"
               height="140"
@@ -103,7 +105,7 @@ export default function Services(): JSX.Element {
           </Item>
         </Grid>
         <Grid xs={3}>
-          <Item sx={{ maxWidth: 500 }}>
+          <Item sx={{ maxWidth: 500, color: '#000080' }}>
             {' '}
             <CardMedia
               component="img"
@@ -119,7 +121,7 @@ export default function Services(): JSX.Element {
           </Item>
         </Grid>
         <Grid xs={3}>
-          <Item sx={{ maxWidth: 500 }}>
+          <Item sx={{ maxWidth: 500, color: '#000080' }}>
             <CardMedia
               component="img"
               height="140"
@@ -135,5 +137,6 @@ export default function Services(): JSX.Element {
         </Grid>
       </Grid>
     </Box>
+    </>
   );
 }

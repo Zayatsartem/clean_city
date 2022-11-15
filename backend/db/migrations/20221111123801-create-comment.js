@@ -24,9 +24,14 @@ module.exports = {
       },
       title: {
         type: Sequelize.TEXT,
+        allowNull: false,
       },
       status: {
         type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
+      stars: {
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,

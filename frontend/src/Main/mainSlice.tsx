@@ -11,12 +11,13 @@ const initialState: MainState = {
   freeFormMessage: null,
 };
 
-export const requestTelegram = createAsyncThunk(
-  'main/requestTelegram', (data: OrderTelegram) => api.requestTelegram(data)
+export const requestTelegram = createAsyncThunk('main/requestTelegram', (data: OrderTelegram) =>
+  api.requestTelegram(data)
 );
 
 export const freeRequestTelegram = createAsyncThunk(
-  'main/freeRequestTelegram', (data: FreeOrderTelegram) => api.freeRequestTelegram(data)
+  'main/freeRequestTelegram',
+  (data: FreeOrderTelegram) => api.freeRequestTelegram(data)
 );
 
 export const loadApprovedComments = createAsyncThunk('main/loadApprovedComments', () => {
