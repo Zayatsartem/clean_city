@@ -2,11 +2,15 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Order from '../types/OrderTypes';
+import { useNavigate } from 'react-router-dom';
+import { Comment } from '../Comments/commentTypes';
 
-export default function OrderCard({ order }: { order:Order }): JSX.Element {
+export default function OrderCard({ order }: { order:Comment }): JSX.Element {
+  const navigate = useNavigate();
+  function leaveComment(): void {
+    navigate(`/profile/comment/${order.id}`);
+  }
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
@@ -27,7 +31,8 @@ export default function OrderCard({ order }: { order:Order }): JSX.Element {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Оставить комментарий</Button>
+        {order.status === 'completed' &&
+        <button type="button" onClick={leaveComment}>Оставить комментарий</button>}
       </CardActions>
     </Card>
   );

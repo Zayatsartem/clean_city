@@ -1,4 +1,5 @@
 import React from 'react';
+import CostOfCleaning from '../CostOfCleaning /CostOfCleaning';
 import Services from '../Services/Services';
 import CallForm from './CallForm';
 import Comments from './Comments';
@@ -10,6 +11,7 @@ function Main(): JSX.Element {
     <div className="mainBox">
       <CallForm />
       <Services />
+      <CostOfCleaning />
       <Comments />
       <NonstandartForm />
     </div>
