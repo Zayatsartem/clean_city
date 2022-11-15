@@ -1,10 +1,11 @@
-import { Contacts } from '@mui/icons-material';
 import React from 'react';
 import CostOfCleaning from '../CostOfCleaning /CostOfCleaning';
 import Services from '../Services/Services';
 import CallForm from './CallForm';
 import NonstandartForm from './NonstandartForm';
 import './Main.scss';
+import Contacts from '../Contacts/Contacts';
+import Comments from './Comments';
 
 function Main(): JSX.Element {
   return (
@@ -12,9 +13,9 @@ function Main(): JSX.Element {
       <CallForm />
       <Services />
       <CostOfCleaning />
+      <Comments />
       <NonstandartForm />
       <Contacts />
-    </>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
-import { Comment } from '../Comments/commentTypes';
+import { Comment } from '../types/commentTypes';
 
 export default function OrderCard({ order }: { order:Comment }): JSX.Element {
   const navigate = useNavigate();

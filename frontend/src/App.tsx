@@ -28,10 +28,8 @@ function App(): JSX.Element {
     <BrowserRouter>
       <Navbar />
       <Routes>
-      <Route path="/" element={<Services />} />
         <Route path="/profile/edit" element={<EditProfile />} />
         <Route path="/profile/orders" element={<ProfileOrders />} />
-
         <Route path="/profile/comment/:orderId" element={<CommentForm />} />
         <Route path="/registration" element={<RegisterForm />} />
         <Route path="/login" element={<AuthForm />} />

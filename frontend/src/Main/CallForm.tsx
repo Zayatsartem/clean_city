@@ -91,8 +91,8 @@ function CallForm(): JSX.Element {
         <Button type="submit" className="callFormButton" variant="contained">
           Рассчитать стоимость
         </Button>
-        <div className="errDiv">{message}</div>
       </div>
+        <div className="errDiv">{message}</div>
     </form>
   );
 }

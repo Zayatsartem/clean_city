@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiComment from './apiComment';
-import { Data } from './commentTypes';
+import { Data } from '../types/commentTypes';
 
 const initialState: Data = {
   stars: null,
@@ -25,19 +25,19 @@ const commentSlice = createSlice({
   reducers: {
     resetCommentError: (state) => {
       state.commentError = null;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
-    .addCase(feedback.fulfilled, (state, action) => {
-      state.stars = action.payload.stars;
-      state.title = action.payload.title;
-      state.commentError = 'Комментарий успешно добавлен';
-    })
-    .addCase(feedback.rejected, (state, action) => {
-      state.commentError = action.error.message;
-    });
-  }
+      .addCase(feedback.fulfilled, (state, action) => {
+        state.stars = action.payload.stars;
+        state.title = action.payload.title;
+        state.commentError = 'Комментарий успешно добавлен';
+      })
+      .addCase(feedback.rejected, (state, action) => {
+        state.commentError = action.error.message;
+      });
+  },
 });
 
 export const { resetCommentError } = commentSlice.actions;

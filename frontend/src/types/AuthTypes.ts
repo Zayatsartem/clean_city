@@ -1,5 +1,5 @@
 import User from './UserTypes';
-import { Comment } from '../Comments/commentTypes';
+import { Comment } from './commentTypes';
 
 export interface Credentials {
   email: string;
