@@ -1,13 +1,13 @@
 import React from 'react';
 
 import {
-  BrowserRouter, Route, Routes
+  BrowserRouter
 } from 'react-router-dom';
 
 import './App.css';
+import Footer from './Footer/Footer';
 import { getUser } from './Authorization/authSlice';
 import Navbar from './Navbar/Navbar';
-
 import EditProfile from './Profile/EditProfile';
 import ProfileOrders from './Profile/ProfileOrders';
 import { useAppDispatch } from './store';
@@ -25,7 +25,7 @@ function App(): JSX.Element {
         <Route path="/profile/edit" element={<EditProfile />} />
         <Route path="/profile/orders" element={<ProfileOrders />} />
       </Routes>
-
+      <Footer />
     </BrowserRouter>
   );
 }

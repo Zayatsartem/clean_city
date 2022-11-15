@@ -15,6 +15,7 @@ interface IFormInput {
   date: string;
   time: string;
   address: string;
+  status: string;
 }
 
 export default function OrderViews(): JSX.Element {
@@ -33,7 +34,7 @@ export default function OrderViews(): JSX.Element {
   // }
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const dispatchResult = await dispatch(order({ ...data, user_id: user?.id, status: 'new' }));
+    const dispatchResult = await dispatch(order({ ...data, user_id: user?.id }));
     if (order.fulfilled.match(dispatchResult)) {
       navigate('/');
     }
