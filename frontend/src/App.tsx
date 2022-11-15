@@ -12,6 +12,7 @@ import AuthForm from './Authorization/AuthForm';
 import Main from './Main/Main';
 import OrderForm from './Order/OrderForm';
 import RegisterForm from './Registration/RegisterForm';
+import CleaningRules from './CleaningRules/CleaningRules';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -29,6 +30,7 @@ function App(): JSX.Element {
         <Route path="/login" element={<AuthForm />} />
         <Route path="/order" element={<OrderForm />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/cleaningrules" element={<CleaningRules />} />
         <Route path="/" element={<Main />} />
       </Routes>
       <Footer />

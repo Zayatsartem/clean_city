@@ -36,6 +36,9 @@ function Navbar(): JSX.Element {
           <Link className="links" to="/order">
             Сделать заказ
           </Link>
+          <Link className="links" to="/cleaningrules">
+            Регламент уборки
+          </Link>
 
           <ProfileNavbar />
           {user?.admin ? (
@@ -54,8 +57,11 @@ function Navbar(): JSX.Element {
         </>
       ) : (
         <>
-          <Link className="links" type="button" to="/">
+          <Link className="links" to="/">
             Главная
+          </Link>
+          <Link className="links" to="/cleaningrules">
+            Регламент уборки
           </Link>
           <Link className="links" to="/registration">
             Регистрация
