@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import * as api from './api';
-import OrderTypes from '../types/OrderTypes';
-import OrderState from './OrderState';
+import OrderTypes, { OrderState } from '../types/OrderTypes';
 
 const initialState: OrderState = {
   user: null,

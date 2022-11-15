@@ -13,7 +13,6 @@ function ProfileOrders(): JSX.Element {
   }, [dispatch]);
 
   const userOrders = useSelector((state: RootState) => state.auth.orders);
-  console.log(userOrders);
 
   return (
     <main>

@@ -1,5 +1,4 @@
-import User from '../types/UserTypes';
-import Order from '../types/OrderTypes';
+import User from './UserTypes';
 import { Comment } from '../Comments/commentTypes';
 
 export interface Credentials {
@@ -19,3 +18,5 @@ export interface EditingState {
   user: User;
   editFormError: string | null | undefined;
 }
+
+export type LoginError = undefined | string | null;

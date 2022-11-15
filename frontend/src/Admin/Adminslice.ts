@@ -1,34 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { AdminState, TComment, TNewOrder } from '../types/AdminTypes';
 
-export type TComment = {
-  id:number,
-  date:string,
-  name:string,
-  title:string,
-};
-export type TNewOrder = {
-  id:number,
-  rooms:number,
-  bathrooms:number,
-  date:string,
-  time:string,
-  address:string,
-  name:string,
-  email:string,
-  telephone:string
-};
-type AdminState = {
-  newOrders:TNewOrder[],
-  WIPOrders:TNewOrder[],
-  comments:TComment[],
-  error: string | null,
-};
-const initialState:AdminState = {
+export const initialState: AdminState = {
   newOrders: [],
   WIPOrders: [],
   comments: [],
   error: null,
 };
+
 export const loadNewOrders = createAsyncThunk(
   'newOrders/loadNewOrders',
   () => {
@@ -53,14 +32,14 @@ export const loadWIPOrders = createAsyncThunk(
 );
 export const addWIPOrder = createAsyncThunk(
   'newOrders/addWIPOrder',
-  (id:number) => {
+  (id: number) => {
     const fetchAddWIPOrder = async (): Promise<any> => {
       const response = await fetch('/api/admin/new', {
         method: 'put',
         headers: {
           'Content-Type': 'Application/json',
-      },
-      body: JSON.stringify({ id }),
+        },
+        body: JSON.stringify({ id }),
       });
       const data = response.json();
       return data;
@@ -70,14 +49,14 @@ export const addWIPOrder = createAsyncThunk(
 );
 export const cancelNewOrder = createAsyncThunk(
   'newOrders/cancelOrder',
-  (id:number) => {
+  (id: number) => {
     const fetchCancelOrder = async (): Promise<any> => {
       const response = await fetch('/api/admin/new', {
         method: 'delete',
         headers: {
           'Content-Type': 'Application/json',
-      },
-      body: JSON.stringify({ id }),
+        },
+        body: JSON.stringify({ id }),
       });
       const data = response.json();
       return data;
@@ -87,14 +66,14 @@ export const cancelNewOrder = createAsyncThunk(
 );
 export const doneWIPOrder = createAsyncThunk(
   'WIPOrders/doneWIPOrder',
-  (id:number) => {
+  (id: number) => {
     const fetchDoneOrder = async (): Promise<any> => {
       const response = await fetch('/api/admin/inwork', {
         method: 'put',
         headers: {
           'Content-Type': 'Application/json',
-      },
-      body: JSON.stringify({ id }),
+        },
+        body: JSON.stringify({ id }),
       });
       const data = response.json();
       return data;
@@ -115,14 +94,14 @@ export const loadComments = createAsyncThunk(
 );
 export const publishComment = createAsyncThunk(
   'comments/publishComment',
-  (id:number) => {
+  (id: number) => {
     const fetchPublishComment = async (): Promise<TComment[]> => {
       const response = await fetch('/api/admin/comments', {
         method: 'put',
         headers: {
           'Content-Type': 'Application/json',
-      },
-      body: JSON.stringify({ id }),
+        },
+        body: JSON.stringify({ id }),
       });
 
       const data = await response.json();
@@ -133,14 +112,14 @@ export const publishComment = createAsyncThunk(
 );
 export const deleteCommentForAll = createAsyncThunk(
   'comments/deleteComment',
-  (id:number) => {
+  (id: number) => {
     const fetchDeleteComment = async (): Promise<TComment[]> => {
       const response = await fetch('/api/admin/comments', {
         method: 'delete',
         headers: {
           'Content-Type': 'Application/json',
-      },
-      body: JSON.stringify({ id }),
+        },
+        body: JSON.stringify({ id }),
       });
 
       const data = await response.json();
