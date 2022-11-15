@@ -13,7 +13,6 @@ router.route('/orders').get(async (req, res) => {
         user_id: user.id,
       },
     });
-    console.log(user, orders);
     res.status(200).json({ orders });
   } catch (error) {
     res.status(500).json('Ошибка загрузки заказов');
