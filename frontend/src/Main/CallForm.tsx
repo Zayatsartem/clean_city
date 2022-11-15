@@ -34,7 +34,7 @@ function CallForm(): JSX.Element {
 
   return (
     <form className="CallForm" onSubmit={handelRequest}>
-      <h2>Рассчитать стоимость уборки </h2>
+      <h2 className="componentHeader">Рассчитать стоимость уборки </h2>
       <div className="formsCallForm">
         <FormControl sx={{ m: 1, minWidth: 200 }}>
           <InputLabel id="demo-simple-select-helper-label">Количество комнат</InputLabel>
