@@ -1,4 +1,4 @@
-import { Comment } from '../Comments/commentTypes';
+import { Comment } from '../types/commentTypes';
 import User from '../types/UserTypes';
 import EditData from '../types/profileTypes';
 

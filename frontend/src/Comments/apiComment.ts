@@ -1,4 +1,4 @@
-import { Data } from './commentTypes';
+import { Data } from '../types/commentTypes';
 
 export async function feedback(data: Data): Promise<Data> {
   console.log(data);
