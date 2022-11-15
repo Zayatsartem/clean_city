@@ -1,7 +1,7 @@
 import { RootState } from '../store';
 import User from '../types/UserTypes';
+import { LoginError } from '../types/AuthTypes';
 
-type LoginError = undefined | string | null;
 export const selectAuth = (state: RootState): LoginError => state.auth.loginFormError;
 export const selectUser = (state: RootState): User | null | undefined => state.auth.user;
 

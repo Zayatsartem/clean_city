@@ -1,6 +1,6 @@
 import { Card, CardContent, Typography } from '@mui/material';
 import React from 'react';
-import { TComment } from '../Admin/Adminslice';
+import { TComment } from '../types/AdminTypes';
 
 function Comment({ comment }: { comment: TComment }): JSX.Element {
   return (

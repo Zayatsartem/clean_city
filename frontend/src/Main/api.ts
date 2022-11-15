@@ -1,6 +1,8 @@
-/* eslint-disable import/prefer-default-export */
+
 import OrderTelegram, { FreeOrderTelegram } from '../types/OrderTelegram';
 
+
+/* eslint-disable-next-line import/prefer-default-export */
 export async function requestTelegram(data: OrderTelegram): Promise<{ message: string }> {
   if (!data.phone.trim() || !data.rooms.trim() || !data.bathrooms.trim()) {
     const errData = { message: 'Пожалуйста заполните все поля' };

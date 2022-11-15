@@ -7,7 +7,7 @@ import './styles.css';
 import { login } from './authSlice';
 import { selectAuth } from './selectors';
 
-export default function Authorization(): JSX.Element {
+export default function AuthForm(): JSX.Element {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();

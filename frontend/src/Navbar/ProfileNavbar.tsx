@@ -4,9 +4,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import {
- useNavigate
-} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import './styles.css';
 
@@ -15,7 +13,7 @@ export default function BasicSelect(): JSX.Element {
 
   const navigate = useNavigate();
 
-  const handleChange = (event: SelectChangeEvent):void => {
+  const handleChange = (event: SelectChangeEvent): void => {
     if (event.target.value === 'orders') {
       navigate('/profile/orders');
     }
@@ -37,14 +35,11 @@ export default function BasicSelect(): JSX.Element {
         >
 
           <MenuItem value="orders">
-            {/* <Route path="/profile/orders" /> */}
             Мои заказы
           </MenuItem>
           <MenuItem value="edit">
-          {/* <Route path="/profile/edit" element={<EditProfile />} /> */}
-          Изменить профиль
+            Изменить профиль
           </MenuItem>
-
         </Select>
       </FormControl>
     </Box>

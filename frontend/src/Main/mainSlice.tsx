@@ -1,14 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { TComment } from '../Admin/Adminslice';
+import { TComment } from '../types/AdminTypes';
+import { MainState } from '../types/MainTypes';
 import OrderTelegram, { FreeOrderTelegram } from '../types/OrderTelegram';
 import * as api from './api';
-
-type MainState = {
-  comments: TComment[];
-  error: string | null;
-  message: string | null;
-  freeFormMessage: string | null;
-};
 
 const initialState: MainState = {
   comments: [],

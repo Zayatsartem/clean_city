@@ -1,5 +1,5 @@
 import { RootState } from '../store';
-import { TComment, TNewOrder } from './Adminslice';
+import { TNewOrder, TComment } from '../types/AdminTypes';
 
 export const selectNewOrders = (state: RootState): TNewOrder[] => state.admin.newOrders;
 export const selectWIPOrders = (state: RootState): TNewOrder[] => state.admin.WIPOrders;
