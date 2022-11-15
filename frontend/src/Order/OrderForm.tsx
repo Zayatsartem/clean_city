@@ -6,16 +6,7 @@ import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../store';
 import { order } from './orderSlice';
 import { selectOrdeFormError } from './selectors';
-
-interface IFormInput {
-  user_id: number;
-  rooms: number;
-  bathrooms: number;
-  date: string;
-  time: string;
-  address: string;
-  status: string;
-}
+import { IFormInput } from '../types/OrderTypes';
 
 export default function OrderForm(): JSX.Element {
   const user = useSelector((state: RootState) => state.auth.user);
