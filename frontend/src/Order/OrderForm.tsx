@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import ReactDOM from 'react-dom';
 import * as React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import './styles.css';

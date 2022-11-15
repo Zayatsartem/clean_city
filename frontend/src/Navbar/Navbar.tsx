@@ -1,5 +1,4 @@
 import React from 'react';
-// eslint-disable-next-line object-curly-newline
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useAppDispatch, RootState } from '../store';
