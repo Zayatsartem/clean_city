@@ -3,7 +3,9 @@ const router = require('express').Router();
 const { Order } = require('../db/models');
 
 router.post('/', async (req, res) => {
-  const { rooms, bathrooms, date, time, address, user_id } = req.body;
+  const {
+    rooms, bathrooms, date, time, address, user_id,
+  } = req.body;
   if (!rooms || !bathrooms || !date || !time || !address) {
     res.status(422).json({ error: 'поле не должно быть пустым' });
     return;
@@ -25,7 +27,6 @@ router.post('/', async (req, res) => {
         order: true,
       });
     } catch ({ message }) {
-      // todo res.json
       console.log(message);
     }
   }
