@@ -1,5 +1,5 @@
 import User from './UserTypes';
-import Order from './OrderTypes';
+import { Comment } from '../Comments/commentTypes';
 
 export interface Credentials {
   email: string;
@@ -11,7 +11,7 @@ export interface AuthState {
   user?: User | null;
   loginFormError?: string | null;
   registerFormError?: string | null;
-  orders: Order[] | null;
+  orders: Comment[] | null;
 }
 
 export interface EditingState {

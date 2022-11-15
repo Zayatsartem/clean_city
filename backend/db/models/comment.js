@@ -29,10 +29,15 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     title: {
+      allowNull: false,
       type: DataTypes.TEXT,
     },
     status: {
+      allowNull: false,
       type: DataTypes.BOOLEAN,
+    },
+    stars: {
+      type: DataTypes.TEXT,
     },
     createdAt: {
       allowNull: false,
