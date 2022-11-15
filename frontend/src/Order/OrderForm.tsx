@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import './styles.css';
+import '../form.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../store';
@@ -29,39 +29,46 @@ export default function OrderForm(): JSX.Element {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label>Количество комнат</label>
+    <form className="cc-form" onSubmit={handleSubmit(onSubmit)}>
+      <label className="cc-formLabel">Количество комнат</label>
       <input
+        className="cc-input"
         type="number"
         {...register('rooms', {
           required: true,
           maxLength: 50,
         })}
       />
-      {errors?.rooms?.type === 'required' && <p>Поле является обязательныим</p>}
-      <label>Количество санузлов</label>
+      {errors?.rooms?.type === 'required' && (
+        <p className="cc-formP">Поле является обязательныим</p>
+      )}
+      <label className="cc-formLabel">Количество санузлов</label>
       <input
         type="number"
+        className="cc-input"
         {...register('bathrooms', {
           maxLength: 50,
         })}
       />
-      <label>Дата</label>
-      <input type="date" {...register('date')} />
-      {errors?.date?.type === 'required' && <p>Поле является обязательным</p>}
-      <label>Удобное время</label>
-      <input type="time" {...register('time')} />
-      {errors?.time?.type === 'required' && <p>Поле является обязательным</p>}
-      <label>Адрес</label>
+      <label className="cc-formLabel">Дата</label>
+      <input className="cc-input" type="date" {...register('date')} />
+      {errors?.date?.type === 'required' && <p className="cc-formP">Поле является обязательным</p>}
+      <label className="cc-formLabel">Удобное время</label>
+      <input className="cc-input" type="time" {...register('time')} />
+      {errors?.time?.type === 'required' && <p className="cc-formP">Поле является обязательным</p>}
+      <label className="cc-formLabel">Адрес</label>
       <input
         type="address"
+        className="cc-input"
         {...register('address', {
           maxLength: 300,
         })}
       />
-      {errors?.address?.type === 'required' && <p>Поле является обязательным</p>}
-      <input type="submit" disabled={!isValid} />
-      <div>{error && <p>{error}</p>}</div>
+      {errors?.address?.type === 'required' && (
+        <p className="cc-formP">Поле является обязательным</p>
+      )}
+      <input className="cc-inputSubmit" type="submit" disabled={!isValid} />
+      <div>{error && <p className="cc-formP">{error}</p>}</div>
     </form>
   );
 }
