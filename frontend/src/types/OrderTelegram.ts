@@ -3,3 +3,8 @@ export default interface OrderTelegram {
   rooms: string;
   bathrooms: string;
 }
+
+export interface FreeOrderTelegram {
+  phone: string;
+  comment: string;
+}
