@@ -40,41 +40,39 @@ export default function OrderForm(): JSX.Element {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Количество комнат</label>
-        <input
-          type="number"
-          {...register('rooms', {
-            required: true,
-            maxLength: 50,
-          })}
-        />
-        {errors?.rooms?.type === 'required' && <p>Поле является обязательныим</p>}
-        <label>Количество санузлов</label>
-        <input
-          type="number"
-          {...register('bathrooms', {
-            maxLength: 50,
-          })}
-        />
-        <label>Дата</label>
-        <input type="date" {...register('date')} />
-        {errors?.date?.type === 'required' && <p>Поле является обязательным</p>}
-        <label>Удобное время</label>
-        <input type="time" {...register('time')} />
-        {errors?.time?.type === 'required' && <p>Поле является обязательным</p>}
-        <label>Адрес</label>
-        <input
-          type="address"
-          {...register('address', {
-            maxLength: 300,
-          })}
-        />
-        {errors?.address?.type === 'required' && <p>Поле является обязательным</p>}
-        <input type="submit" disabled={!isValid} />
-      </form>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>Количество комнат</label>
+      <input
+        type="number"
+        {...register('rooms', {
+          required: true,
+          maxLength: 50,
+        })}
+      />
+      {errors?.rooms?.type === 'required' && <p>Поле является обязательныим</p>}
+      <label>Количество санузлов</label>
+      <input
+        type="number"
+        {...register('bathrooms', {
+          maxLength: 50,
+        })}
+      />
+      <label>Дата</label>
+      <input type="date" {...register('date')} />
+      {errors?.date?.type === 'required' && <p>Поле является обязательным</p>}
+      <label>Удобное время</label>
+      <input type="time" {...register('time')} />
+      {errors?.time?.type === 'required' && <p>Поле является обязательным</p>}
+      <label>Адрес</label>
+      <input
+        type="address"
+        {...register('address', {
+          maxLength: 300,
+        })}
+      />
+      {errors?.address?.type === 'required' && <p>Поле является обязательным</p>}
+      <input type="submit" disabled={!isValid} />
       <div>{error && <p>{error}</p>}</div>
-    </>
+    </form>
   );
 }

@@ -32,71 +32,67 @@ function CallForm(): JSX.Element {
     event.preventDefault();
     dispatch(requestTelegram({ rooms, bathrooms, phone }));
   };
-  // const send = (event: React.MouseEvent<HTMLElement>): void => {
-  //   //setPhone(event.target.value);
-  // };
+
   return (
-    <>
+    <form className="CallForm" onSubmit={handelRequest}>
       <h2>Рассчитать стоимость уборки </h2>
-      <form className="CallForm" onSubmit={handelRequest}>
-        <FormControl sx={{ m: 1, minWidth: 200 }}>
-          <InputLabel id="demo-simple-select-helper-label">Количество комнат</InputLabel>
-          <Select
-            labelId="demo-simple-select-helper-label"
-            id="demo-simple-select-helper"
-            value={rooms}
-            label="Rooms"
-            onChange={handleRooms}
-          >
-            <MenuItem value="1-комнатная">1-комнатная</MenuItem>
-            <MenuItem value="2-комнатная">2-комнатная</MenuItem>
-            <MenuItem value="3-комнатная">3-комнатная</MenuItem>
-            <MenuItem value="4-комнатная">4-комнатная</MenuItem>
-            <MenuItem value="5-комнатная">5-комнатная</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl sx={{ m: 1, minWidth: 210 }}>
-          <InputLabel id="demo-simple-select-helper-label">Количество санузлов</InputLabel>
-          <Select
-            labelId="demo-simple-select-helper-label"
-            id="demo-simple-select-helper"
-            name="bathrooms"
-            value={bathrooms}
-            onChange={handleBathrooms}
-            label="Bathrooms"
-          >
-            <MenuItem value="1 санузел">1 санузел</MenuItem>
-            <MenuItem value="2 санузла">2 санузла</MenuItem>
-            <MenuItem value="3 санузла">3 санузла</MenuItem>
-            <MenuItem value="4 санузла">4 санузла</MenuItem>
-            <MenuItem value="5 санузлов">5 санузлов</MenuItem>
-          </Select>
-        </FormControl>
-        <Box
-          component="form"
-          sx={{
-            '& .MuiTextField-root': { m: 1, width: '25ch' },
-          }}
-          noValidate
-          autoComplete="off"
+      <FormControl sx={{ m: 1, minWidth: 200 }}>
+        <InputLabel id="demo-simple-select-helper-label">Количество комнат</InputLabel>
+        <Select
+          labelId="demo-simple-select-helper-label"
+          id="demo-simple-select-helper"
+          value={rooms}
+          label="Rooms"
+          onChange={handleRooms}
         >
-          <div>
-            <TextField
-              id="outlined-multiline-flexible"
-              label="Телефон"
-              multiline
-              maxRows={4}
-              value={phone}
-              onChange={handlePhone}
-            />
-          </div>
-        </Box>
-        <Button type="submit" variant="contained">
-          Рассчитать стоимость
-        </Button>
-        <div className="errDiv">{message}</div>
-      </form>
-    </>
+          <MenuItem value="1-комнатная">1-комнатная</MenuItem>
+          <MenuItem value="2-комнатная">2-комнатная</MenuItem>
+          <MenuItem value="3-комнатная">3-комнатная</MenuItem>
+          <MenuItem value="4-комнатная">4-комнатная</MenuItem>
+          <MenuItem value="5-комнатная">5-комнатная</MenuItem>
+        </Select>
+      </FormControl>
+      <FormControl sx={{ m: 1, minWidth: 210 }}>
+        <InputLabel id="demo-simple-select-helper-label">Количество санузлов</InputLabel>
+        <Select
+          labelId="demo-simple-select-helper-label"
+          id="demo-simple-select-helper"
+          name="bathrooms"
+          value={bathrooms}
+          onChange={handleBathrooms}
+          label="Bathrooms"
+        >
+          <MenuItem value="1 санузел">1 санузел</MenuItem>
+          <MenuItem value="2 санузла">2 санузла</MenuItem>
+          <MenuItem value="3 санузла">3 санузла</MenuItem>
+          <MenuItem value="4 санузла">4 санузла</MenuItem>
+          <MenuItem value="5 санузлов">5 санузлов</MenuItem>
+        </Select>
+      </FormControl>
+      <Box
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <div>
+          <TextField
+            id="outlined-multiline-flexible"
+            label="Телефон"
+            multiline
+            maxRows={4}
+            value={phone}
+            onChange={handlePhone}
+          />
+        </div>
+      </Box>
+      <Button type="submit" variant="contained">
+        Рассчитать стоимость
+      </Button>
+      <div className="errDiv">{message}</div>
+    </form>
   );
 }
 
