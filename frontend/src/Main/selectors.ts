@@ -1,5 +1,5 @@
 import { RootState } from '../store';
-import { TComment } from '../Admin/Adminslice';
+import { TComment } from '../types/AdminTypes';
 
 const selectApprovedComments = (state: RootState): TComment[] => state.main.comments;
 export default selectApprovedComments;

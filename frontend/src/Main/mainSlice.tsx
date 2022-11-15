@@ -1,13 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { TComment } from '../Admin/Adminslice';
+import { TComment } from '../types/AdminTypes';
+import { MainState } from '../types/MainTypes';
 import OrderTelegram from '../types/OrderTelegram';
 import * as api from './api';
-
-type MainState = {
-  comments: TComment[];
-  error: string | null;
-  message: string | null;
-};
 
 const initialState: MainState = {
   comments: [],
@@ -41,9 +36,9 @@ const mainSlice = createSlice({
       .addCase(loadApprovedComments.rejected, (state, action) => {
         state.error = action.error.message || 'Ошибка при загрузке комментариев';
       })
-    .addCase(requestTelegram.fulfilled, (state, action) => {
-      state.message = action.payload.message;
-    });
+      .addCase(requestTelegram.fulfilled, (state, action) => {
+        state.message = action.payload.message;
+      });
   },
 });
 export default mainSlice.reducer;
