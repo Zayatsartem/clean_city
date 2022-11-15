@@ -22,6 +22,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Services(): JSX.Element {
   return (
+    <>
+    <h2 className="componentHeader">Наши возможности</h2>
     <Box sx={{ width: '100%' }}>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 3, sm: 3, md: 1 }}>
         <Grid xs={4}>
@@ -122,5 +124,6 @@ export default function Services(): JSX.Element {
         </Grid>
       </Grid>
     </Box>
+    </>
   );
 }
