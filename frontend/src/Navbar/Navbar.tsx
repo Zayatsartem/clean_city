@@ -3,7 +3,7 @@ import React from 'react';
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import RegisterForm from '../Registration/RegisterForm';
-import Authorization from '../Authorization/Authorization';
+import AuthForm from '../Authorization/AuthForm';
 import { useAppDispatch, RootState } from '../store';
 import { logout } from '../Authorization/authSlice';
 import './styles.css';
@@ -78,7 +78,7 @@ function Navbar(): JSX.Element {
       </nav>
       <Routes>
         <Route path="/registration" element={<RegisterForm />} />
-        <Route path="/login" element={<Authorization />} />
+        <Route path="/login" element={<AuthForm />} />
         <Route path="/order" element={<OrderForm />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/" element={<Main />} />
