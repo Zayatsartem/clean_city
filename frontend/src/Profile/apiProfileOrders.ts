@@ -1,6 +1,6 @@
 import Order from '../types/OrderTypes';
 import User from '../types/UserTypes';
-import EditData from './profileTypes';
+import EditData from '../types/profileTypes';
 
 export async function editProfile(data: EditData): Promise<User> {
   const response = await fetch('/api/profile', {
