@@ -1,4 +1,4 @@
-import RegisterData from './RegisterData';
+import { RegisterData } from '../types/RegistTypes';
 import User from '../types/UserTypes';
 
 export async function user(): Promise<

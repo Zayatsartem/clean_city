@@ -3,7 +3,7 @@ import { AuthState, Credentials } from '../types/AuthTypes';
 import * as api from './api';
 import * as apiReg from '../Registration/apiReg';
 import apiProfile from '../Profile/apiProfileOrders';
-import RegisterData from '../Registration/RegisterData';
+import { RegisterData } from '../types/RegistTypes';
 
 // import { RootState } from '../store';
 
