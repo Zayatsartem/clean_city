@@ -4,6 +4,7 @@ import { useAppDispatch } from '../store';
 import { loadApprovedComments } from './mainSlice';
 import selectApprovedComments from './selectors';
 import Comment from './Comment';
+import './Comments.scss';
 
 function Comments(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -13,8 +14,12 @@ function Comments(): JSX.Element {
   }, [dispatch]);
   return (
     <>
-    <h2>Отзывы пользователей</h2>
-      {approvedComments.map((comment) => <Comment comment={comment} key={comment.id} />)}
+      <h2 className="componentHeader">Отзывы пользователей</h2>
+      <div className="commentsBox">
+        {approvedComments.map((comment) => (
+          <Comment comment={comment} key={comment.id} />
+        ))}
+      </div>
     </>
   );
 }

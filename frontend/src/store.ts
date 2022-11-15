@@ -9,6 +9,7 @@ import mainSlice from './Main/mainSlice';
 import editingSlice from './Profile/editingSlice';
 
 import orderSlice from './Order/orderSlice';
+import CommentSlice from './Comments/CommentSlice';
 
 const store = configureStore({
   // теперь функция combineReducers не нужна
@@ -18,6 +19,7 @@ const store = configureStore({
     order: orderSlice,
     admin: adminSlice,
     main: mainSlice,
+    comment: CommentSlice
   },
 });
 

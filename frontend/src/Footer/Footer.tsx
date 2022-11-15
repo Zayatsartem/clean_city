@@ -10,9 +10,9 @@ function Footer(): JSX.Element {
   return (
     <Paper
       sx={{
-        marginTop: 'calc(10% + 60px)',
+        marginTop: '60px',
         width: '100%',
-        position: 'fixed',
+        position: 'inherit',
         bottom: 0,
       }}
       component="footer"

@@ -1,4 +1,4 @@
-import Order from '../types/OrderTypes';
+import { Comment } from '../Comments/commentTypes';
 import User from '../types/UserTypes';
 import EditData from '../types/profileTypes';
 
@@ -18,7 +18,7 @@ export async function editProfile(data: EditData): Promise<User> {
   return content;
 }
 
-export async function getOrders(): Promise<Order[]> {
+export async function getOrders(): Promise<Comment[]> {
   const response = await fetch('/api/profile/orders');
   const data = await response.json();
   return data.orders;

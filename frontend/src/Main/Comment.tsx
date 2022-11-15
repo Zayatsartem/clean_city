@@ -4,7 +4,7 @@ import { TComment } from '../types/AdminTypes';
 
 function Comment({ comment }: { comment: TComment }): JSX.Element {
   return (
-      <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ width: 350 }}>
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Отзыв

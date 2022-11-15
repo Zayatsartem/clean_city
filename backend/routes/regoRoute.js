@@ -6,7 +6,7 @@ router.post('/', async (req, res) => {
   const {
     name, password, email, telephone,
   } = req.body;
-  
+
   if (!name || !email) {
     res.status(422).json({ error: 'поле не должно быть пустым' });
     return;
