@@ -28,3 +28,7 @@ code {
   align-content: center;
   align-items: center;
 }
+
+.container{
+margin: 50px;
+}
