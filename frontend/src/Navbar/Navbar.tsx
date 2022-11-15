@@ -1,19 +1,12 @@
 import React from 'react';
 // eslint-disable-next-line object-curly-newline
-import { Link, Route, Routes, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import RegisterForm from '../Registration/RegisterForm';
-import AuthForm from '../Authorization/AuthForm';
 import { useAppDispatch, RootState } from '../store';
 import { logout } from '../Authorization/authSlice';
 import './styles.css';
-import Admin from '../Admin/Admin';
 import { selectAuthChecked } from '../Authorization/selectors';
-import Main from '../Main/Main';
-
 import ProfileNavbar from './ProfileNavbar';
-
-import OrderForm from '../Order/OrderForm';
 
 function Navbar(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -36,54 +29,45 @@ function Navbar(): JSX.Element {
   }
 
   return (
-    <>
-      <nav className="nav">
-        {user ? (
-          <>
-            <Link className="links" type="button" to="/">
-              Главная
-            </Link>
-            <Link className="links" to="/order">
-              Сделать заказ
-            </Link>
+    <nav className="nav">
+      {user ? (
+        <>
+          <Link className="links" type="button" to="/">
+            Главная
+          </Link>
+          <Link className="links" to="/order">
+            Сделать заказ
+          </Link>
 
-            <ProfileNavbar />
-            {user?.admin ? (
-              <Link className="links" to="/admin">
-                Личный кабинет администратора
-              </Link>
-            ) : (
-              <Link className="links" to="/profile">
-                Личный кабинет
-              </Link>
-            )}
+          <ProfileNavbar />
+          {user?.admin ? (
+            <Link className="links" to="/admin">
+              Личный кабинет администратора
+            </Link>
+          ) : (
+            <Link className="links" to="/profile">
+              Личный кабинет
+            </Link>
+          )}
 
-            <button className="button-logout" type="button" onClick={handleLogout}>
-              Выйти
-            </button>
-          </>
-        ) : (
-          <>
-            <Link className="links" type="button" to="/">
-              Главная
-            </Link>
-            <Link className="links" to="/registration">
-              Регистрация
-            </Link>
-            <Link className="links" to="/login">
-              Войти
-            </Link>
-          </>
-        )}
-      </nav>
-      <Routes>
-        <Route path="/registration" element={<RegisterForm />} />
-        <Route path="/login" element={<AuthForm />} />
-        <Route path="/order" element={<OrderForm />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/" element={<Main />} />
-      </Routes>
-    </>
+          <button className="button-logout" type="button" onClick={handleLogout}>
+            Выйти
+          </button>
+        </>
+      ) : (
+        <>
+          <Link className="links" type="button" to="/">
+            Главная
+          </Link>
+          <Link className="links" to="/registration">
+            Регистрация
+          </Link>
+          <Link className="links" to="/login">
+            Войти
+          </Link>
+        </>
+      )}
+    </nav>
   );
 }
 
