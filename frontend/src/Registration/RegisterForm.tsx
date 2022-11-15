@@ -6,13 +6,7 @@ import { useAppDispatch } from '../store';
 import { regist } from '../Authorization/authSlice';
 import { selectRegisterFormError } from './selectors';
 import './styles.css';
-
-interface IFormInput {
-  name: string;
-  email: string;
-  password: string;
-  telephone: string;
-}
+import { IFormInput } from '../types/RegistTypes';
 
 function RegisterForm(): JSX.Element {
   const dispatch = useAppDispatch();
