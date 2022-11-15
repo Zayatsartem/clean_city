@@ -14,7 +14,7 @@ interface IFormInput {
   telephone: string;
 }
 
-function RegistrationView(): JSX.Element {
+function RegisterForm(): JSX.Element {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const error = useSelector(selectRegisterFormError);
@@ -79,4 +79,4 @@ function RegistrationView(): JSX.Element {
   );
 }
 
-export default RegistrationView;
+export default RegisterForm;
