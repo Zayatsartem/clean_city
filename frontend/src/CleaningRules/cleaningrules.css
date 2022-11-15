@@ -1,0 +1,38 @@
+.container{
+  margin: 50px;
+  }
+  
+  .service{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+  }
+  
+  .imgItemBlock{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  .serviceImg {
+    margin-left: 5px;
+    margin-right: 5px;
+    max-width: 280px;
+    max-height: 280px;
+  }
+  
+  @media(max-width: 1003px){
+  .serviceImg {
+    max-width: 150px;
+    max-height: 1500px;
+  }
+  }
+  
+  @media(max-width: 625px){
+    .serviceImg {
+      max-width: 75px;
+      max-height: 75px;
+    }
+    }

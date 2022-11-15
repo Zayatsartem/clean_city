@@ -14,9 +14,11 @@ import AuthForm from './Authorization/AuthForm';
 import Main from './Main/Main';
 import OrderForm from './Order/OrderForm';
 import RegisterForm from './Registration/RegisterForm';
+import CleaningRules from './CleaningRules/CleaningRules';
 import Contacts from './Contacts/Contacts';
 import CostOfCleaning from './CostOfCleaning /CostOfCleaning';
 import Services from './Services/Services';
+
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -31,12 +33,12 @@ function App(): JSX.Element {
       <Route path="/" element={<Services />} />
         <Route path="/profile/edit" element={<EditProfile />} />
         <Route path="/profile/orders" element={<ProfileOrders />} />
-
         <Route path="/profile/comment/:orderId" element={<CommentForm />} />
         <Route path="/registration" element={<RegisterForm />} />
         <Route path="/login" element={<AuthForm />} />
         <Route path="/order" element={<OrderForm />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/cleaningrules" element={<CleaningRules />} />
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/costOfCleaning " element={<CostOfCleaning />} />
         <Route path="/services " element={<Services />} />
