@@ -31,9 +31,7 @@ function CallForm(): JSX.Element {
     event.preventDefault();
     dispatch(requestTelegram({ rooms, bathrooms, phone }));
   };
-  // const send = (event: React.MouseEvent<HTMLElement>): void => {
-  //   //setPhone(event.target.value);
-  // };
+
   return (
     <>
       <h2>Рассчитать стоимость уборки </h2>

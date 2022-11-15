@@ -3,9 +3,7 @@ const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
 
 router.post('/', async (req, res) => {
-  const {
-    name, password, email, telephone,
-  } = req.body;
+  const { name, password, email, telephone } = req.body;
   console.log(req.body);
 
   if (!name || !email) {
