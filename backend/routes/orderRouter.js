@@ -15,6 +15,8 @@ router.post('/', async (req, res) => {
         user_id: req.session.userId,
         rooms: Number(rooms),
         bathrooms: Number(bathrooms),
+        price: null,
+        services: '',
         date,
         time,
         status: 'new',
