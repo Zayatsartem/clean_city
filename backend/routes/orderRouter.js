@@ -4,6 +4,7 @@ const { Order } = require('../db/models');
 
 router.post('/', async (req, res) => {
   const { rooms, bathrooms, date, time, address, user_id } = req.body;
+  console.log(req.body);
   if (!rooms || !bathrooms || !date || !time || !address) {
     res.status(422).json({ error: 'поле не должно быть пустым' });
     return;
