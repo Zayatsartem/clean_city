@@ -37,6 +37,9 @@ input[class="cc-inputSubmit"]:active{
   border: 1px solid transparent;
   opacity: 0.8;
 }
+input[class="cc-inputSubmit"]:disabled{
+  opacity: 0.4;
+}
 .cc-formP{
   color: #bf1650;
 }
