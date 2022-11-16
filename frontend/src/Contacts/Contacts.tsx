@@ -10,12 +10,7 @@ import { List, ListItem } from '@mui/material';
 
 const theme = createTheme();
 
-export default function Album(): JSX.Element {
-  // const defaultState = {
-  //   center: [59.929542, 30.340006],
-  //   zoom: 15,
-  //   width: '100%',
-  // };
+export default function Contacts(): JSX.Element {
   const state = {
     center: [59.929542, 30.340006],
     zoom: 15,
@@ -29,11 +24,10 @@ export default function Album(): JSX.Element {
             bgcolor: 'background.paper',
             pt: 5,
             pb: 6,
-            color: '#000080',
           }}
         >
           <Container sx={{ width: '100%', alignItems: 'center' }}>
-            <Typography component="h3" variant="h6" align="center" color="#000080" gutterBottom>
+            <Typography component="h3" variant="body1" align="center" gutterBottom>
               Контакты Чистый город в Санкт-Петербурге
               <List
                 sx={{
