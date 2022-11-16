@@ -87,3 +87,16 @@
   display: flex;
   justify-content: center;
 }
+
+.MuiCardContent-root.css-46bh2p-MuiCardContent-root {
+  width: 350px;
+  max-height: 350px;
+}
+
+.css-pwngrv-MuiPaper-root-MuiCard-root {
+  height: 350px;
+}
+.css-1t6e9jv-MuiCardActions-root {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,41 @@
+.comment-container {
+    height: 50%;
+    width: 20%;
+    margin: 2%;
+    padding: 2%;
+}
+
+.comment-text {
+  font-size: 3vh;
+}
+
+.comment-input {
+  width: 100%;
+  height: 10vh;
+  flex-wrap: wrap;
+}
+
+.comment-stars {
+  font-size: 5vh;
+}
+
+.comment-button {
+  background: blue;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 15px;
+  font-weight: 100;
+  letter-spacing: 10px;
+  border-radius: 4px;
+  -webkit-appearance: none;
+}
+.comment-img {
+  height: 15vh;
+}
+.comment-box {
+  display: flex;
+  justify-content: center;
+}

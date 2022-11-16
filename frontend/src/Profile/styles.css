@@ -29,3 +29,21 @@
   padding-top: 1vh;
   padding-bottom: 1vh;
 }
+
+.orderCard-btn {
+  background: rgb(35, 109, 198);
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 13px;
+  font-weight: 100;
+  /* letter-spacing: 10px; */
+  border-radius: 4px;
+  -webkit-appearance: none;
+}
+.orderCard-btn:hover {
+  background: rgb(212, 239, 244);
+  color: black;
+}
