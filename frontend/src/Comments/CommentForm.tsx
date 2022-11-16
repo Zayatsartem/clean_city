@@ -15,12 +15,9 @@ export default function CommentForm(): JSX.Element {
   const error = useSelector((state: RootState) => state.comment.commentError);
 
   const { orderId } = useParams();
-  console.log(orderId);
-  console.log(Number(value));
 
   function changeComment(event: React.ChangeEvent<HTMLInputElement>): void {
     setComment(event.target.value);
-    console.log(event.target.value);
   }
 
   async function submitComment(event: React.FormEvent): Promise<void> {
@@ -35,8 +32,7 @@ export default function CommentForm(): JSX.Element {
       status: false,
     };
 
-     await dispatch(feedback(data)
-    );
+    await dispatch(feedback(data));
   }
 
   return (

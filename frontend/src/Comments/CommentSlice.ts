@@ -10,14 +10,14 @@ const initialState: Data = {
   status: false,
 };
 
-export const feedback = createAsyncThunk('feedback', async (data: Data) => {
+export const feedback = createAsyncThunk('feedback', async (data: Data) =>
   // if (data.title?.trim()) {
   //   console.log('пусто');
   //   throw new Error('Заполните поле отзыва');
   // }
-  console.log(data);
-  return apiComment.feedback(data);
-});
+
+  apiComment.feedback(data)
+);
 
 const commentSlice = createSlice({
   name: 'comment',

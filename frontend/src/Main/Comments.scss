@@ -1,8 +1,9 @@
-.commentsBox{
+.commentsBox {
   display: inline-flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
-.componentHeader{
+.componentHeader {
   margin: auto;
   text-align: center;
 }
