@@ -8,24 +8,24 @@
   padding: 5px 20px;
   /* border-radius: 4px; */
   margin-top: 0px;
-  margin-right: 90px;
+  /* margin-right: 90px; */
 }
 .button-logout:hover {
   text-decoration: underline;
-  color: rgb(212, 239, 244);
+  color: rgb(212, 239, 244)
 }
-
 
 .nav {
+  padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  justify-content: space-between;
   height: 80px;
-}
-
-.logoImg {
-  margin-left: 100px;
 }
 
 .links {
   display: flex;
+  text-align: center;
   justify-content: space-between;
   font-size: 20px;
   color: lightblue;
@@ -39,3 +39,15 @@
 #main {
   color: black;
 }
+
+@media(max-width: 530px){
+  .nav {
+    width: auto;
+    height: auto;
+  flex-direction: column;
+  }
+  .button-logout {
+    margin-right: 0;
+  }
+  }
+  
