@@ -34,6 +34,7 @@ export default function OrderForm(): JSX.Element {
       <input
         className="cc-input"
         type="number"
+        min="1"
         {...register('rooms', {
           required: true,
           maxLength: 50,
@@ -45,6 +46,7 @@ export default function OrderForm(): JSX.Element {
       <label className="cc-formLabel">Количество санузлов</label>
       <input
         type="number"
+        min="1"
         className="cc-input"
         {...register('bathrooms', {
           maxLength: 50,
