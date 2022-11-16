@@ -95,8 +95,8 @@ function CallForm(): JSX.Element {
         >
           Рассчитать стоимость
         </Button>
-        <div className="errDiv">{message}</div>
       </div>
+        <div className="errDiv">{message}</div>
     </div>
   );
 }
