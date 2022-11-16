@@ -1,10 +1,41 @@
-button[type="button"] {
-  display: block;
+.button-logout {
+  /* display: block; */
   background: rgb(35, 109, 198);
-  color: white;
-  /* border: none; */
+  /* background-color: rgb(112, 112, 203); */
+  font-size: 20px;
+  color: lightblue;
+  border: none;
   padding: 5px 20px;
-  border-radius: 4px;
+  /* border-radius: 4px; */
+  margin-top: 0px;
+  margin-right: 90px;
+}
+.button-logout:hover {
   text-decoration: underline;
-  margin-top: 22px;
+  color: rgb(212, 239, 244)
+}
+
+
+.nav {
+  height: 80px;
+}
+
+.logoImg {
+  margin-left: 100px;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  color: lightblue;
+  text-decoration: none;
+} 
+.links:hover {
+  text-decoration: underline;
+  color: rgb(212, 239, 244)
+}
+
+#main {
+  color: black;
 }

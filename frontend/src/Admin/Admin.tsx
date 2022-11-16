@@ -21,17 +21,17 @@ function Admin(): JSX.Element {
   }, [dispatch]);
 
   return (
-   <>
-      {(user?.admin) ? (
-
-        <div>
+    <>
+      {user?.admin ? (
+        <div className="form-edit">
           <NewOrders />
           <WIPOrders />
           <Comments />
         </div>
-      ) : (<h2>Недостаточно прав</h2>)}
-    {' '}
-   </>
+      ) : (
+        <h2>Недостаточно прав</h2>
+      )}{' '}
+    </>
   );
 }
 

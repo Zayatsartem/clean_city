@@ -1,6 +1,7 @@
 .cc-form {
   max-width: 500px;
   margin: 0 auto;
+  height: 80vh;
 }
 .cc-input{
   display: block;

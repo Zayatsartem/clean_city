@@ -5,7 +5,7 @@ import { useAppDispatch, RootState } from '../store';
 import { logout } from '../Authorization/authSlice';
 import './styles.css';
 import { selectAuthChecked } from '../Authorization/selectors';
-import ProfileNavbar from './ProfileNavbar';
+import logo from './logo3.png';
 
 function Navbar(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -30,8 +30,8 @@ function Navbar(): JSX.Element {
     <nav className="nav">
       {user ? (
         <>
-          <Link className="links" type="button" to="/">
-            Главная
+          <Link id="main" className="links" type="button" to="/">
+            <img src={logo} height="50px" width="50px" alt="logo" className="logoImg" />
           </Link>
           <Link className="links" to="/order">
             Сделать заказ
@@ -39,26 +39,25 @@ function Navbar(): JSX.Element {
           <Link className="links" to="/cleaningrules">
             Регламент уборки
           </Link>
-
-          <ProfileNavbar />
-          {user?.admin ? (
+          <Link className="links" to="/profile/orders">
+            Мои заказы
+          </Link>
+          <Link className="links" to="/profile/edit">
+            Мой профиль
+          </Link>
+          {user?.admin && (
             <Link className="links" to="/admin">
-              Личный кабинет администратора
-            </Link>
-          ) : (
-            <Link className="links" to="/profile">
-              Личный кабинет
+              Администратор
             </Link>
           )}
-
           <button className="button-logout" type="button" onClick={handleLogout}>
             Выйти
           </button>
         </>
       ) : (
         <>
-          <Link className="links" to="/">
-            Главная
+          <Link id="main" className="links" to="/">
+            <img src={logo} height="50px" width="50px" alt="logo" className="logoImg" />
           </Link>
           <Link className="links" to="/cleaningrules">
             Регламент уборки

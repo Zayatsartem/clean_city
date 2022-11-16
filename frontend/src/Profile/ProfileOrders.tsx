@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../store';
 import { getOrders } from '../Authorization/authSlice';
 import OrderCard from './OrderCard';
-import OrderViews from '../Order/OrderViews';
+import OrderForm from '../Order/OrderForm';
+// import '../form.css';
 
 function ProfileOrders(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -15,31 +16,33 @@ function ProfileOrders(): JSX.Element {
   const userOrders = useSelector((state: RootState) => state.auth.orders);
 
   return (
-    <main>
+    <main className="order-main">
       {!userOrders || userOrders.length === 0 ? (
         <>
-          <h4>У вас пока нет заказов</h4>
-          <OrderViews />
+          <h4 className="h4-div">У вас пока нет заказов</h4>
+          <OrderForm />
         </>
       ) : (
-        <>
-          <div style={{ border: '1px solid black' }}>
-            <h3>Ближайшие заказы</h3>
-            {userOrders
-              ?.filter((order) => order.status !== 'completed')
-              .map((order) => (
-                <OrderCard key={order.id} order={order} />
-              ))}
-          </div>
-          <div style={{ border: '1px solid black' }}>
-            <h3>Выполненные заказы</h3>
-            {userOrders
-              ?.filter((order) => order.status === 'completed')
-              .map((order) => (
-                <OrderCard key={order.id} order={order} />
-              ))}
-          </div>
-        </>
+        <div className="table-div">
+          <tr className="tr-orders">
+            <td className="orders-div">
+              <h3 className="h3-orders">Ближайшие заказы</h3>
+              {userOrders
+                ?.filter((order) => order.status !== 'completed')
+                .map((order) => (
+                  <OrderCard key={order.id} order={order} />
+                ))}
+            </td>
+            <td className="orders-div">
+              <h3 className="h3-orders">Выполненные заказы</h3>
+              {userOrders
+                ?.filter((order) => order.status === 'completed')
+                .map((order) => (
+                  <OrderCard key={order.id} order={order} />
+                ))}
+            </td>
+          </tr>
+        </div>
       )}
     </main>
   );
