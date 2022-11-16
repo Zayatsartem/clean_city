@@ -33,6 +33,9 @@ module.exports = (sequelize, DataTypes) => {
     bathrooms: {
       type: DataTypes.INTEGER,
     },
+    price: {
+      type: DataTypes.INTEGER,
+    },
     services: {
       type: DataTypes.TEXT,
     },
