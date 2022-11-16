@@ -22,6 +22,12 @@ legend.css-14lo706{
     align-items: center;
   }
 }
+@media(max-width: 851px){
+  .CallForms {
+    flex-direction: column;
+  }
+  }
+
 .css-1t93dqf-MuiFormControl-root{
   legend.css-14lo706{
     width:130px
