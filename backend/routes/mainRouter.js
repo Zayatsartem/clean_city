@@ -1,13 +1,19 @@
 const router = require('express').Router();
 const fetch = require('node-fetch');
-const { Comment } = require('../db/models');
+const { Comment, User, Order } = require('../db/models');
 
 router.get('/comments', async (req, res) => {
   try {
     const comments = await Comment.findAll({
+      include: [
+        { model: User, attributes: [] },
+        { model: Order, attributes: [] },
+      ],
       where: {
         status: true,
       },
+      raw: true,
+      attributes: ['id', 'title', 'User.name', 'Order.date'],
     });
     res.json({ comments });
   } catch ({ message }) {

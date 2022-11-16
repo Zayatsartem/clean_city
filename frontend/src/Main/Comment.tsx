@@ -12,7 +12,9 @@ function Comment({ comment }: { comment: TComment }): JSX.Element {
         <Typography variant="h5" component="div">
           ⭐⭐⭐⭐⭐
         </Typography>
+        <Typography variant="body2">{comment.name}</Typography>
         <Typography variant="body2">{comment.title}</Typography>
+        <Typography variant="body2">{comment.date}</Typography>
       </CardContent>
     </Card>
   );
