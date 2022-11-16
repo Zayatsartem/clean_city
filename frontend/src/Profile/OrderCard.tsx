@@ -15,13 +15,13 @@ export default function OrderCard({ order }: { order:Comment }): JSX.Element {
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <Typography variant="h5" component="div">
-          {order.date}
+          {order.address}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        {order.time}
+        {order.date}
         </Typography>
         <Typography variant="body2">
-          {order.address}
+          {order.time}
           <br />
           Комнат: {order.rooms}
           <br />
