@@ -26,62 +26,57 @@ function NonstandartForm(): JSX.Element {
   };
 
   return (
-    <div className="nonstandart">
-      <h2 className="componentHeader">Нестандартная ситуация </h2>
-      <div className="textBox">
-        <p>
-          Если Вам нужна уборка частного дома, коммерческих помещений большой площади, химчистка
-          мебели, уборка территории(стрижка газона,уборка снега и др.), мойка витражного остекления
-          и окон на высоте и др.
-        </p>
-        <p>
-          Просто оставьте заявку и наш менеджер свяжется с Вами в ближайшее время для уточнения
-          деталей и оформления заказа.
-        </p>
+    <form className="NonstandartForm" onSubmit={handelFreeRequest}>
+      <div className="nonstandart">
+        <h2 className="componentHeader">Нестандартная ситуация </h2>
+        <div className="textBox">
+          <p>
+            Если Вам нужна уборка частного дома, коммерческих помещений большой площади, химчистка
+            мебели, уборка территории(стрижка газона,уборка снега и др.), мойка витражного
+            остекления и окон на высоте и др.
+          </p>
+          <p>
+            Просто оставьте заявку и наш менеджер свяжется с Вами в ближайшее время для уточнения
+            деталей и оформления заказа.
+          </p>
+        </div>
       </div>
-
-      <form className="NonstandartForm" onSubmit={handelFreeRequest}>
-        <Box
-          component="form"
-          sx={{
-            '& .MuiTextField-root': { m: 1, width: '700px' },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <TextField
-            id="outlined-multiline-flexible"
-            minRows={3}
-            multiline
-            placeholder="Опишите заявку здесь"
-            style={{ width: 700 }}
-            value={comment}
-            onChange={handleComment}
-          />
-        </Box>
-        <Box
-          component="form"
-          sx={{
-            '& .MuiTextField-root': { m: 1, width: '25' },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <TextField
-            id="outlined-multiline-flexible"
-            label="Телефон"
-            multiline
-            maxRows={4}
-            value={phone}
-            onChange={handlePhone}
-          />
-        </Box>
-        <Button type="submit" variant="contained">
-          Оставить заявку
-        </Button>
-        <div className="errDiv">{freeFormMessage}</div>
-      </form>
-    </div>
+      <Box
+        component="span"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '700px' },
+        }}
+      >
+        <TextField
+          id="outlined-multiline-flexible"
+          minRows={3}
+          multiline
+          placeholder="Опишите заявку здесь"
+          style={{ width: 700 }}
+          value={comment}
+          onChange={handleComment}
+        />
+      </Box>
+      <Box
+        component="span"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '25' },
+        }}
+      >
+        <TextField
+          id="outlined-multiline-flexible"
+          label="Телефон"
+          multiline
+          maxRows={4}
+          value={phone}
+          onChange={handlePhone}
+        />
+      </Box>
+      <Button type="submit" variant="contained">
+        Оставить заявку
+      </Button>
+      <div className="errDiv">{freeFormMessage}</div>
+    </form>
   );
 }
 
