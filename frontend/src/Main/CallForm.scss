@@ -12,9 +12,14 @@ legend.css-14lo706{
   }
 }
 .formsCallForm {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
+  gap:20px;
   align-items: center;
   margin:10px;
+  .CallForms{
+    display: inline-flex;
+  }
 }
 .css-1t93dqf-MuiFormControl-root{
   legend.css-14lo706{

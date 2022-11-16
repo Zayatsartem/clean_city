@@ -39,11 +39,14 @@ export default function AuthForm(): JSX.Element {
   return (
     <form className="cc-form" onSubmit={handleSubmit}>
       <h2>Login</h2>
-      <label className="cc-formLabel" htmlFor="email-input">Email</label>
+      <label className="cc-formLabel" htmlFor="email-input">
+        Email
+      </label>
       <input
         className="cc-input"
         type="text"
         id="email-input"
+        autoComplete="email"
         value={email}
         onChange={handleEmailChange}
       />
@@ -54,6 +57,7 @@ export default function AuthForm(): JSX.Element {
         className="cc-input"
         type="password"
         id="password-input"
+        autoComplete="current-password"
         value={password}
         onChange={handlePasswordChange}
       />

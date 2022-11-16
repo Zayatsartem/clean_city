@@ -27,15 +27,14 @@ function CallForm(): JSX.Element {
   const handlePhone = (event: ChangeEvent<HTMLTextAreaElement>): void => {
     setPhone(event.target.value);
   };
-  const handelRequest = (event: React.FormEvent<HTMLFormElement>): void => {
-    event.preventDefault();
+  const handelRequest = (): void => {
     dispatch(requestTelegram({ rooms, bathrooms, phone }));
   };
 
   return (
-    <form className="CallForm" onSubmit={handelRequest}>
-      <h2 className="componentHeader">Рассчитать стоимость уборки </h2>
-      <div className="formsCallForm">
+    <div className="formsCallForm">
+      <h2 className="componentHeader">Рассчитать стоимость уборки</h2>
+      <div className="CallForms">
         <FormControl sx={{ m: 1, minWidth: 200 }}>
           <InputLabel id="demo-simple-select-helper-label">Количество комнат</InputLabel>
           <Select
@@ -88,12 +87,17 @@ function CallForm(): JSX.Element {
             />
           </div>
         </Box>
-        <Button type="submit" className="callFormButton" variant="contained">
+        <Button
+          type="button"
+          className="callFormButton"
+          onClick={handelRequest}
+          variant="contained"
+        >
           Рассчитать стоимость
         </Button>
-      </div>
         <div className="errDiv">{message}</div>
-    </form>
+      </div>
+    </div>
   );
 }
 
