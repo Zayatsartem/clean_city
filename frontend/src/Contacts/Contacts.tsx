@@ -2,7 +2,6 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-// eslint-disable-next-line object-curly-newline
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
