@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.box {
+  height: 70%;
+  border: 1px solid rgb(35, 109, 198);
+  width: 30%;
+  margin: 2%;
+  padding: 2%;
+}
+img {
+  height: 30vh;
+}
+h1 {
+  color: rgb(35, 109, 198);
+  text-align: center;
+}
+.js-form {
+  font-size: 1.5vh;
+}
+
+.inputForm {
+  text-align: center;
+  font-size: 2vh;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
