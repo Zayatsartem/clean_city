@@ -22,6 +22,9 @@ module.exports = {
       bathrooms: {
         type: Sequelize.INTEGER,
       },
+      price: {
+        type: Sequelize.INTEGER,
+      },
       services: {
         type: Sequelize.TEXT,
       },
