@@ -17,6 +17,7 @@ export interface IFormInput {
   time: string;
   address: string;
   status: string;
+  checkbox: [];
 }
 
 export interface OrderState {
