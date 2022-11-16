@@ -42,19 +42,27 @@ function RegisterForm(): JSX.Element {
         })}
       />
       {errors?.name?.type === 'required' && <p className="cc-formP">Поле является обязательныим</p>}
-      {errors?.name?.type === 'maxLength' && <p className="cc-formP">Имя не может превышать 50 символов</p>}
-      {errors?.name?.type === 'minLength' && <p className="cc-formP">Имя не должно быть меньше одного символа</p>}
+      {errors?.name?.type === 'maxLength' && (
+        <p className="cc-formP">Имя не может превышать 50 символов</p>
+      )}
+      {errors?.name?.type === 'minLength' && (
+        <p className="cc-formP">Имя не должно быть меньше одного символа</p>
+      )}
       <label className="cc-formLabel">Email</label>
       <input
         className="cc-input"
         type="email"
+        autoComplete="email"
         {...register('email', { pattern: /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/ })}
       />
-      {errors?.email?.type === 'pattern' && <p className="cc-formP">Неверно указан почтовый адрес</p>}
+      {errors?.email?.type === 'pattern' && (
+        <p className="cc-formP">Неверно указан почтовый адрес</p>
+      )}
       <label className="cc-formLabel">Пароль</label>
       <input
         className="cc-input"
         type="password"
+        autoComplete="current-password"
         {...register('password', { minLength: 8, maxLength: 20 })}
       />
       {errors.password && <p className="cc-formP">пароль должен быть больше 8 символов</p>}
