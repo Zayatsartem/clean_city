@@ -55,11 +55,11 @@ function PricingContent(): JSX.Element {
         elevation={0}
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       />
-      <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
-        <Typography component="h5" variant="h5" align="center" color="text.primary" gutterBottom>
-          Средняя стоимость уборки квартиры
-        </Typography>
-      </Container>
+
+      <Typography component="h5" variant="h5" align="center" color="text.primary" gutterBottom>
+        <h3>Средняя стоимость уборки квартиры</h3>
+      </Typography>
+
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
           {tiers.map((tier) => (

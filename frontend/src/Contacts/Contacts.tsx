@@ -27,7 +27,7 @@ export default function Contacts(): JSX.Element {
         >
           <Container sx={{ width: '100%', alignItems: 'center' }}>
             <Typography component="h3" variant="body1" align="center" gutterBottom>
-              Контакты Чистый город в Санкт-Петербурге
+              <h2>Контакты Чистый город в Санкт-Петербурге</h2>
               <List
                 sx={{
                   width: '100%',
