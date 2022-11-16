@@ -19,7 +19,7 @@ function ProfileOrders(): JSX.Element {
     <main className="order-main">
       {!userOrders || userOrders.length === 0 ? (
         <>
-          <h4 className="h4-div">У вас пока нет заказов</h4>
+          <h1 className="h4-div">У вас пока нет заказов</h1>
           <OrderForm />
         </>
       ) : (
