@@ -1,4 +1,4 @@
-.container {
+.container1 {
   display: flex;
   justify-content: space-evenly;
 }
@@ -10,13 +10,13 @@
   margin: 2%;
   padding: 2%;
 }
-img {
+.profileimg {
   height: 30vh;
 }
-h1 {
+/* h1 {
   color: rgb(35, 109, 198);
   text-align: center;
-}
+} */
 .js-form {
   font-size: 1.5vh;
 }

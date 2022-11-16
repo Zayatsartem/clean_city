@@ -52,9 +52,9 @@ function EditProfile(): JSX.Element {
   }
 
   return (
-    <div className="container">
+    <div className="container1">
       <div className="form-edit box">
-        <img src={avatar} alt="avatar" />
+        <img className="profileimg" src={avatar} alt="avatar" />
         {user ? (
           <>
             <form onSubmit={editForm} className="js-form">
