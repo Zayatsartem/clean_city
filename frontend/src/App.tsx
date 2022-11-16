@@ -19,7 +19,6 @@ import Contacts from './Contacts/Contacts';
 import CostOfCleaning from './CostOfCleaning /CostOfCleaning';
 import Services from './Services/Services';
 
-
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
   React.useEffect(() => {
