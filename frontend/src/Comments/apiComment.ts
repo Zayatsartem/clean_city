@@ -1,7 +1,6 @@
 import { Data } from '../types/commentTypes';
 
 export async function feedback(data: Data): Promise<Data> {
-  console.log(data);
   const response = await fetch('/api/comment', {
     method: 'POST',
     body: JSON.stringify({ data }),
@@ -14,7 +13,6 @@ export async function feedback(data: Data): Promise<Data> {
     throw new Error(message);
   }
   const content = await response.json();
-  console.log(content);
 
   return content;
 }
