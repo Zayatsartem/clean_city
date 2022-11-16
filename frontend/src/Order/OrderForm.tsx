@@ -24,7 +24,7 @@ export default function OrderForm(): JSX.Element {
     reset();
     const dispatchResult = await dispatch(order({ ...data, user_id: user?.id }));
     if (order.fulfilled.match(dispatchResult)) {
-      navigate('/');
+      navigate('/profile/orders');
     }
   };
 

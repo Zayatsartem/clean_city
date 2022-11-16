@@ -32,7 +32,7 @@ export default function OrderCard({ order }: { order:Comment }): JSX.Element {
       </CardContent>
       <CardActions>
         {order.status === 'completed' &&
-        <button type="button" onClick={leaveComment}>Оставить комментарий</button>}
+        <button type="button" className="orderCard-btn" onClick={leaveComment}>Оставить комментарий</button>}
       </CardActions>
     </Card>
   );

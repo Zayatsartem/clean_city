@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import Box from '@mui/material/Box';
+// import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { feedback } from './CommentSlice';
 import { RootState, useAppDispatch } from '../store';
+import './comments.style.css';
+import logoComment from './comment-png-8.jpeg';
 
 export default function CommentForm(): JSX.Element {
   const [value, setValue] = useState<number | null>(0);
@@ -23,7 +25,6 @@ export default function CommentForm(): JSX.Element {
   async function submitComment(event: React.FormEvent): Promise<void> {
     event.preventDefault();
     setComment('');
-    console.log('submitting comment');
     const data = {
       stars: Number(value),
       title: comment,
@@ -36,30 +37,48 @@ export default function CommentForm(): JSX.Element {
   }
 
   return (
-    <Box
-      sx={{
-        '& > legend': { mt: 2 },
-      }}
-    >
-      <Typography component="legend">Оцените выполненную услугу</Typography>
-      <Rating
-        name="simple-controlled"
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-      />
-      <form onSubmit={submitComment}>
-        <input
-          type="text"
-          value={comment}
-          onChange={changeComment}
-          placeholder="Оставьте отзыв"
-          required
+    <main className="comment-box">
+      <div className="comment-container">
+        <br />
+        <br />
+        <br />
+        <img className="comment-img" src={logoComment} alt="avatar" />
+        <br />
+        <br />
+        <br />
+        <br />
+        <Rating
+          name="simple-controlled"
+          className="comment-stars"
+          style={{ fontSize: '5vh' }}
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
         />
-        <button type="submit">Отправить отзыв</button>
-      </form>
-      <div>{error && <p>{error}</p>}</div>
-    </Box>
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <form className="comment-form" onSubmit={submitComment}>
+          <input
+            type="text"
+            className="comment-input"
+            value={comment}
+            onChange={changeComment}
+            placeholder="Поделитесь впечатлениями о выполненной услуге"
+            required
+          />
+        <button className="comment-button" type="submit">
+          Отправить отзыв
+        </button>
+        </form>
+        <br />
+        <br />
+        <br />
+        <div>{error && <p>{error}</p>}</div>
+      </div>
+    </main>
   );
 }

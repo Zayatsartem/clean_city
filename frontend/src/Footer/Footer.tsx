@@ -44,8 +44,8 @@ function Footer(): JSX.Element {
               <Link className="linksFooter" to="/order">
                 Сделать заказ
               </Link>
-              <Link className="linksFooter" to="/login">
-                Войти
+              <Link className="linksFooter" to="/cleaningrules">
+                Регламент уборки
               </Link>
             </Typography>
           </Box>

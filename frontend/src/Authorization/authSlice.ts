@@ -5,8 +5,6 @@ import * as apiReg from '../Registration/apiReg';
 import apiProfile from '../Profile/apiProfileOrders';
 import { RegisterData } from '../types/RegistTypes';
 
-// import { RootState } from '../store';
-
 const initialState: AuthState = {
   authChecked: false,
   user: null,
