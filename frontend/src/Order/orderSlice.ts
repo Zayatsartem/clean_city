@@ -36,4 +36,5 @@ const orderSlice = createSlice({
   },
 });
 
+export const { resetOrderFormError } = orderSlice.actions;
 export default orderSlice.reducer;
