@@ -1,16 +1,16 @@
-import React, { ChangeEvent } from 'react';
+import React, { useEffect } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import './CallForm.scss';
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../store';
-import { requestTelegram } from './mainSlice';
+import { requestTelegram, resetError } from './mainSlice';
 import { getMessage } from './selectors';
+import PhoneInput from './PhoneInput';
 
 function CallForm(): JSX.Element {
   const message = useSelector(getMessage);
@@ -24,15 +24,21 @@ function CallForm(): JSX.Element {
   const handleBathrooms = (event: SelectChangeEvent): void => {
     setBathrooms(event.target.value);
   };
-  const handlePhone = (event: ChangeEvent<HTMLTextAreaElement>): void => {
-    setPhone(event.target.value);
-  };
-  const handelRequest = (): void => {
+
+  const handleRequest = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
     dispatch(requestTelegram({ rooms, bathrooms, phone }));
   };
 
+  useEffect(() => {
+    const id = setTimeout(() => {
+      dispatch(resetError());
+    }, 5000);
+    return () => clearTimeout(id);
+  }, [message, dispatch]);
+
   return (
-    <div className="formsCallForm">
+    <form className="formsCallForm" onSubmit={handleRequest}>
       <h2 className="componentHeader">Рассчитать стоимость уборки</h2>
       <div className="CallForms">
         <FormControl sx={{ m: 1, minWidth: 200 }}>
@@ -69,35 +75,19 @@ function CallForm(): JSX.Element {
           </Select>
         </FormControl>
         <Box
-          component="form"
+          component="span"
           sx={{
             '& .MuiTextField-root': { m: 1, width: '25ch' },
           }}
-          noValidate
-          autoComplete="off"
         >
-          <div>
-            <TextField
-              id="outlined-multiline-flexible"
-              label="Телефон"
-              multiline
-              maxRows={4}
-              value={phone}
-              onChange={handlePhone}
-            />
-          </div>
+          <PhoneInput phone={phone} setPhone={setPhone} />
         </Box>
-        <Button
-          type="button"
-          className="callFormButton"
-          onClick={handelRequest}
-          variant="contained"
-        >
+        <Button type="submit" className="callFormButton" variant="contained">
           Рассчитать стоимость
         </Button>
       </div>
-        <div className="errDiv">{message}</div>
-    </div>
+      <div className="errDiv">{message}</div>
+    </form>
   );
 }
 
