@@ -26,7 +26,14 @@ export default function OrderForm(): JSX.Element {
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     reset();
-    const dispatchResult = await dispatch(order({ ...data, user_id: user?.id }));
+    const dispatchResult = await dispatch(
+      order({
+        ...data,
+        user_id: user?.id,
+        price: 0,
+        services: '',
+      })
+    );
     if (order.fulfilled.match(dispatchResult)) {
       navigate('/');
     }
@@ -120,7 +127,7 @@ export default function OrderForm(): JSX.Element {
           <input {...register('checkbox')} type="checkbox" value="11" />
         </ul>
       </div>
-      <input className="cc-inputSubmit" type="submit" disabled={!isValid} />
+      <input className="cc-inputSubmit" type="submit" disabled={!isValid} value="отправить" />
       <div>{error && <p className="cc-formP">{error}</p>}</div>
     </form>
   );

@@ -3,7 +3,17 @@ const router = require('express').Router();
 const { Order, Service } = require('../db/models');
 
 router.post('/', async (req, res) => {
-  const { rooms, bathrooms, date, time, address, user_id, checkbox } = req.body;
+  // eslint-disable-next-line camelcase
+  const {
+    // eslint-disable-next-line camelcase
+    rooms,
+    bathrooms,
+    date,
+    time,
+    address,
+    user_id,
+    checkbox,
+  } = req.body;
 
   if (!rooms || !bathrooms || !date || !time || !address) {
     res.status(422).json({ error: 'поле не должно быть пустым' });
@@ -19,10 +29,10 @@ router.post('/', async (req, res) => {
   }
 
   const priceServices = services.map((el) => el.price).reduce((x, y) => x + y, 0);
-  const totalPrice = rooms * 1000 + bathrooms * 1000 + priceServices;
+  const totalPrice = rooms * 1000 + bathrooms * 500 + priceServices;
   const servicesTitle = services.map((el) => el.title);
-  console.log(totalPrice);
 
+  // eslint-disable-next-line camelcase
   if (req.session.userId === user_id) {
     try {
       const newOrder = await Order.create({

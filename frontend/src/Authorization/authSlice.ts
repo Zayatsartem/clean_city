@@ -76,7 +76,7 @@ const authSlice = createSlice({
       .addCase(getOrders.rejected, (state, action) => {
         state.registerFormError = action.error.message;
       });
-  }
+  },
 });
 
 export const { resetLoginFormError } = authSlice.actions;
