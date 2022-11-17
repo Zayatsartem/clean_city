@@ -1,5 +1,5 @@
 .cc-form {
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto;
 }
 .cc-input {
@@ -55,14 +55,14 @@ input[class='cc-inputSubmit']:disabled {
   margin-top: 20px;
   color: rgb(0, 0, 0);
   font-size: 14px;
-  font-weight: 200;
+  /* font-weight: 200; */
 }
 
 .cc-formLabelM {
-  line-height: 2;
+  line-height: 1;
   text-align: left;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 15px;
+  margin-top: 15px;
   color: rgb(0, 0, 0);
   font-size: 14px;
 }
