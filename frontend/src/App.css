@@ -50,9 +50,8 @@
   /* height: 80vh; */
 }
 
-
 .MuiCardContent-root.css-46bh2p-MuiCardContent-root {
-  width: 350px;
+  max-width: 500px;
   max-height: 350px;
 }
 

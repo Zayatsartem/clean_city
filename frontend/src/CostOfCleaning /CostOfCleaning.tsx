@@ -59,7 +59,7 @@ function PricingContent(): JSX.Element {
       <h2 className="average-price">Средняя стоимость уборки квартиры</h2>
 
       <Container maxWidth="md" component="main">
-        <Grid container spacing={5} alignItems="flex-end">
+        <Grid container spacing={3} alignItems="flex-end">
           {tiers.map((tier) => (
             <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
               <Card>
@@ -87,21 +87,16 @@ function PricingContent(): JSX.Element {
                       mb: 2,
                     }}
                   >
-                    <Typography component="h2" variant="h6" color="text.primary">
+                    <Typography component="h3" variant="h6" color="text.primary">
                       от {tier.price} рублей
                     </Typography>
                   </Box>
                   <ul>
                     {tier.img.map((img) => (
-                      <CardMedia key={img} component="img" height="140" image={img} alt="#" />
+                      <CardMedia key={img} component="img" height="150" image={img} alt="#" />
                     ))}
                   </ul>
                 </CardContent>
-                {/* <CardActions>
-                  <Button fullWidth variant={tier.buttonVariant as 'outlined' | 'contained'}>
-                    {tier.buttonText}
-                  </Button>
-                </CardActions> */}
               </Card>
             </Grid>
           ))}

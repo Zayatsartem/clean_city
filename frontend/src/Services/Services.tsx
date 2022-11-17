@@ -32,7 +32,9 @@ export default function Services(): JSX.Element {
           <Item
             className="gridItem"
             sx={{
-              boxShadow: 'none', color: '#000080', objectFit: 'fill'
+              boxShadow: 'none',
+              color: '#000080',
+              objectFit: 'fill',
             }}
           >
             <CardMedia component="img" height="140" image={wet_cleaning} alt="wet_cleaning" />
