@@ -27,6 +27,7 @@ function NewOrders():JSX.Element {
             <TableCell align="right">Время</TableCell>
             <TableCell align="right">Адрес</TableCell>
             <TableCell align="right">Объем работы</TableCell>
+            <TableCell align="right">Доп. услуги</TableCell>
             <TableCell align="right">Действия</TableCell>
           </TableRow>
         </TableHead>

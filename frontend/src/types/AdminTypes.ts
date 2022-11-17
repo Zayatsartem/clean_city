@@ -13,7 +13,8 @@ export type TNewOrder = {
   address: string,
   name: string,
   email: string,
-  telephone: string
+  telephone: string,
+  services:string,
 };
 export type AdminState = {
   newOrders: TNewOrder[],
