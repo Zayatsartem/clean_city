@@ -1,10 +1,10 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../store';
-import { freeRequestTelegram } from './mainSlice';
+import { freeRequestTelegram, resetError } from './mainSlice';
 import './nonstandart.scss';
 import { getFreeFormMessage } from './selectors';
 
@@ -24,6 +24,13 @@ function NonstandartForm(): JSX.Element {
     event.preventDefault();
     dispatch(freeRequestTelegram({ phone, comment }));
   };
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      dispatch(resetError());
+    }, 5000);
+    return () => clearTimeout(id);
+  }, [freeFormMessage, dispatch]);
 
   return (
     <form className="NonstandartForm" onSubmit={handelFreeRequest}>

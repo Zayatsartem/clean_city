@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 
@@ -26,22 +25,20 @@ export default function Contacts(): JSX.Element {
           }}
         >
           <Container sx={{ width: '100%', alignItems: 'center' }}>
-            <Typography component="h3" variant="body1" align="center" gutterBottom>
-              <h2>Контакты Чистый город в Санкт-Петербурге</h2>
-              <List
-                sx={{
-                  width: '100%',
-                  maxWidth: 500,
-                  bgcolor: 'background.paper',
-                  alignItems: 'center',
-                }}
-              >
-                <ListItem>Email: cleancity@mail.ru</ListItem>
-                <ListItem>Телефон: +7(812)652-37-95</ListItem>
-                <ListItem>Название: ООО Чистый город</ListItem>
-                <ListItem>Адрес: набережная реки Фонтанки 56</ListItem>
-              </List>
-            </Typography>
+            <h2 className="average-price">Наши контакты в Санкт-Петербурге</h2>
+            <List
+              sx={{
+                width: '100%',
+                maxWidth: 500,
+                bgcolor: 'background.paper',
+                alignItems: 'center',
+              }}
+            >
+              <ListItem>Email: cleancity@mail.ru</ListItem>
+              <ListItem>Телефон: +7(812)652-37-95</ListItem>
+              <ListItem>Название: ООО Чистый город</ListItem>
+              <ListItem>Адрес: набережная реки Фонтанки 56</ListItem>
+            </List>
             <YMaps>
               <Map state={state} width="100%" height="300px">
                 <Placemark geometry={[59.929542, 30.340006]} />

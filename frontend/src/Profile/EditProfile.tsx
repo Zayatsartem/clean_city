@@ -2,15 +2,15 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 // import { useNavigate } from 'react-router-dom';
 import { RootState, useAppDispatch } from '../store';
-import { editProfile } from './editingSlice';
+import { editProfile, resetEditFormError } from './editingSlice';
 import './styles.css';
 import avatar from './avatar.jpg';
 
 function EditProfile(): JSX.Element {
   const user = useSelector((state: RootState) => state.auth.user);
   const [name, setName] = useState(user?.name);
-  const [email, setEmail] = useState(user?.email);
-  const [telephone, setTelephone] = useState(user?.telephone);
+  const [email, setEmail] = useState<string | undefined>(user?.email);
+  const [telephone, setTelephone] = useState<string | undefined>(user?.telephone);
 
   const error = useSelector((state: RootState) => state.editing.editFormError);
 
@@ -37,7 +37,6 @@ function EditProfile(): JSX.Element {
   async function editForm(event: React.FormEvent): Promise<void> {
     event.preventDefault();
 
-    // const dispatchEdit =
     await dispatch(
       editProfile({
         id: user?.id,
@@ -46,10 +45,14 @@ function EditProfile(): JSX.Element {
         telephone,
       })
     );
-
-    //   if (editProfile.fulfilled.match(dispatchEdit)) {
-    //   }
   }
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      dispatch(resetEditFormError());
+    }, 5000);
+    return () => clearTimeout(id);
+  }, [error, dispatch]);
 
   return (
     <div className="container1">
@@ -64,7 +67,7 @@ function EditProfile(): JSX.Element {
                 Имя
                 <input
                   type="text"
-                  value={name}
+                  value={name || ''}
                   onChange={changeName}
                   placeholder="new name"
                   className="cc-input"
@@ -75,7 +78,7 @@ function EditProfile(): JSX.Element {
                 телефон
                 <input
                   type="text"
-                  value={telephone}
+                  value={telephone || ''}
                   onChange={changeTelephone}
                   placeholder="new phone"
                   className="cc-input"
@@ -86,13 +89,13 @@ function EditProfile(): JSX.Element {
                 email
                 <input
                   type="text"
-                  value={email}
+                  value={email || ''}
                   onChange={changeEmail}
                   placeholder="new email"
                   className="cc-input "
                 />
               </label>
-              <button type="submit" className="cc-submitButton">
+              <button type="submit" className="cc-submitButton" style={{ opacity: '0.4' }}>
                 Изменить
               </button>
             </form>

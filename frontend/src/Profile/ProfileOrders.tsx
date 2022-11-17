@@ -23,26 +23,28 @@ function ProfileOrders(): JSX.Element {
           <OrderForm />
         </>
       ) : (
-        <div className="table-div">
-          <tr className="tr-orders">
-            <td className="orders-div">
-              <h3 className="h3-orders">Ближайшие заказы</h3>
-              {userOrders
-                ?.filter((order) => order.status !== 'completed')
-                .map((order) => (
-                  <OrderCard key={order.id} order={order} />
-                ))}
-            </td>
-            <td className="orders-div">
-              <h3 className="h3-orders">Выполненные заказы</h3>
-              {userOrders
-                ?.filter((order) => order.status === 'completed')
-                .map((order) => (
-                  <OrderCard key={order.id} order={order} />
-                ))}
-            </td>
-          </tr>
-        </div>
+        <table className="table-div">
+          <tbody>
+            <tr className="tr-orders">
+              <td className="orders-div">
+                <h3 className="h3-orders">Ближайшие заказы</h3>
+                {userOrders
+                  ?.filter((order) => order.status !== 'completed')
+                  .map((order) => (
+                    <OrderCard key={order.id} order={order} />
+                  ))}
+              </td>
+              <td className="orders-div">
+                <h3 className="h3-orders">Выполненные заказы</h3>
+                {userOrders
+                  ?.filter((order) => order.status === 'completed')
+                  .map((order) => (
+                    <OrderCard key={order.id} order={order} />
+                  ))}
+              </td>
+            </tr>
+          </tbody>
+        </table>
       )}
     </main>
   );

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../store';
-import { regist } from '../Authorization/authSlice';
+import { regist, resetRegisterFormError } from '../Authorization/authSlice';
 import { selectRegisterFormError } from './selectors';
 
 import '../form.css';
@@ -29,6 +29,13 @@ function RegisterForm(): JSX.Element {
       navigate('/');
     }
   };
+
+  React.useEffect(() => {
+    const id = setTimeout(() => {
+      dispatch(resetRegisterFormError());
+    }, 5000);
+    return () => clearTimeout(id);
+  }, [error, dispatch]);
 
   return (
     <form className="cc-form" onSubmit={handleSubmit(onSubmit)}>

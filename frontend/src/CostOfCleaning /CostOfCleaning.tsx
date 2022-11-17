@@ -56,9 +56,7 @@ function PricingContent(): JSX.Element {
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       />
 
-      <Typography component="h5" variant="h5" align="center" color="text.primary" gutterBottom>
-        <h3>Средняя стоимость уборки квартиры</h3>
-      </Typography>
+      <h2 className="average-price">Средняя стоимость уборки квартиры</h2>
 
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">

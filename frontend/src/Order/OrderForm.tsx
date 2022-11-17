@@ -69,7 +69,7 @@ export default function OrderForm(): JSX.Element {
       {errors?.address?.type === 'required' && (
         <p className="cc-formP">Поле является обязательным</p>
       )}
-      <input className="cc-inputSubmit" type="submit" disabled={!isValid} />
+      <input className="cc-inputSubmit" type="submit" value="Отправить" disabled={!isValid} />
       <div>{error && <p className="cc-formP">{error}</p>}</div>
     </form>
   );
