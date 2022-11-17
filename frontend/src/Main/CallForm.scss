@@ -7,6 +7,7 @@ legend.css-14lo706{
 }
 }
 .css-1e7cuzv-MuiFormControl-root {
+  width:200px;
   legend.css-14lo706{
     width:120px
   }
@@ -22,14 +23,21 @@ legend.css-14lo706{
     align-items: center;
   }
 }
+@media(max-width: 851px){
+  .CallForms {
+    flex-direction: column;
+  }
+  }
+
 .css-1t93dqf-MuiFormControl-root{
+  max-width:200px;
   legend.css-14lo706{
     width:130px
   }
 }
 .callFormButton{
-  height: 40px;
-
+  height: 56px;
+  width:200px;
 }
 .CallForm{
   display: flex;

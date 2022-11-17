@@ -35,7 +35,7 @@ export default function OrderForm(): JSX.Element {
       })
     );
     if (order.fulfilled.match(dispatchResult)) {
-      navigate('/');
+      navigate('/profile/orders');
     }
   };
 

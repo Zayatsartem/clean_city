@@ -32,9 +32,6 @@ export default function AuthForm(): JSX.Element {
     if (login.fulfilled.match(dispatchResult)) {
       navigate('/');
     }
-    // if (login.rejected.match(dispatchResult)) {
-    //   alert(dispatchResult.error.message);
-    // }
   }
   return (
     <form className="cc-form" onSubmit={handleSubmit}>
@@ -64,6 +61,9 @@ export default function AuthForm(): JSX.Element {
       <button className="cc-submitButton" type="submit">
         Submit
       </button>
+      <br />
+      <br />
+      <br />
       {error && <div className="cc-formP">{error}</div>}
     </form>
   );
