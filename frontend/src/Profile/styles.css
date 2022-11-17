@@ -35,15 +35,61 @@
   color: white;
   text-transform: uppercase;
   border: none;
-  margin-top: 40px;
-  padding: 20px;
-  font-size: 13px;
+  margin-top: 1%;
+  padding: 1%;
+  font-size: 1.5vh;
   font-weight: 100;
-  /* letter-spacing: 10px; */
+  letter-spacing: 10px;
   border-radius: 4px;
   -webkit-appearance: none;
 }
-.orderCard-btn:hover {
+*/ .orderCard-btn:hover {
   background: rgb(212, 239, 244);
   color: black;
+}
+
+.table-div {
+  display: flex;
+  justify-content: center;
+}
+
+.h3-orders {
+  background-color: #d8e3ed;
+  color: rgb(8, 0, 0);
+  cursor: pointer;
+  padding: 1%;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 20px;
+  /* line-height: 30px; */
+  /* transition: 0.4s; */
+}
+
+.orders-div {
+  vertical-align: top;
+  width: 100%;
+}
+
+.tr-orders {
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  margin: 0;
+  text-align: left;
+}
+
+.order-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  height: 100%;
+  width: 100%;
+}
+
+.h4-div {
+  text-align: center;
 }

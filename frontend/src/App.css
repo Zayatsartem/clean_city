@@ -37,64 +37,21 @@
   }
 }
 
-.orders-div {
-vertical-align: top;
-}
-
-.tr-orders {
-  /* background-color: white; */
-    max-height: 0;
-    /* overflow: hidden; */
-    transition: max-height 0.2s ease-out;
-    margin:0;
-    text-align: left;
-}
-
-.order-main {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: baseline;
-  /* height: 80vh;  */
-}
-.h3-orders {
-  background-color: #d8e3ed;
-    color: rgb(8, 0, 0);
-    cursor: pointer;
-    padding: 6px 12px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 20px;
-    line-height: 30px;
-    transition: 0.4s;
-}
-
 .footer-div {
-  position:fixed;
-   left:0px;
-   bottom:0px;
-   height:30px;
-   width:100%;
-   /* position: sticky; */
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
+  /* position: sticky; */
 }
 
 .form-edit {
   /* height: 80vh; */
 }
 
-.h4-div {
-  text-align: center;
-}
-
-.table-div {
-  display: flex;
-  justify-content: center;
-}
-
 .MuiCardContent-root.css-46bh2p-MuiCardContent-root {
-  width: 350px;
+  max-width: 500px;
   max-height: 350px;
 }
 

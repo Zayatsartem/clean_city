@@ -4,7 +4,7 @@ import { RootState, useAppDispatch } from '../store';
 import { getOrders } from '../Authorization/authSlice';
 import OrderCard from './OrderCard';
 import OrderForm from '../Order/OrderForm';
-// import '../form.css';
+// import '../Profile/';
 
 function ProfileOrders(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -27,7 +27,7 @@ function ProfileOrders(): JSX.Element {
           <tbody>
             <tr className="tr-orders">
               <td className="orders-div">
-                <h3 className="h3-orders">Ближайшие заказы</h3>
+                <h4 className="h3-orders">Ближайшие заказы</h4>
                 {userOrders
                   ?.filter((order) => order.status !== 'completed')
                   .map((order) => (
@@ -35,7 +35,7 @@ function ProfileOrders(): JSX.Element {
                   ))}
               </td>
               <td className="orders-div">
-                <h3 className="h3-orders">Выполненные заказы</h3>
+                <h4 className="h3-orders">Выполненные заказы</h4>
                 {userOrders
                   ?.filter((order) => order.status === 'completed')
                   .map((order) => (

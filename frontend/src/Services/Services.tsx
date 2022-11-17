@@ -32,10 +32,12 @@ export default function Services(): JSX.Element {
           <Item
             className="gridItem"
             sx={{
-              boxShadow: 'none', color: '#000080', objectFit: 'fill'
+              boxShadow: 'none',
+              color: '#000080',
+              objectFit: 'fill',
             }}
           >
-            <CardMedia component="img" height="140" image={wet_cleaning} alt="wet_cleaning" />
+            <CardMedia component="img" height="200" image={wet_cleaning} alt="wet_cleaning" />
             <CardContent>
               <Typography
                 gutterBottom
@@ -52,7 +54,7 @@ export default function Services(): JSX.Element {
           <Item className="gridItem" sx={{ boxShadow: 'none', color: '#000080' }}>
             <CardMedia
               component="img"
-              height="140"
+              height="200"
               image={furniture_dry_cleaning}
               alt="furniture_dry_cleaning"
             />
@@ -70,7 +72,7 @@ export default function Services(): JSX.Element {
             </CardContent>
           </Item>
           <Item className="gridItem" sx={{ boxShadow: 'none', color: '#000080' }}>
-            <CardMedia component="img" height="140" image={lawn_mowing} alt="lawn_mowing" />
+            <CardMedia component="img" height="200" image={lawn_mowing} alt="lawn_mowing" />
             <CardContent sx={{ width: '100%' }}>
               <Typography gutterBottom variant="body1" component="div" margin="auto" align="center">
                 Стрижка газонов
@@ -78,7 +80,7 @@ export default function Services(): JSX.Element {
             </CardContent>
           </Item>
           <Item className="gridItem" sx={{ boxShadow: 'none', color: '#000080' }}>
-            <CardMedia component="img" height="140" image={snow_removal} alt="snow_removal" />
+            <CardMedia component="img" height="200" image={snow_removal} alt="snow_removal" />
             <CardContent sx={{ width: '100%' }}>
               <Typography gutterBottom variant="body1" component="div" margin="auto" align="center">
                 Уборка снега
@@ -88,7 +90,7 @@ export default function Services(): JSX.Element {
           <Item className="gridItem" sx={{ boxShadow: 'none', color: '#000080' }}>
             <CardMedia
               component="img"
-              height="140"
+              height="200"
               image={cleaning_of_large_rooms}
               alt="cleaning_of_large_rooms"
             />
@@ -101,7 +103,7 @@ export default function Services(): JSX.Element {
           <Item className="gridItem" sx={{ boxShadow: 'none', color: '#000080' }}>
             <CardMedia
               component="img"
-              height="140"
+              height="200"
               image={cleaning_of_adjacent_territories}
               alt="cleaning_of_adjacent_territories"
             />
@@ -115,7 +117,7 @@ export default function Services(): JSX.Element {
             {' '}
             <CardMedia
               component="img"
-              height="140"
+              height="200"
               image={window_washing}
               alt="cleaning_of_adjacent_territories"
             />
@@ -128,7 +130,7 @@ export default function Services(): JSX.Element {
           <Item className="gridItem" sx={{ boxShadow: 'none', color: '#000080' }}>
             <CardMedia
               component="img"
-              height="140"
+              height="200"
               image={carpet_cleaning}
               alt="cleaning_of_adjacent_territories"
             />

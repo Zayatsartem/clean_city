@@ -89,51 +89,51 @@ export default function OrderForm(): JSX.Element {
         <p className="cc-formP">Поле является обязательным</p>
       )}
 
-      <div className="inputservices">
+      <div className="inputservices wrap">
         <p className="cc-formLabelM">Дополнительные услуги</p>
         <ul>
-          <label className="cc-formLabelM">Убрать балкон</label>
           <input {...register('checkbox', {})} type="checkbox" value="1" />
+          <label className="cc-formLabelM">Убрать балкон</label>
         </ul>
         <ul>
-          <label className="cc-formLabelM">Погладить вещи</label>
           <input {...register('checkbox')} type="checkbox" value="2" />
+          <label className="cc-formLabelM">Погладить вещи</label>
         </ul>
         <ul>
-          <label className="cc-formLabelM">Помыть люстру</label>
           <input {...register('checkbox')} type="checkbox" value="3" />
+          <label className="cc-formLabelM">Помыть люстру</label>
         </ul>
         <ul>
+          <input {...register('checkbox')} type="checkbox" value="4" />
           <label className="cc-formLabelM">Помыть балконное остекление</label>
-          <input {...register('checkbox')} type="checkbox" value="4" />
         </ul>
         <ul>
-          <label className="cc-formLabelM">Помыть холодильник внутри</label>
           <input {...register('checkbox')} type="checkbox" value="6" />
+          <label className="cc-formLabelM">Помыть холодильник внутри</label>
         </ul>
         <ul>
-          <label className="cc-formLabelM">Помыть духовку</label>
           <input {...register('checkbox')} type="checkbox" value="7" />
+          <label className="cc-formLabelM">Помыть духовку</label>
         </ul>
         <ul>
-          <label className="cc-formLabelM">Помыть окно</label>
           <input {...register('checkbox')} type="checkbox" value="4" />
+          <label className="cc-formLabelM">Помыть окно</label>
         </ul>
         <ul>
-          <label className="cc-formLabelM">Помыть микроволновку</label>
           <input {...register('checkbox')} type="checkbox" value="8" />
+          <label className="cc-formLabelM">Помыть микроволновку</label>
         </ul>
         <ul>
-          <label className="cc-formLabelM">Помыть кухонные шкафы</label>
           <input {...register('checkbox')} type="checkbox" value="9" />
+          <label className="cc-formLabelM">Помыть кухонные шкафы</label>
         </ul>
         <ul>
-          <label className="cc-formLabelM">Помыть лоток питомца</label>
           <input {...register('checkbox')} type="checkbox" value="10" />
+          <label className="cc-formLabelM">Помыть лоток питомца</label>
         </ul>
         <ul>
-          <label className="cc-formLabelM">Удалить плесень</label>
           <input {...register('checkbox')} type="checkbox" value="11" />
+          <label className="cc-formLabelM">Удалить плесень</label>
         </ul>
       </div>
       <input className="cc-inputSubmit" type="submit" disabled={!isValid} value="отправить" />

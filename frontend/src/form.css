@@ -55,20 +55,28 @@ input[class='cc-inputSubmit']:disabled {
   margin-top: 20px;
   color: rgb(0, 0, 0);
   font-size: 14px;
-  font-weight: 200;
+  /* font-weight: 200; */
 }
 
 .cc-formLabelM {
-  line-height: 2;
+  line-height: 1;
   text-align: left;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 15px;
+  margin-top: 15px;
   color: rgb(0, 0, 0);
   font-size: 14px;
 }
 .inputservices {
-  /* display: flex; */
-  /* flex-flow: row nowrap; */
-  justify-content: flex-start;
-  height: 50%;
+  /* display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start; */
+  /* height: 600px;
+  width: 300px; */
+}
+
+.wrap ul {
+  list-style: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
