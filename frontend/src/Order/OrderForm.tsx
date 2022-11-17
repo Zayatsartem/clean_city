@@ -80,6 +80,7 @@ export default function OrderForm(): JSX.Element {
       {errors?.address?.type === 'required' && (
         <p className="cc-formP">Поле является обязательным</p>
       )}
+
       <div className="inputservices">
         <p className="cc-formLabelM">Дополнительные услуги</p>
         <ul>

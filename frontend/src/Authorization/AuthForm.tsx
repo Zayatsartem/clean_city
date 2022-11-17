@@ -1,10 +1,10 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../store';
 
 import '../form.css';
-import { login } from './authSlice';
+import { login, resetLoginFormError } from './authSlice';
 import { selectAuth } from './selectors';
 
 export default function AuthForm(): JSX.Element {
@@ -33,9 +33,15 @@ export default function AuthForm(): JSX.Element {
       navigate('/');
     }
   }
+  useEffect(() => {
+    const id = setTimeout(() => {
+      dispatch(resetLoginFormError());
+    }, 5000);
+    return () => clearTimeout(id);
+  }, [error, dispatch]);
+
   return (
     <form className="cc-form" onSubmit={handleSubmit}>
-      <h2>Login</h2>
       <label className="cc-formLabel" htmlFor="email-input">
         Email
       </label>
@@ -58,9 +64,7 @@ export default function AuthForm(): JSX.Element {
         value={password}
         onChange={handlePasswordChange}
       />
-      <button className="cc-submitButton" type="submit">
-        Submit
-      </button>
+      <input className="cc-inputSubmit" type="submit" value="войти" style={{ opacity: '0.4' }} />
       <br />
       <br />
       <br />

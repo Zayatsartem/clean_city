@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-// import Box from '@mui/material/Box';
+import React, { useEffect, useState } from 'react';
 import Rating from '@mui/material/Rating';
-// import Typography from '@mui/material/Typography';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { feedback } from './CommentSlice';
+import { feedback, resetCommentError } from './CommentSlice';
 import { RootState, useAppDispatch } from '../store';
 import './comments.style.css';
 import logoComment from './comment-png-8.jpeg';
@@ -18,7 +16,7 @@ export default function CommentForm(): JSX.Element {
 
   const { orderId } = useParams();
 
-  function changeComment(event: React.ChangeEvent<HTMLInputElement>): void {
+  function changeComment(event: React.ChangeEvent<HTMLTextAreaElement>): void {
     setComment(event.target.value);
   }
 
@@ -35,6 +33,13 @@ export default function CommentForm(): JSX.Element {
 
     await dispatch(feedback(data));
   }
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      dispatch(resetCommentError());
+    }, 5000);
+    return () => clearTimeout(id);
+  }, [error, dispatch]);
 
   return (
     <main className="comment-box">
@@ -62,17 +67,18 @@ export default function CommentForm(): JSX.Element {
         <br />
 
         <form className="comment-form" onSubmit={submitComment}>
-          <input
-            type="text"
+          <textarea
             className="comment-input"
             value={comment}
             onChange={changeComment}
+            name="textarea"
+            rows={3}
             placeholder="Поделитесь впечатлениями о выполненной услуге"
             required
           />
-        <button className="comment-button" type="submit">
-          Отправить отзыв
-        </button>
+          <button className="comment-button" type="submit" style={{ opacity: '0.4' }}>
+            Отправить отзыв
+          </button>
         </form>
         <br />
         <br />

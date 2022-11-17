@@ -77,6 +77,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { resetLoginFormError } = authSlice.actions;
+export const { resetLoginFormError, resetRegisterFormError } = authSlice.actions;
 
 export default authSlice.reducer;

@@ -32,7 +32,12 @@ export const loadApprovedComments = createAsyncThunk('main/loadApprovedComments'
 const mainSlice = createSlice({
   name: 'main',
   initialState,
-  reducers: {},
+  reducers: {
+    resetError: (state) => {
+      state.freeFormMessage = null;
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(loadApprovedComments.fulfilled, (state, action) => {
@@ -52,4 +57,6 @@ const mainSlice = createSlice({
       });
   },
 });
+
+export const { resetError } = mainSlice.actions;
 export default mainSlice.reducer;
