@@ -8,7 +8,7 @@ export async function editProfile(data: EditData): Promise<User> {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   });
   if (response.status === 500) {
     const { message } = await response.json();
@@ -20,7 +20,9 @@ export async function editProfile(data: EditData): Promise<User> {
 
 export async function getOrders(): Promise<Comment[]> {
   const response = await fetch('/api/profile/orders');
+
   const data = await response.json();
+
   return data.orders;
 }
 

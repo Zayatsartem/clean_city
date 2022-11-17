@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import { Comment } from '../types/commentTypes';
 
-export default function OrderCard({ order }: { order:Comment }): JSX.Element {
+export default function OrderCard({ order }: { order: Comment }): JSX.Element {
   const navigate = useNavigate();
   function leaveComment(): void {
     navigate(`/profile/comment/${order.id}`);
@@ -18,7 +18,7 @@ export default function OrderCard({ order }: { order:Comment }): JSX.Element {
           {order.address}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        {order.date}
+          {order.date}
         </Typography>
         <Typography variant="body2">
           {order.time}
@@ -26,6 +26,11 @@ export default function OrderCard({ order }: { order:Comment }): JSX.Element {
           Комнат: {order.rooms}
           <br />
           Санузлов: {order.bathrooms}
+          <br />
+          Дополнительные услуги: {order.services}
+          <br />
+          <br />
+          Цена: {order.price}
           <br />
           Статус: {order.status}
         </Typography>

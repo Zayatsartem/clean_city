@@ -88,7 +88,7 @@ function RegisterForm(): JSX.Element {
           001-541-754-3010, +1-541-754-3010, 19-49-89-636-48018, +233 205599853.
         </p>
       )}
-      <input className="cc-inputSubmit" type="submit" disabled={!isValid} />
+      <input className="cc-inputSubmit" type="submit" disabled={!isValid} value="отправить" />
       <div>{error && <p className="cc-formP">{error}</p>}</div>
     </form>
   );

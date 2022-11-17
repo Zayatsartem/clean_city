@@ -35,7 +35,10 @@ router.route('/').put(async (req, res) => {
         email: req.body.email,
         telephone: req.body.telephone,
       });
-      res.status(200).json({ message: 'Профиль успешно изменен', user: { name: user.name, email: user.email, telephone: user.telephone } });
+      res.status(200).json({
+        message: 'Профиль успешно изменен',
+        user: { name: user.name, email: user.email, telephone: user.telephone },
+      });
     }
   } catch (error) {
     res.status(500).json({ message: 'Не удалось изменить профиль' });
