@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// import Container from '@mui/material/Container';
 import Footer from './Footer/Footer';
 import { getUser } from './Authorization/authSlice';
 import './App.css';
@@ -23,21 +24,23 @@ function App(): JSX.Element {
   }, [dispatch]);
 
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/profile/edit" element={<EditProfile />} />
-        <Route path="/profile/orders" element={<ProfileOrders />} />
-        <Route path="/profile/comment/:orderId" element={<CommentForm />} />
-        <Route path="/registration" element={<RegisterForm />} />
-        <Route path="/login" element={<AuthForm />} />
-        <Route path="/order" element={<OrderForm />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/cleaningrules" element={<CleaningRules />} />
-        <Route path="/" element={<Main />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <div className="main-page">
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/profile/edit" element={<EditProfile />} />
+          <Route path="/profile/orders" element={<ProfileOrders />} />
+          <Route path="/profile/comment/:orderId" element={<CommentForm />} />
+          <Route path="/registration" element={<RegisterForm />} />
+          <Route path="/login" element={<AuthForm />} />
+          <Route path="/order" element={<OrderForm />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/cleaningrules" element={<CleaningRules />} />
+          <Route path="/" element={<Main />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
 }
 

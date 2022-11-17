@@ -3,8 +3,9 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import '../form.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import { RootState, useAppDispatch } from '../store';
-import { order } from './orderSlice';
+import { order, resetOrderFormError } from './orderSlice';
 import { selectOrdeFormError } from './selectors';
 import { IFormInput } from '../types/OrderTypes';
 
@@ -39,13 +40,20 @@ export default function OrderForm(): JSX.Element {
     }
   };
 
+  useEffect(() => {
+    const id = setTimeout(() => {
+      dispatch(resetOrderFormError());
+    }, 5000);
+    return () => clearTimeout(id);
+  }, [error, dispatch]);
+
   return (
     <form className="cc-form" onSubmit={handleSubmit(onSubmit)}>
       <label className="cc-formLabel">Количество комнат</label>
       <input
         className="cc-input"
         type="number"
-        min="1"
+        min={1}
         {...register('rooms', {
           required: true,
           maxLength: 50,
@@ -57,7 +65,7 @@ export default function OrderForm(): JSX.Element {
       <label className="cc-formLabel">Количество санузлов</label>
       <input
         type="number"
-        min="1"
+        min={1}
         className="cc-input"
         {...register('bathrooms', {
           maxLength: 50,
@@ -96,7 +104,7 @@ export default function OrderForm(): JSX.Element {
           <input {...register('checkbox')} type="checkbox" value="3" />
         </ul>
         <ul>
-          <label className="cc-formLabelM">Помыть балконное остелкение</label>
+          <label className="cc-formLabelM">Помыть балконное остекление</label>
           <input {...register('checkbox')} type="checkbox" value="4" />
         </ul>
         <ul>
