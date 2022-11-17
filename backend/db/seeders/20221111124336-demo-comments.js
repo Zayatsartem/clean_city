@@ -15,6 +15,27 @@ module.exports = {
       status: true,
       createdAt: new Date(),
       updatedAt: new Date(),
+    }, {
+      user_id: 1,
+      order_id: 2,
+      title: 'I enjoyed dealing with Clean city!',
+      status: true,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }, {
+      user_id: 1,
+      order_id: 2,
+      title: 'не смотря, на то, что мы конкуренты (свою компанию называть не буду), но ребята из Чистого города реальные профессионалы. ',
+      status: true,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }, {
+      user_id: 1,
+      order_id: 2,
+      title: 'Выполнили чистку мягкой мебели на отлично',
+      status: true,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     }], {});
   },
 
