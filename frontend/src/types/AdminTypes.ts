@@ -15,6 +15,7 @@ export type TNewOrder = {
   email: string,
   telephone: string,
   services:string,
+  price:number,
 };
 export type AdminState = {
   newOrders: TNewOrder[],

@@ -25,6 +25,7 @@ function WIPOrder({ order }: { order: TNewOrder }): JSX.Element {
       <TableCell align="right">{order.address}</TableCell>
       <TableCell align="right">Комнат:{order.rooms}, санузлов:{order.bathrooms}</TableCell>
       <TableCell align="right">{order.services}</TableCell>
+      <TableCell align="right">{order.price}</TableCell>
       <TableCell align="right"><Button variant="outlined" onClick={() => doneOrder(order.id)}>Заказ выполнен</Button></TableCell>
     </TableRow>
   );
