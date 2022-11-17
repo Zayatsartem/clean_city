@@ -15,5 +15,6 @@ export async function orderData(data: Order): Promise<Order> {
     throw error;
   }
 
-  return res.json();
+  const data1 = await res.json();
+  return data1;
 }

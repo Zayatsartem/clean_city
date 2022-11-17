@@ -1,9 +1,8 @@
 .cc-form {
   max-width: 500px;
   margin: 0 auto;
-  height: 80vh;
 }
-.cc-input{
+.cc-input {
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -14,7 +13,7 @@
   font-size: 14px;
 }
 .cc-submitButton,
-.cc-inputSubmit{
+.cc-inputSubmit {
   background: blue;
   color: white;
   text-transform: uppercase;
@@ -27,28 +26,28 @@
   border-radius: 4px;
   -webkit-appearance: none;
 }
-button[class="cc-submitButton"]:hover,
-input[class="cc-inputSubmit"]:hover{
+button[class='cc-submitButton']:hover,
+input[class='cc-inputSubmit']:hover {
   background: #bf1650;
 }
-button[class="cc-submitButton"]:active,
-input[class="cc-inputSubmit"]:active{
+button[class='cc-submitButton']:active,
+input[class='cc-inputSubmit']:active {
   transition: 0.3s all;
   transform: translateY(3px);
   border: 1px solid transparent;
   opacity: 0.8;
 }
-input[class="cc-inputSubmit"]:disabled{
+input[class='cc-inputSubmit']:disabled {
   opacity: 0.4;
 }
-.cc-formP{
+.cc-formP {
   color: #bf1650;
 }
-.cc-formP ::before{
+.cc-formP ::before {
   display: inline;
   content: '⚠ ';
 }
-.cc-formLabel{
+.cc-formLabel {
   line-height: 2;
   text-align: left;
   display: block;
@@ -57,4 +56,19 @@ input[class="cc-inputSubmit"]:disabled{
   color: rgb(0, 0, 0);
   font-size: 14px;
   font-weight: 200;
+}
+
+.cc-formLabelM {
+  line-height: 2;
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+}
+.inputservices {
+  /* display: flex; */
+  /* flex-flow: row nowrap; */
+  justify-content: flex-start;
+  height: 50%;
 }

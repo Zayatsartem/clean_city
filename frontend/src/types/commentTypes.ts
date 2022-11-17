@@ -1,16 +1,18 @@
 export interface Data {
-  stars: number | null,
-  title: string | null,
-  orderId: number | null,
-  commentError: string | null | undefined,
-  status: boolean,
+  stars: number | null;
+  title: string | null;
+  orderId: number | null;
+  commentError: string | null | undefined;
+  status: boolean;
 }
 
 export interface Comment {
-  id: number,
+  id: number;
   user_id: number | undefined;
   rooms: number;
   bathrooms: number;
+  price: number;
+  services: string;
   date: string;
   time: string;
   address: string;

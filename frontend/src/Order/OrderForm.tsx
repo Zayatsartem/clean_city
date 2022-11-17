@@ -18,11 +18,22 @@ export default function OrderForm(): JSX.Element {
     handleSubmit,
     reset,
     formState: { errors, isValid },
-  } = useForm<IFormInput>();
+  } = useForm<IFormInput>({
+    defaultValues: {
+      checkbox: [],
+    },
+  });
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     reset();
-    const dispatchResult = await dispatch(order({ ...data, user_id: user?.id }));
+    const dispatchResult = await dispatch(
+      order({
+        ...data,
+        user_id: user?.id,
+        price: 0,
+        services: '',
+      })
+    );
     if (order.fulfilled.match(dispatchResult)) {
       navigate('/profile/orders');
     }
@@ -69,7 +80,54 @@ export default function OrderForm(): JSX.Element {
       {errors?.address?.type === 'required' && (
         <p className="cc-formP">Поле является обязательным</p>
       )}
-      <input className="cc-inputSubmit" type="submit" disabled={!isValid} />
+      <div className="inputservices">
+        <p className="cc-formLabelM">Дополнительные услуги</p>
+        <ul>
+          <label className="cc-formLabelM">Убрать балкон</label>
+          <input {...register('checkbox', {})} type="checkbox" value="1" />
+        </ul>
+        <ul>
+          <label className="cc-formLabelM">Погладить вещи</label>
+          <input {...register('checkbox')} type="checkbox" value="2" />
+        </ul>
+        <ul>
+          <label className="cc-formLabelM">Помыть люстру</label>
+          <input {...register('checkbox')} type="checkbox" value="3" />
+        </ul>
+        <ul>
+          <label className="cc-formLabelM">Помыть балконное остелкение</label>
+          <input {...register('checkbox')} type="checkbox" value="4" />
+        </ul>
+        <ul>
+          <label className="cc-formLabelM">Помыть холодильник внутри</label>
+          <input {...register('checkbox')} type="checkbox" value="6" />
+        </ul>
+        <ul>
+          <label className="cc-formLabelM">Помыть духовку</label>
+          <input {...register('checkbox')} type="checkbox" value="7" />
+        </ul>
+        <ul>
+          <label className="cc-formLabelM">Помыть окно</label>
+          <input {...register('checkbox')} type="checkbox" value="4" />
+        </ul>
+        <ul>
+          <label className="cc-formLabelM">Помыть микроволновку</label>
+          <input {...register('checkbox')} type="checkbox" value="8" />
+        </ul>
+        <ul>
+          <label className="cc-formLabelM">Помыть кухонные шкафы</label>
+          <input {...register('checkbox')} type="checkbox" value="9" />
+        </ul>
+        <ul>
+          <label className="cc-formLabelM">Помыть лоток питомца</label>
+          <input {...register('checkbox')} type="checkbox" value="10" />
+        </ul>
+        <ul>
+          <label className="cc-formLabelM">Удалить плесень</label>
+          <input {...register('checkbox')} type="checkbox" value="11" />
+        </ul>
+      </div>
+      <input className="cc-inputSubmit" type="submit" disabled={!isValid} value="отправить" />
       <div>{error && <p className="cc-formP">{error}</p>}</div>
     </form>
   );
