@@ -12,7 +12,7 @@ export default function OrderCard({ order }: { order: Comment }): JSX.Element {
     navigate(`/profile/comment/${order.id}`);
   }
   return (
-    <Card sx={{ width: 350, margin: 2.5 }}>
+    <Card sx={{ width: 350, margin: 3, height: 310 }}>
       <CardContent>
         <Typography variant="h6" component="div">
           {order.address}

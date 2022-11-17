@@ -34,7 +34,7 @@ function Footer(): JSX.Element {
               flexGrow: 1,
               justifyContent: 'center',
               display: 'flex',
-              mb: 2,
+              mb: 1,
             }}
           >
             <Typography variant="caption" className="footerLinks">
