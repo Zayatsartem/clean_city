@@ -105,7 +105,7 @@ export default function OrderForm(): JSX.Element {
         </ul>
         <ul>
           <input {...register('checkbox')} type="checkbox" value="4" />
-          <label className="cc-formLabelM">Помыть балконное остелкение</label>
+          <label className="cc-formLabelM">Помыть балконное остекление</label>
         </ul>
         <ul>
           <input {...register('checkbox')} type="checkbox" value="6" />

@@ -27,6 +27,8 @@ function NewOrder({ order }: { order: TNewOrder }): JSX.Element {
       <TableCell align="right">{order.time}</TableCell>
       <TableCell align="right">{order.address}</TableCell>
       <TableCell align="right">Комнат:{order.rooms}, санузлов:{order.bathrooms}</TableCell>
+      <TableCell align="right">{order.services}</TableCell>
+      <TableCell align="right">{order.price}</TableCell>
       <TableCell align="right"><Button variant="outlined" onClick={() => addWIP(order.id)}>Принять в работу</Button><Button variant="outlined" onClick={() => cancel(order.id)}>Отменить</Button></TableCell>
     </TableRow>
 

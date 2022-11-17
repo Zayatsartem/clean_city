@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../store';
 import { freeRequestTelegram, resetError } from './mainSlice';
 import './nonstandart.scss';
+import PhoneInput from './PhoneInput';
 import { getFreeFormMessage } from './selectors';
 
 function NonstandartForm(): JSX.Element {
@@ -16,11 +17,8 @@ function NonstandartForm(): JSX.Element {
   const handleComment = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
     setComment(event.target.value);
   };
-  const handlePhone = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    setPhone(event.target.value);
-  };
 
-  const handelFreeRequest = (event: React.FormEvent<HTMLFormElement>): void => {
+  const handleFreeRequest = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     dispatch(freeRequestTelegram({ phone, comment }));
   };
@@ -33,19 +31,19 @@ function NonstandartForm(): JSX.Element {
   }, [freeFormMessage, dispatch]);
 
   return (
-    <form className="NonstandartForm" onSubmit={handelFreeRequest}>
+    <form className="NonstandartForm" onSubmit={handleFreeRequest}>
       <div className="nonstandart">
         <h2 className="componentHeader">Нестандартная ситуация </h2>
         <div className="textBox">
-          <p>
+          <div className="nonstandart-p">
             Если Вам нужна уборка частного дома, коммерческих помещений большой площади, химчистка
-            мебели, уборка территории(стрижка газона,уборка снега и др.), мойка витражного
-            остекления и окон на высоте и др.
-          </p>
-          <p>
+            мебели, уборка территории (стрижка газона, уборка снега и др.), мойка витражного
+            остекления и окон на высоте и т.д.
+            <br />
+            <br />
             Просто оставьте заявку и наш менеджер свяжется с Вами в ближайшее время для уточнения
             деталей и оформления заказа.
-          </p>
+          </div>
         </div>
       </div>
       <Box
@@ -70,16 +68,9 @@ function NonstandartForm(): JSX.Element {
           '& .MuiTextField-root': { m: 1, width: '25' },
         }}
       >
-        <TextField
-          id="outlined-multiline-flexible"
-          label="Телефон"
-          multiline
-          maxRows={4}
-          value={phone}
-          onChange={handlePhone}
-        />
+        <PhoneInput phone={phone} setPhone={setPhone} />
       </Box>
-      <Button type="submit" variant="contained">
+      <Button className="nonstandartButton" type="submit" variant="contained">
         Оставить заявку
       </Button>
       <div className="errDiv">{freeFormMessage}</div>
