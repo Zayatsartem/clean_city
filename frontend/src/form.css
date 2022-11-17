@@ -67,8 +67,16 @@ input[class='cc-inputSubmit']:disabled {
   font-size: 14px;
 }
 .inputservices {
-  /* display: flex; */
-  /* flex-flow: row nowrap; */
-  justify-content: flex-start;
-  height: 50%;
+  /* display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start; */
+  /* height: 600px;
+  width: 300px; */
+}
+
+.wrap ul {
+  list-style: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
