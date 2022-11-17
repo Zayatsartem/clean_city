@@ -35,7 +35,7 @@ const mainSlice = createSlice({
   reducers: {
     resetError: (state) => {
       state.freeFormMessage = null;
-      state.error = null;
+      state.message = null;
     },
   },
   extraReducers: (builder) => {

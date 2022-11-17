@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap:10px;
 }
 
 legend.css-14lo706{
@@ -19,7 +20,6 @@ legend.css-14lo706{
     max-width: 75%;
     text-align: justify;
     text-indent: 30px;
-    
   }
   .textBox{
     display: flex;
@@ -28,6 +28,16 @@ legend.css-14lo706{
     justify-content: center;
     width:100%;
   }
+}
+
+.phoneNumberInput{
+  width:200px;
+  border-radius: 4px;
+  height:56px;
+  padding:10px;
+  font-size: 1rem;
+  border:1px solid rgb(203, 203, 203);
+  color:rgb(133, 133, 133);
 }
 
 .nonstandart-p {
