@@ -12,12 +12,12 @@ export default function OrderCard({ order }: { order: Comment }): JSX.Element {
     navigate(`/profile/comment/${order.id}`);
   }
   return (
-    <Card sx={{ minWidth: 275 }}>
+    <Card sx={{ minWidth: 275, margin: 2.5 }}>
       <CardContent>
-        <Typography variant="h5" component="div">
+        <Typography variant="h6" component="div">
           {order.address}
         </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        <Typography sx={{ mb: 1 }} color="text.secondary">
           {order.date}
         </Typography>
         <Typography variant="body2">
@@ -36,8 +36,11 @@ export default function OrderCard({ order }: { order: Comment }): JSX.Element {
         </Typography>
       </CardContent>
       <CardActions>
-        {order.status === 'completed' &&
-        <button type="button" className="orderCard-btn" onClick={leaveComment}>Оставить комментарий</button>}
+        {order.status === 'completed' && (
+          <button type="button" className="orderCard-btn" onClick={leaveComment}>
+            Оставить комментарий
+          </button>
+        )}
       </CardActions>
     </Card>
   );
