@@ -62,7 +62,7 @@ function EditProfile(): JSX.Element {
           <>
             <form onSubmit={editForm} className="js-form">
               <h1 className="h1">{name}, Вы можете изменить профиль</h1>
-              <label className="cc-input">
+              <label>
                 {' '}
                 Имя
                 <input
@@ -73,7 +73,7 @@ function EditProfile(): JSX.Element {
                   className="cc-input"
                 />
               </label>{' '}
-              <label className="cc-input">
+              <label>
                 {' '}
                 телефон
                 <input
@@ -84,7 +84,7 @@ function EditProfile(): JSX.Element {
                   className="cc-input"
                 />
               </label>
-              <label className="cc-input">
+              <label>
                 {' '}
                 email
                 <input
