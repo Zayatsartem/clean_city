@@ -4,6 +4,8 @@ export default interface Order {
   user_id: number | undefined;
   rooms: number;
   bathrooms: number;
+  price: number;
+  services: string;
   date: string;
   time: string;
   address: string;
