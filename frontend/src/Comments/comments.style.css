@@ -1,8 +1,8 @@
 .comment-container {
-    height: 50%;
-    width: 20%;
-    margin: 2%;
-    padding: 2%;
+  height: 50%;
+  width: 20%;
+  margin: 2%;
+  padding: 2%;
 }
 
 .comment-text {
@@ -37,7 +37,6 @@
 .comment-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-
 }
