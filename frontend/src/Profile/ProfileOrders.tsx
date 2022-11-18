@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { RootState, useAppDispatch } from '../store';
 import { getOrders } from '../Authorization/authSlice';
 import OrderCard from './OrderCard';
-import OrderForm from '../Order/OrderForm';
 // import '../Profile/';
 
 function ProfileOrders(): JSX.Element {
@@ -22,7 +22,9 @@ function ProfileOrders(): JSX.Element {
           <h1 className="h4-div">У вас пока нет заказов</h1>
           <br />
           <br />
-          <OrderForm />
+          <h2 className="h4-div">
+            <p>Вы можете сделать заказ прямо сейчас, кликнув по <Link to="/order"> ссылке </Link> </p>
+          </h2>
         </>
       ) : (
         <table className="table-div">

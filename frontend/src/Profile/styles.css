@@ -12,11 +12,13 @@
 }
 .profileimg {
   height: 30vh;
+  padding-left: 4vh;
+
 }
-/* h1 {
-  color: rgb(35, 109, 198);
-  text-align: center;
-} */
+.editFormH1 {
+  padding-left: 3vh;
+}
+
 .js-form {
   font-size: 1.5vh;
 }
@@ -58,7 +60,7 @@
   color: rgb(8, 0, 0);
   cursor: pointer;
   padding: 1%;
-  width: 100%;
+  width: 400px;
   border: none;
   text-align: center;
   outline: none;

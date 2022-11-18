@@ -61,7 +61,7 @@ function EditProfile(): JSX.Element {
         {user ? (
           <>
             <form onSubmit={editForm} className="js-form">
-              <h1 className="h1">{name}, Вы можете изменить профиль</h1>
+              <h1 className="editFormH1">{name}, Вы можете изменить профиль</h1>
               <label>
                 {' '}
                 Имя
