@@ -83,7 +83,7 @@ export default function CommentForm(): JSX.Element {
         <br />
         <br />
         <br />
-        <div>{error && <p>{error}</p>}</div>
+        <div className="status_message">{error && <p>{error}</p>}</div>
       </div>
     </main>
   );

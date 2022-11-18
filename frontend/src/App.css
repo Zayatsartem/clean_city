@@ -47,7 +47,14 @@
 }
 
 .form-edit {
-  /* height: 80vh; */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+  width: 75%;
+
 }
 
 .MuiCardContent-root.css-46bh2p-MuiCardContent-root {
