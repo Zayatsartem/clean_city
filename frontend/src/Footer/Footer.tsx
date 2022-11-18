@@ -15,6 +15,7 @@ function Footer(): JSX.Element {
           width: '100%',
           position: 'inherit',
           bottom: 0,
+          height: '70px',
         }}
         component="footer"
         square
@@ -29,6 +30,23 @@ function Footer(): JSX.Element {
               my: 1,
             }}
           />
+          <div className="footerCont">
+          <Box
+            sx={{
+              flexGrow: 1,
+              justifyContent: 'center',
+              display: 'flex',
+              mb: 2,
+              margin: 0,
+            }}
+          >
+            <Typography
+              variant="caption"
+              color="initial"
+            >
+              ©2022, Чистый город
+            </Typography>
+          </Box>
           <Box
             sx={{
               flexGrow: 1,
@@ -49,18 +67,7 @@ function Footer(): JSX.Element {
               </Link>
             </Typography>
           </Box>
-          <Box
-            sx={{
-              flexGrow: 1,
-              justifyContent: 'center',
-              display: 'flex',
-              mb: 2,
-            }}
-          >
-            <Typography variant="caption" color="initial">
-              ©2022, Чистый город
-            </Typography>
-          </Box>
+          </div>
         </Container>
       </Paper>
     </div>

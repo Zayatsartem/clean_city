@@ -1,6 +1,7 @@
 .cc-form {
   max-width: 500px;
   margin: 0 auto;
+  text-align: center;
 }
 .cc-input {
   display: block;
@@ -60,23 +61,27 @@ input[class='cc-inputSubmit']:disabled {
 
 .cc-formLabelM {
   line-height: 1;
-  text-align: left;
+  text-align: center;
   margin-bottom: 15px;
   margin-top: 15px;
   color: rgb(0, 0, 0);
   font-size: 14px;
 }
 .inputservices {
-  /* display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start; */
-  /* height: 600px;
-  width: 300px; */
+  display: flex;
+  flex-direction: row;
+  
+  
 }
 
+.column1,.column2{
+  margin-left: 20px;
+}
 .wrap ul {
   list-style: none;
   overflow: hidden;
   margin: 0;
-  padding: 0;
+  padding: 0; 
+  text-align: left;
+
 }
