@@ -7,25 +7,53 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ Order }) {
-      User.hasMany(Order, { foreignKey: 'user_id' });
+    static associate({ Order, Comment }) {
+      User.Orders = User.hasMany(Order, { foreignKey: 'user_id' });
+      User.Comments = User.hasMany(Comment, { foreignKey: 'user_id' });
     }
   }
-  User.init(
-    {
-      name: DataTypes.TEXT,
-      email: DataTypes.TEXT,
-      password: DataTypes.TEXT,
-      telephone: DataTypes.TEXT,
-      admin: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-      },
+  const attributes = {
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER,
     },
-    {
-      sequelize,
-      modelName: 'User',
-    }
-  );
+    name: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      unique: true,
+    },
+    password: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    telephone: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    admin: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+    updatedAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+  };
+  const options = {
+    sequelize,
+    modelName: 'User',
+    tableName: 'Users',
+  };
+  User.init(attributes, options);
   return User;
 };

@@ -1,4 +1,4 @@
-import { AuthState } from '../Authorization/types';
+import { AuthState } from './AuthTypes';
 
 export type RootState = {
   auth: AuthState;

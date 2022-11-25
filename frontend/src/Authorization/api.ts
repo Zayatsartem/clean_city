@@ -1,17 +1,18 @@
 import User from '../types/UserTypes';
-import { Credentials } from './types';
+import { Credentials } from '../types/AuthTypes';
 
 export async function user(): Promise<
   | {
-      exist: true;
-      user: User;
-    }
+    exist: true;
+    user: User;
+  }
   | {
-      exist: false;
-    }
+    exist: false;
+  }
 > {
-  return (await fetch('/api/user')).json();
+  return (await fetch('/api/logout/user')).json();
 }
+
 export async function login(credentials: Credentials): Promise<User> {
   const response = await fetch('/api/login', {
     method: 'POST',
@@ -24,14 +25,12 @@ export async function login(credentials: Credentials): Promise<User> {
     const { message } = await response.json();
     throw new Error(message);
   }
-  return response.json();
+  const data = await response.json();
+  return data.user;
 }
 
 export async function logout(): Promise<void> {
   const response = await fetch('/api/logout');
-  // const { error } = await response.json();
-  // if (response.status !== 200) {
-  //   throw new Error(error);
-  // }
+
   return response.json();
 }

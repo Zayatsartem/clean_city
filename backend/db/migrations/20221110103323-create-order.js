@@ -1,7 +1,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Orders', {
+    const attributes = {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -9,6 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       user_id: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
@@ -20,6 +21,12 @@ module.exports = {
       },
       bathrooms: {
         type: Sequelize.INTEGER,
+      },
+      price: {
+        type: Sequelize.INTEGER,
+      },
+      services: {
+        type: Sequelize.TEXT,
       },
       date: {
         type: Sequelize.TEXT,
@@ -41,7 +48,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
-    });
+    };
+    await queryInterface.createTable('Orders', attributes);
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Orders');

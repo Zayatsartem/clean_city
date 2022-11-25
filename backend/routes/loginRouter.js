@@ -15,12 +15,15 @@ router.post('/', async (req, res) => {
     if (!passwordCompare && user.email === email) {
       res.status(401).json({ login: false, message: 'Неправильные email или пароль' });
     }
+    if (user.admin) {
+      req.session.adminId = user.id;
+    }
     req.session.userId = user.id;
-
     res.json({
       login: true,
       user: {
-        id: user.id, email: user.email,
+        id: user.id, email: user.email, name: user.name, telephone: user.telephone, admin: user.admin,
+
       },
     });
   } catch (error) {

@@ -1,6 +1,4 @@
-const {
-  Model,
-} = require('sequelize');
+const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Order extends Model {
@@ -9,21 +7,64 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ User }) {
-      Order.belongsTo(User, { foreignKey: 'user_id' });
+    static associate({ User, Comment }) {
+      Order.User = Order.belongsTo(User, { foreignKey: 'user_id' });
+      Order.Comment = Order.hasOne(Comment, { foreignKey: 'order_id' });
     }
   }
-  Order.init({
-    user_id: DataTypes.INTEGER,
-    rooms: DataTypes.INTEGER,
-    bathrooms: DataTypes.INTEGER,
-    date: DataTypes.TEXT,
-    time: DataTypes.TEXT,
-    status: DataTypes.TEXT,
-    address: DataTypes.TEXT,
-  }, {
+  const attributes = {
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER,
+    },
+    user_id: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users',
+        key: 'id',
+      },
+    },
+    rooms: {
+      type: DataTypes.INTEGER,
+    },
+    bathrooms: {
+      type: DataTypes.INTEGER,
+    },
+    price: {
+      type: DataTypes.INTEGER,
+    },
+    services: {
+      type: DataTypes.TEXT,
+    },
+    date: {
+      type: DataTypes.TEXT,
+    },
+    time: {
+      type: DataTypes.TEXT,
+    },
+    status: {
+      type: DataTypes.TEXT,
+    },
+    address: {
+      type: DataTypes.TEXT,
+    },
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+    updatedAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+  };
+  const options = {
     sequelize,
     modelName: 'Order',
-  });
+    tableName: 'Orders',
+  };
+  Order.init(attributes, options);
   return Order;
 };

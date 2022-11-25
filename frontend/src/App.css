@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+.footer-div {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
+  /* position: sticky; */
+}
+
+.form-edit {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+  width: 75%;
+
+}
+
+.MuiCardContent-root.css-46bh2p-MuiCardContent-root {
+  max-width: 500px;
+  max-height: 350px;
+}
+
+.css-pwngrv-MuiPaper-root-MuiCard-root {
+  height: 350px;
+}
+.css-1t6e9jv-MuiCardActions-root {
+  display: flex;
+  justify-content: center;
+}
+
+.average-price {
+  text-align: center;
+}
+
+.main-page {
+  padding-bottom: 100px;
+}

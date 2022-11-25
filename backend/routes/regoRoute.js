@@ -4,7 +4,6 @@ const { User } = require('../db/models');
 
 router.post('/', async (req, res) => {
   const { name, password, email, telephone } = req.body;
-  console.log(req.body);
 
   if (!name || !email) {
     res.status(422).json({ error: 'поле не должно быть пустым' });
@@ -40,6 +39,7 @@ router.post('/', async (req, res) => {
   } catch ({ message }) {
     // todo res.json
     console.log(message);
+    res.sendStatus(404);
   }
 
   try {
@@ -55,6 +55,9 @@ router.post('/', async (req, res) => {
     newUser.save();
 
     // кладём id нового пользователя в хранилище сессии (сразу логиним пользователя)
+    if (newUser.admin) {
+      req.session.adminId = newUser.id;
+    }
     req.session.userId = newUser.id;
     res.json({
       registration: true,
@@ -63,12 +66,13 @@ router.post('/', async (req, res) => {
         name: newUser.name,
         email: newUser.email,
         telephone: newUser.telephone,
-        admin: false,
+        admin: newUser.admin,
       },
     });
   } catch ({ message }) {
     // todo res.json
     console.log(message);
+    res.sendStatus(404);
   }
 });
 module.exports = router;

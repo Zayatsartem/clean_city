@@ -1,0 +1,26 @@
+.GridsList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.gridItem {
+  width: 25%;
+}
+
+@media(max-width: 900px){
+  .gridItem{
+    width: 33%;
+  }
+  }
+
+@media(max-width: 840px){
+  .gridItem{
+    width: 50%;
+  }
+  }
+
+  @media(max-width: 410px){
+    .gridItem{
+      width: 100%;
+    }
+    }
