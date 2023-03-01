@@ -1,5 +1,5 @@
 # Clean city
-Web application for Clean city
+Web application for Clean city.
 </br>
 <h3>For start please follow instructions </h3>
 <b>On backend part please:</b> <br/>
